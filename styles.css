@@ -8,33 +8,63 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
-    background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Background com imagem da agricultura */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    filter: brightness(0.7);
+    z-index: -1;
+}
+
+/* Overlay escuro para melhor legibilidade */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 /* Header */
 header {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect width="100%" height="100%" fill="%23343a40"/><circle cx="30" cy="30" r="15" fill="%234CAF50" opacity="0.3"/><circle cx="70" cy="70" r="25" fill="%23FFC107" opacity="0.3"/></svg>');
-    background-size: cover;
-    background-position: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
     color: white;
     text-align: center;
     padding: 60px 20px;
     border-radius: 15px;
     margin-bottom: 40px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
 header h1 {
     font-size: 2.5em;
     margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 header p {
@@ -51,17 +81,21 @@ header p {
 }
 
 .state-card {
-    background: white;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     border-radius: 15px;
     padding: 30px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
 .state-card:hover {
     transform: translateY(-10px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    background: rgba(255, 255, 255, 0.98);
 }
 
 .state-card::before {
@@ -85,12 +119,13 @@ header p {
     width: 80px;
     height: 80px;
     margin: 0 auto 20px;
-    background: #f0f0f0;
+    background: rgba(240, 240, 240, 0.9);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .state-card h2 {
@@ -108,10 +143,11 @@ header p {
 }
 
 .salary-info {
-    background: #f8f9fa;
+    background: rgba(248, 249, 250, 0.9);
     padding: 15px;
     border-radius: 10px;
     margin-bottom: 20px;
+    backdrop-filter: blur(5px);
 }
 
 .salary-item {
@@ -127,7 +163,7 @@ header p {
 
 .salary-label {
     font-weight: 600;
-    color: #6c757d;
+    color: #495057;
 }
 
 .salary-value {
@@ -146,14 +182,16 @@ header p {
     font-weight: 600;
     display: inline-block;
     margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 /* Nota de corte */
 .cutoff-score {
-    background: #e3f2fd;
+    background: rgba(227, 242, 253, 0.9);
     padding: 15px;
     border-radius: 10px;
     margin: 20px 0;
+    backdrop-filter: blur(5px);
 }
 
 .score-display {
@@ -165,17 +203,19 @@ header p {
 
 .score-label {
     text-align: center;
-    color: #6c757d;
+    color: #495057;
     font-size: 0.9em;
 }
 
 /* Seção de qualidade de vida */
 .quality-section {
-    background: white;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     border-radius: 15px;
     padding: 30px;
     margin-bottom: 40px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
 .quality-grid {
@@ -188,8 +228,9 @@ header p {
 .quality-item {
     text-align: center;
     padding: 20px;
-    background: #f8f9fa;
+    background: rgba(248, 249, 250, 0.9);
     border-radius: 10px;
+    backdrop-filter: blur(5px);
 }
 
 .quality-icon {
@@ -208,44 +249,6 @@ header p {
     font-size: 0.95em;
 }
 
-/* Imagem da agricultura */
-.agriculture-image {
-    width: 100%;
-    height: 300px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 15px;
-    margin-bottom: 40px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-}
-
-.image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.4);
-    z-index: 1;
-}
-
-.image-content {
-    position: relative;
-    z-index: 2;
-    max-width: 600px;
-    padding: 20px;
-}
-
-.image-content h3 {
-    font-size: 2em;
-    margin-bottom: 15px;
-}
-
 /* Estatísticas */
 .stats-container {
     display: grid;
@@ -255,11 +258,13 @@ header p {
 }
 
 .stat-box {
-    background: white;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     padding: 25px;
     border-radius: 10px;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
 .stat-number {
@@ -270,13 +275,14 @@ header p {
 }
 
 .stat-label {
-    color: #6c757d;
+    color: #495057;
     font-size: 0.9em;
 }
 
 /* Análise comparativa */
 .analysis-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.95), rgba(118, 75, 162, 0.95));
+    backdrop-filter: blur(10px);
     color: white;
 }
 
@@ -295,16 +301,19 @@ header p {
     background: rgba(255,255,255,0.2);
     padding: 20px;
     border-radius: 10px;
+    backdrop-filter: blur(5px);
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 20px;
-    background: white;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     border-radius: 10px;
     margin-top: 40px;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
 /* Botões */
@@ -316,6 +325,7 @@ footer {
     font-weight: 600;
     transition: all 0.3s ease;
     margin: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .btn-primary {
@@ -350,14 +360,6 @@ footer {
         grid-template-columns: 1fr;
     }
     
-    .agriculture-image {
-        height: 200px;
-    }
-    
-    .image-content h3 {
-        font-size: 1.5em;
-    }
-    
     .analysis-grid {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -378,4 +380,11 @@ footer {
 
 .fade-in {
     animation: fadeIn 1s ease-out;
+}
+
+/* Ajuste para mobile do background */
+@media (max-width: 768px) {
+    body::before {
+        background-attachment: scroll;
+    }
 }
