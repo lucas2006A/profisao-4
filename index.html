@@ -1,75 +1,190 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profissão da Agricultura - Salários no Brasil</title>
+    <title>AgriCompare - Salários na Agricultura | Paraná vs Mato Grosso</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Profissão da Agricultura no Brasil</h1>
-        <nav>
-            <ul>
-                <li><a href="#introducao">Introdução</a></li>
-                <li><a href="#salarios">Salários Médios</a></li>
-                <li><a href="#comparacao">Comparação Paraná x Mato Grosso</a></li>
-                <li><a href="#nota-corte">Nota de Corte</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="container">
+        <header class="fade-in">
+            <h1>🌾 Agricultura Profissional: Paraná vs Mato Grosso</h1>
+            <p>Compare salários, qualidade de vida e oportunidades no agronegócio brasileiro</p>
+        </header>
 
-    <section id="introducao">
-        <h2>Introdução sobre a Profissão</h2>
-        <p>A agricultura no Brasil é uma das maiores fontes de emprego e renda. Profissionais da área trabalham com cultivo, pecuária, manejo de plantações, entre outros.</p>
-        <img src="https://via.placeholder.com/1000x500.png?text=Imagem+1" alt="Trator em campo" />
-    </section>
+        <!-- Imagem da Agricultura -->
+        <div class="agriculture-image fade-in">
+            <div class="image-overlay"></div>
+            <div class="image-content">
+                <h3>🌱 O Futuro do Agronegócio</h3>
+                <p>Tecnologia, sustentabilidade e oportunidades em dois dos maiores polos agrícolas do Brasil</p>
+            </div>
+        </div>
 
-    <section id="salarios">
-        <h2>Salários Médios</h2>
-        <p>O salário médio para profissionais da agricultura varia bastante, dependendo do estado e da função.</p>
-        <table>
-            <thead>
-                <tr>
-                    <th>Estado</th>
-                    <th>Salário Médio</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Paraná</td>
-                    <td>R$ 3.500</td>
-                </tr>
-                <tr>
-                    <td>Mato Grosso</td>
-                    <td>R$ 4.200</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+        <!-- Cards de comparação de salários -->
+        <div class="comparison-grid fade-in">
+            <!-- Paraná -->
+            <div class="state-card parana">
+                <div class="state-icon">🌲</div>
+                <h2>Paraná</h2>
+                
+                <div class="salary-info">
+                    <div class="salary-item">
+                        <span class="salary-label">Salário Médio:</span>
+                        <span class="salary-value">R$ 3.850,00</span>
+                    </div>
+                    <div class="salary-item">
+                        <span class="salary-label">Salário Inicial:</span>
+                        <span class="salary-value">R$ 2.200,00</span>
+                    </div>
+                    <div class="salary-item">
+                        <span class="salary-label">Salário Sênior:</span>
+                        <span class="salary-value">R$ 6.500,00</span>
+                    </div>
+                </div>
 
-    <section id="comparacao">
-        <h2>Comparação: Paraná vs Mato Grosso</h2>
-        <p>Embora Mato Grosso tenha um salário médio mais alto, o custo de vida pode ser um fator importante a ser considerado. O Paraná, por sua vez, oferece uma qualidade de vida mais tranquila.</p>
-        <img src="https://via.placeholder.com/1000x500.png?text=Imagem+2" alt="Vista aérea de campo agrícola" />
-    </section>
+                <div class="cutoff-score">
+                    <div class="score-display">650</div>
+                    <div class="score-label">Nota de Corte Média</div>
+                </div>
 
-    <section id="nota-corte">
-        <h2>Nota de Corte para Cursos de Agricultura</h2>
-        <p>A nota de corte para cursos da área de Agricultura varia entre as universidades e estados. Aqui estão algumas notas de corte médias:</p>
-        <ul>
-            <li>Universidade Estadual de Maringá (UEM): 680</li>
-            <li>Universidade Federal de Mato Grosso (UFMT): 720</li>
-        </ul>
-    </section>
+                <div class="quality-item">
+                    <div class="quality-icon">⭐</div>
+                    <div class="quality-title">Qualidade de Vida</div>
+                    <div class="quality-text">Clima ameno, infraestrutura desenvolvida, boa educação</div>
+                </div>
 
-    <section>
-        <h2>Imagem de Colheita Agrícola</h2>
-        <img src="https://via.placeholder.com/1000x500.png?text=Imagem+3" alt="Máquina de colheita agrícola" />
-    </section>
+                <div style="text-align: center; margin-top: 20px;">
+                    <span class="best-salary-badge">👍 Mais equilibrado</span>
+                </div>
+            </div>
 
-    <footer>
-        <p>&copy; 2026 Profissão Agricultura - Todos os direitos reservados.</p>
-    </footer>
+            <!-- Mato Grosso -->
+            <div class="state-card mato-grosso">
+                <div class="state-icon">🌽</div>
+                <h2>Mato Grosso</h2>
+                
+                <div class="salary-info">
+                    <div class="salary-item">
+                        <span class="salary-label">Salário Médio:</span>
+                        <span class="salary-value">R$ 4.950,00</span>
+                    </div>
+                    <div class="salary-item">
+                        <span class="salary-label">Salário Inicial:</span>
+                        <span class="salary-value">R$ 2.800,00</span>
+                    </div>
+                    <div class="salary-item">
+                        <span class="salary-label">Salário Sênior:</span>
+                        <span class="salary-value">R$ 8.200,00</span>
+                    </div>
+                </div>
+
+                <div class="cutoff-score">
+                    <div class="score-display">720</div>
+                    <div class="score-label">Nota de Corte Média</div>
+                </div>
+
+                <div class="quality-item">
+                    <div class="quality-icon">💰</div>
+                    <div class="quality-title">Potencial Financeiro</div>
+                    <div class="quality-text">Maiores salários, forte crescimento do agronegócio</div>
+                </div>
+
+                <div style="text-align: center; margin-top: 20px;">
+                    <span class="best-salary-badge">🏆 Melhor salário</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção de Qualidade de Vida -->
+        <div class="quality-section fade-in">
+            <h2 style="text-align: center; margin-bottom: 30px; color: #2c3e50;">🌻 Qualidade de Vida na Agricultura</h2>
+            
+            <div class="quality-grid">
+                <div class="quality-item">
+                    <div class="quality-icon">⚖️</div>
+                    <div class="quality-title">Equilíbrio Trabalho-Vida</div>
+                    <div class="quality-text">Paraná oferece melhor equilíbrio com jornadas mais organizadas</div>
+                </div>
+
+                <div class="quality-item">
+                    <div class="quality-icon">📈</div>
+                    <div class="quality-title">Oportunidades</div>
+                    <div class="quality-text">Mato Grosso tem maior demanda e crescimento rápido</div>
+                </div>
+
+                <div class="quality-item">
+                    <div class="quality-icon">🏥</div>
+                    <div class="quality-title">Infraestrutura</div>
+                    <div class="quality-text">Paraná tem melhor estrutura urbana e serviços</div>
+                </div>
+
+                <div class="quality-item">
+                    <div class="quality-icon">🌤️</div>
+                    <div class="quality-title">Clima</div>
+                    <div class="quality-text">Paraná: clima ameno | Mato Grosso: tropical com estações definidas</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Estatísticas -->
+        <div class="stats-container fade-in">
+            <div class="stat-box">
+                <div class="stat-number">+45%</div>
+                <div class="stat-label">Crescimento do setor (5 anos)</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">82%</div>
+                <div class="stat-label">Satisfação profissional</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">15.000+</div>
+                <div class="stat-label">Vagas/ano</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">R$ 4.400</div>
+                <div class="stat-label">Média nacional</div>
+            </div>
+        </div>
+
+        <!-- Análise Comparativa -->
+        <div class="quality-section fade-in analysis-section">
+            <h2 style="text-align: center; margin-bottom: 20px;">🎯 Qual é o melhor estado?</h2>
+            
+            <div class="analysis-grid">
+                <div style="text-align: center;">
+                    <h3 style="color: #FFD700; margin-bottom: 15px;">Paraná</h3>
+                    <p>✔️ Melhor qualidade de vida<br>✔️ Infraestrutura desenvolvida<br>✔️ Menos sofrido<br>✔️ Salário competitivo</p>
+                </div>
+                
+                <div style="text-align: center;">
+                    <h3 style="color: #FFD700; margin-bottom: 15px;">Mato Grosso</h3>
+                    <p>✔️ Maiores salários<br>✔️ Mais oportunidades<br>✔️ Setor em expansão<br>✔️ Potencial de crescimento</p>
+                </div>
+            </div>
+            
+            <div class="recommendation-box">
+                <p style="font-size: 1.2em;">
+                    <strong>Recomendação:</strong> Se busca equilíbrio e qualidade de vida, escolha o Paraná.<br>
+                    Se prioriza maior renda e crescimento rápido, Mato Grosso é a melhor opção.
+                </p>
+            </div>
+        </div>
+
+        <!-- Botões de Ação -->
+        <div style="text-align: center; margin: 40px 0;">
+            <a href="#" class="btn btn-primary">📊 Ver vagas no Paraná</a>
+            <a href="#" class="btn btn-secondary">🌽 Ver vagas no Mato Grosso</a>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2024 AgriCompare - Informações atualizadas sobre salários na agricultura</p>
+            <p style="font-size: 0.9em; color: #6c757d; margin-top: 10px;">
+                Dados baseados em pesquisa do CAGED, IBGE e sindicatos rurais (2023-2024)
+            </p>
+        </footer>
+    </div>
 </body>
 </html>
