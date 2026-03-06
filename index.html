@@ -4,578 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgriCompare - Salários na Agricultura | Paraná vs Mato Grosso</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', 'Poppins', Roboto, system-ui, sans-serif;
-        }
-
-        body {
-            background: linear-gradient(145deg, #0f2b0f 0%, #1e4a1e 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 30px 20px;
-            position: relative;
-        }
-
-        .background-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=2070&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.08;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .container {
-            max-width: 1300px;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.97);
-            backdrop-filter: blur(8px);
-            border-radius: 50px 50px 35px 35px;
-            box-shadow: 0 40px 70px rgba(0, 30, 0, 0.6);
-            padding: 35px 40px 25px;
-            position: relative;
-            z-index: 2;
-            border: 2px solid rgba(218, 165, 32, 0.4);
-        }
-
-        .fade-in {
-            animation: fadeSlide 0.9s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        @keyframes fadeSlide {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        header h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #1e5f1e, #b8860b, #d4a017);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.5px;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
-        }
-        header img {
-            width: 100%;
-            max-height: 350px;
-            object-fit: cover;
-            border-radius: 45px;
-            margin: 20px 0 20px;
-            border: 5px solid #f7d270;
-            box-shadow: 0 20px 30px rgba(0, 40, 0, 0.4);
-            transition: transform 0.3s;
-        }
-        header img:hover {
-            transform: scale(1.01);
-        }
-        header p {
-            font-size: 1.4rem;
-            color: #1f4a1f;
-            font-weight: 500;
-            background: rgba(255, 245, 200, 0.8);
-            display: inline-block;
-            padding: 10px 35px;
-            border-radius: 60px;
-            backdrop-filter: blur(2px);
-            border: 1px solid #e9c468;
-        }
-
-        /* GRID CARDS */
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 35px;
-            margin: 45px 0 30px;
-        }
-        .state-card {
-            border-radius: 60px 60px 35px 35px;
-            padding: 30px 25px 30px;
-            background: white;
-            box-shadow: 0 25px 40px rgba(0, 40, 0, 0.3);
-            transition: all 0.3s ease;
-            border: 2px solid #e6d7aa;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-        }
-        .state-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 8px;
-            background: linear-gradient(90deg, #d4a017, #1e5f1e, #d4a017);
-        }
-        .state-card:hover {
-            transform: translateY(-8px);
-            border-color: #d4a017;
-            box-shadow: 0 30px 50px rgba(0, 60, 0, 0.4);
-        }
-        .state-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 35px 35px 20px 20px;
-            border: 4px solid #d4a55e;
-            margin-bottom: 20px;
-            transition: 0.3s;
-        }
-        .state-card img:hover {
-            filter: brightness(1.05);
-        }
-        .parana { background: linear-gradient(170deg, #f0fae9, #fffcf0); }
-        .mato-grosso { background: linear-gradient(170deg, #fff7e6, #fef3dc); }
-        .state-icon { font-size: 3.5rem; text-align: center; filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.1)); }
-        .state-card h2 { text-align: center; font-size: 2.5rem; font-weight: 800; margin: 5px 0 15px; color: #1f4f1f; letter-spacing: 1px; }
-        .salary-info { background: rgba(0,0,0,0.02); padding: 18px; border-radius: 40px; margin: 10px 0; border: 1px dashed #c9a34b; }
-        .salary-item { display: flex; justify-content: space-between; font-size: 1.2rem; padding: 8px 15px; border-bottom: 1px solid #eee; }
-        .salary-item:last-child { border-bottom: none; }
-        .salary-label { font-weight: 600; color: #2f4f2f; }
-        .salary-value { font-weight: 800; color: #b8860b; font-size: 1.3rem; }
-
-        .cutoff-score { background: #1f3a1f; color: white; border-radius: 60px; padding: 18px; text-align: center; margin: 15px 0; box-shadow: inset 0 -3px 0 #d4a017; }
-        .score-display { font-size: 3.2rem; font-weight: 800; line-height: 1; color: #FFD966; text-shadow: 0 2px 5px #b8860b; }
-        .score-label { font-size: 1rem; letter-spacing: 1px; text-transform: uppercase; }
-
-        .quality-item { background: white; border-radius: 35px; padding: 18px; margin: 10px 0; box-shadow: 0 8px 15px rgba(0,0,0,0.03); border-left: 8px solid #c9a34b; transition: 0.2s; }
-        .quality-item:hover { border-left-width: 12px; }
-        .quality-icon { font-size: 2.2rem; text-align: center; }
-        .quality-title { font-weight: 800; font-size: 1.3rem; color: #1e4d1e; margin-bottom: 5px; }
-        .quality-text { color: #3a3a3a; line-height: 1.4; }
-
-        .best-salary-badge { background: #b8860b; color: white; font-weight: 800; padding: 10px 30px; border-radius: 40px; display: inline-block; box-shadow: 0 6px 12px #8b5a00; font-size: 1.1rem; }
-
-        .quality-section { background: rgba(250, 245, 225, 0.9); backdrop-filter: blur(3px); border-radius: 80px 80px 45px 45px; padding: 35px 35px; margin: 50px 0 30px; border: 2px solid #e9c990; }
-        .quality-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-        @media (max-width: 800px) { .quality-grid { grid-template-columns: 1fr 1fr; } }
-
-        .stats-container { display: flex; flex-wrap: wrap; justify-content: space-around; background: #1a341a; border-radius: 120px 120px 40px 40px; padding: 35px 20px; margin: 45px 0; color: white; border: 2px solid #d4a55e; }
-        .stat-box { text-align: center; min-width: 140px; }
-        .stat-number { font-size: 2.8rem; font-weight: 800; color: #FFD966; text-shadow: 0 2px 5px #b8860b; }
-        .stat-label { font-size: 1rem; font-weight: 500; letter-spacing: 0.5px; }
-
-        .analysis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 30px 0; }
-        .recommendation-box { background: #162916; color: #f5f0d1; border-radius: 70px; padding: 30px 40px; text-align: center; border: 3px solid #daa520; font-size: 1.3rem; box-shadow: 0 15px 20px rgba(0,0,0,0.2); }
-
-        .btn { display: inline-block; padding: 18px 45px; border-radius: 60px; font-weight: 800; text-decoration: none; margin: 10px 15px; transition: 0.25s; font-size: 1.2rem; border: 2px solid transparent; letter-spacing: 0.5px; }
-        .btn-primary { background: #1e4d1e; color: white; box-shadow: 0 10px 0 #0e2b0e; }
-        .btn-primary:hover { background: #2f682f; transform: translateY(-5px); box-shadow: 0 15px 0 #0e2b0e; }
-        .btn-secondary { background: #b8860b; color: white; box-shadow: 0 10px 0 #6f4f1a; }
-        .btn-secondary:hover { background: #dba514; transform: translateY(-5px); box-shadow: 0 15px 0 #6f4f1a; }
-
-        /* ========== SEÇÃO DA IA - DESIGN PREMIUM ========== */
-        .ia-section {
-            background: linear-gradient(145deg, #e9f3e9, #f5f0dd);
-            border-radius: 70px 70px 40px 40px;
-            padding: 40px 40px;
-            margin: 50px 0 35px;
-            border: 3px solid #b8860b;
-            box-shadow: 0 30px 35px -10px rgba(0, 40, 0, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-        .ia-section::before {
-            content: "🌱";
-            position: absolute;
-            font-size: 12rem;
-            opacity: 0.06;
-            right: -10px;
-            bottom: -30px;
-            transform: rotate(15deg);
-            pointer-events: none;
-        }
-        .ia-section::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 0% 30%, rgba(255,215,0,0.03), transparent 50%);
-            pointer-events: none;
-        }
-        .ia-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #1a4f1a;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 10px;
-            position: relative;
-            z-index: 2;
-        }
-        .ia-title span { 
-            font-size: 3.5rem; 
-            background: #f7e3a7;
-            padding: 10px;
-            border-radius: 60px;
-            box-shadow: 0 5px 0 #b8860b;
-        }
-        .ia-subtitle {
-            color: #3b683b;
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-            padding-left: 20px;
-            border-left: 6px solid #d4a017;
-            font-weight: 500;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .ia-chat-container {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(6px);
-            border-radius: 50px;
-            padding: 30px;
-            border: 2px solid #e9c990;
-            box-shadow: inset 0 2px 10px rgba(255,255,200,0.6);
-            position: relative;
-            z-index: 3;
-        }
-        
-        .ia-messages {
-            min-height: 280px;
-            max-height: 350px;
-            overflow-y: auto;
-            padding: 20px;
-            background: #fefcf2;
-            border-radius: 40px;
-            margin-bottom: 25px;
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-            scroll-behavior: smooth;
-            border: 1px solid #e9d6a0;
-        }
-        
-        .message {
-            display: flex;
-            gap: 15px;
-            max-width: 85%;
-            animation: messagePop 0.3s ease-out;
-        }
-        @keyframes messagePop {
-            0% { opacity: 0; transform: translateY(10px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        .message.user {
-            align-self: flex-end;
-            flex-direction: row-reverse;
-        }
-        .message-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: #c9a34b;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            flex-shrink: 0;
-            box-shadow: 0 6px 0 #7e621f;
-            border: 2px solid #ffecb3;
-        }
-        .message.user .message-avatar {
-            background: #1e5f1e;
-            box-shadow: 0 6px 0 #0f3a0f;
-        }
-        .message-content {
-            background: white;
-            padding: 15px 22px;
-            border-radius: 30px 30px 30px 10px;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.05);
-            font-size: 1.05rem;
-            line-height: 1.5;
-            border: 1px solid #e9d19b;
-            color: #2d4a2d;
-        }
-        .message.user .message-content {
-            background: #e3f0da;
-            border-radius: 30px 30px 10px 30px;
-            border-color: #b8860b;
-            color: #1f3a1f;
-            font-weight: 500;
-        }
-        .message.bot .message-content {
-            background: #fff9e6;
-        }
-        
-        .ia-input-area {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            background: white;
-            padding: 8px 8px 8px 25px;
-            border-radius: 80px;
-            border: 2px solid #b8860b;
-            box-shadow: 0 6px 0 #7e621f;
-        }
-        .ia-input-area input {
-            flex: 1;
-            padding: 18px 10px;
-            border: none;
-            background: transparent;
-            font-size: 1.15rem;
-            outline: none;
-            color: #1f4f1f;
-            font-weight: 500;
-        }
-        .ia-input-area input::placeholder {
-            color: #9bae9b;
-            font-weight: 400;
-        }
-        .ia-send-btn {
-            background: #1e5f1e;
-            border: none;
-            color: white;
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            font-size: 2.2rem;
-            cursor: pointer;
-            transition: 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 6px 0 #0f3a0f;
-            border: 2px solid #f5cd7a;
-        }
-        .ia-send-btn:hover {
-            background: #2f7a2f;
-            transform: translateY(-4px);
-            box-shadow: 0 10px 0 #0f3a0f;
-        }
-        
-        .ia-suggestions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 20px;
-            justify-content: center;
-        }
-        .suggestion-chip {
-            background: #faf3dd;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-size: 1rem;
-            color: #1e4d1e;
-            font-weight: 600;
-            cursor: pointer;
-            border: 2px solid #c9a34b;
-            transition: 0.2s;
-            box-shadow: 0 4px 0 #8b6b2c;
-        }
-        .suggestion-chip:hover {
-            background: #c9a34b;
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 7px 0 #6f4f1a;
-        }
-
-        /* ========== BARRA DE COMENTÁRIOS ========== */
-        .comment-section {
-            background: #f4f9f0;
-            border-radius: 70px 70px 40px 40px;
-            padding: 40px 40px;
-            margin: 40px 0 35px;
-            border: 3px solid #b8860b;
-            box-shadow: 0 25px 30px rgba(0, 40, 0, 0.2);
-        }
-        .comment-title {
-            font-size: 2.3rem;
-            font-weight: 700;
-            color: #1f4c1f;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        .comment-title span { font-size: 3.2rem; }
-
-        .comment-form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .input-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .input-row input, .input-row textarea {
-            flex: 1 1 200px;
-            padding: 18px 28px;
-            border: none;
-            border-radius: 60px;
-            background: white;
-            font-size: 1.1rem;
-            border: 2px solid #b7cfaa;
-            outline: none;
-            transition: 0.2s;
-        }
-        .input-row textarea {
-            width: 100%;
-            min-height: 130px;
-            resize: vertical;
-            border-radius: 40px;
-        }
-        .input-row input:focus, .input-row textarea:focus {
-            border-color: #d4a017;
-            box-shadow: 0 0 0 6px rgba(218,165,50,0.15);
-        }
-
-        .rating-container {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            background: #fff8e0;
-            padding: 18px 30px;
-            border-radius: 60px;
-            margin: 5px 0;
-            border: 2px solid #e9c990;
-        }
-        .stars {
-            display: flex;
-            gap: 12px;
-            font-size: 2.8rem;
-            line-height: 1;
-        }
-        .stars span {
-            cursor: pointer;
-            transition: 0.15s;
-            color: #d4b16a;
-            user-select: none;
-        }
-        .stars span.active, .stars span:hover {
-            color: #f5b81b;
-            transform: scale(1.25);
-            text-shadow: 0 0 10px #ffd966;
-        }
-        .rating-feedback {
-            font-weight: 700;
-            color: #2b5e2b;
-            font-size: 1.3rem;
-        }
-
-        .send-btn {
-            background: #1e4d1e;
-            border: none;
-            color: white;
-            font-weight: 800;
-            padding: 18px 50px;
-            border-radius: 60px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 8px 0 #0b2c0b;
-            border: 2px solid #f5cd7a;
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            align-self: flex-start;
-            margin-top: 15px;
-        }
-        .send-btn:hover {
-            background: #306530;
-            transform: translateY(-5px);
-            box-shadow: 0 13px 0 #0b2c0b;
-        }
-
-        .comment-list {
-            margin-top: 45px;
-            background: #fcf9e9;
-            border-radius: 70px;
-            padding: 30px 35px;
-            border: 2px solid #e9c990;
-        }
-        .list-title {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #1d4d1d;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-        .comment-card {
-            background: white;
-            border-radius: 45px;
-            padding: 22px 30px;
-            margin-bottom: 18px;
-            border-left: 12px solid #c9a34b;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
-            transition: 0.2s;
-        }
-        .comment-card:hover {
-            transform: translateX(5px);
-            border-left-color: #d4a017;
-        }
-        .card-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 12px;
-        }
-        .comment-author {
-            font-weight: 800;
-            color: #2d572d;
-            font-size: 1.4rem;
-        }
-        .comment-rating {
-            color: #f5b81b;
-            font-size: 1.4rem;
-            letter-spacing: 5px;
-        }
-        .comment-date {
-            color: #777;
-            font-size: 1rem;
-            margin-left: auto;
-            background: #f0f0e0;
-            padding: 5px 15px;
-            border-radius: 40px;
-        }
-        .comment-text {
-            font-size: 1.1rem;
-            color: #2b3f2b;
-            padding: 5px 10px 0;
-            line-height: 1.5;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            color: #2d572d;
-            font-weight: 500;
-            border-top: 3px solid #e9c990;
-            padding-top: 25px;
-            font-size: 1.1rem;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+    <div class="background-overlay"></div>
     <div class="container">
         <header class="fade-in">
-            <h1>🌾 AgriCompare • Paraná vs Mato Grosso</h1>
+            <h1>🌾 Agricultura Profissional: Paraná vs Mato Grosso</h1>
             <img src="https://s2-g1.glbimg.com/bHX2MhOZ0L3liGRRWKoeI36FHm4=/0x0:919x613/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2021/l/V/Hn9XNVSMSzAQejvIELcw/edbad878-cbcb-408f-ba14-fbb8de79b838.jpg" alt="campo e trator">
             <p>Compare salários, qualidade de vida e oportunidades no agronegócio brasileiro</p>
         </header>
@@ -588,13 +23,31 @@
                 <div class="state-icon">🌲</div>
                 <h2>Paraná</h2> 
                 <div class="salary-info">
-                    <div class="salary-item"><span class="salary-label">Salário Médio:</span><span class="salary-value">R$ 3.212,00</span></div>
-                    <div class="salary-item"><span class="salary-label">Salário Inicial:</span><span class="salary-value">R$ 2.200,00</span></div>
-                    <div class="salary-item"><span class="salary-label">Salário Sênior:</span><span class="salary-value">R$ 6.500,00</span></div>
+                    <div class="salary-item">
+                        <span class="salary-label">Salário Médio:</span>
+                        <span class="salary-value">R$ 3.212,00</span>
+                    </div>
+                    <div class="salary-item">
+                        <span class="salary-label">Salário Inicial:</span>
+                        <span class="salary-value">R$ 2.200,00</span>
+                    </div>
+                    <div class="salary-item">
+                        <span class="salary-label">Salário Sênior:</span>
+                        <span class="salary-value">R$ 6.500,00</span>
+                    </div>
                 </div>
-                <div class="cutoff-score"><div class="score-display">650</div><div class="score-label">Nota de Corte Média</div></div>
-                <div class="quality-item"><div class="quality-icon">⭐</div><div class="quality-title">Qualidade de Vida</div><div class="quality-text">Clima ameno, infraestrutura desenvolvida, excelente educação</div></div>
-                <div style="text-align: center; margin-top: 20px;"><span class="best-salary-badge">👍 Mais equilibrado</span></div>
+                <div class="cutoff-score">
+                    <div class="score-display">650</div>
+                    <div class="score-label">Nota de Corte Média</div>
+                </div>
+                <div class="quality-item">
+                    <div class="quality-icon">⭐</div>
+                    <div class="quality-title">Qualidade de Vida</div>
+                    <div class="quality-text">Clima ameno, infraestrutura desenvolvida, boa educação</div>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <span class="best-salary-badge">👍 Mais equilibrado</span>
+                </div>
             </div>
 
             <!-- Mato Grosso -->
@@ -603,13 +56,31 @@
                 <div class="state-icon">🌽</div>
                 <h2>Mato Grosso</h2>
                 <div class="salary-info">
-                    <div class="salary-item"><span class="salary-label">Salário Médio:</span><span class="salary-value">R$ 7.000,00</span></div>
-                    <div class="salary-item"><span class="salary-label">Salário Inicial:</span><span class="salary-value">R$ 2.800,00</span></div>
-                    <div class="salary-item"><span class="salary-label">Salário Sênior:</span><span class="salary-value">R$ 8.200,00</span></div>
+                    <div class="salary-item">
+                        <span class="salary-label">Salário Médio:</span>
+                        <span class="salary-value">R$ 7.000,00</span>
+                    </div>
+                    <div class="salary-item">
+                        <span class="salary-label">Salário Inicial:</span>
+                        <span class="salary-value">R$ 2.800,00</span>
+                    </div>
+                    <div class="salary-item">
+                        <span class="salary-label">Salário Sênior:</span>
+                        <span class="salary-value">R$ 8.200,00</span>
+                    </div>
                 </div>
-                <div class="cutoff-score"><div class="score-display">720</div><div class="score-label">Nota de Corte Média</div></div>
-                <div class="quality-item"><div class="quality-icon">💰</div><div class="quality-title">Potencial Financeiro</div><div class="quality-text">Maiores salários, forte crescimento, agro em expansão</div></div>
-                <div style="text-align: center; margin-top: 20px;"><span class="best-salary-badge">🏆 Melhor salário</span></div>
+                <div class="cutoff-score">
+                    <div class="score-display">720</div>
+                    <div class="score-label">Nota de Corte Média</div>
+                </div>
+                <div class="quality-item">
+                    <div class="quality-icon">💰</div>
+                    <div class="quality-title">Potencial Financeiro</div>
+                    <div class="quality-text">Maiores salários, forte crescimento do agronegócio</div>
+                </div>
+                <div style="text-align: center; margin-top: 20px;">
+                    <span class="best-salary-badge">🏆 Melhor salário</span>
+                </div>
             </div>
         </div>
 
@@ -617,61 +88,99 @@
         <div class="quality-section fade-in">
             <h2 style="text-align: center; margin-bottom: 30px; color: #2c3e50;">🌻 Qualidade de Vida na Agricultura</h2>
             <div class="quality-grid">
-                <div class="quality-item"><div class="quality-icon">⚖️</div><div class="quality-title">Equilíbrio</div><div class="quality-text">Paraná oferece melhor equilíbrio com jornadas organizadas</div></div>
-                <div class="quality-item"><div class="quality-icon">📈</div><div class="quality-title">Oportunidades</div><div class="quality-text">Mato Grosso tem maior demanda e crescimento acelerado</div></div>
-                <div class="quality-item"><div class="quality-icon">🏥</div><div class="quality-title">Infraestrutura</div><div class="quality-text">Paraná tem melhor estrutura urbana e serviços de saúde</div></div>
-                <div class="quality-item"><div class="quality-icon">🌤️</div><div class="quality-title">Clima</div><div class="quality-text">PR: ameno | MT: tropical com estações bem definidas</div></div>
+                <div class="quality-item">
+                    <div class="quality-icon">⚖️</div>
+                    <div class="quality-title">Equilíbrio Trabalho-Vida</div>
+                    <div class="quality-text">Paraná oferece melhor equilíbrio com jornadas mais organizadas</div>
+                </div>
+                <div class="quality-item">
+                    <div class="quality-icon">📈</div>
+                    <div class="quality-title">Oportunidades</div>
+                    <div class="quality-text">Mato Grosso tem maior demanda e crescimento rápido</div>
+                </div>
+                <div class="quality-item">
+                    <div class="quality-icon">🏥</div>
+                    <div class="quality-title">Infraestrutura</div>
+                    <div class="quality-text">Paraná tem melhor estrutura urbana e serviços</div>
+                </div>
+                <div class="quality-item">
+                    <div class="quality-icon">🌤️</div>
+                    <div class="quality-title">Clima</div>
+                    <div class="quality-text">Paraná: clima ameno | Mato Grosso: tropical com estações definidas</div>
+                </div>
             </div>
         </div>
 
         <!-- Estatísticas -->
         <div class="stats-container fade-in">
-            <div class="stat-box"><div class="stat-number">+45%</div><div class="stat-label">Crescimento (5 anos)</div></div>
-            <div class="stat-box"><div class="stat-number">82%</div><div class="stat-label">Satisfação</div></div>
-            <div class="stat-box"><div class="stat-number">15k+</div><div class="stat-label">Vagas/ano</div></div>
-            <div class="stat-box"><div class="stat-number">R$ 4.400</div><div class="stat-label">Média nacional</div></div>
+            <div class="stat-box">
+                <div class="stat-number">+45%</div>
+                <div class="stat-label">Crescimento do setor (5 anos)</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">82%</div>
+                <div class="stat-label">Satisfação profissional</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">15.000+</div>
+                <div class="stat-label">Vagas/ano</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">R$ 4.400</div>
+                <div class="stat-label">Média nacional</div>
+            </div>
         </div>
 
         <!-- Análise Comparativa -->
         <div class="quality-section fade-in analysis-section">
-            <h2 style="text-align: center; margin-bottom: 20px;">🎯 Qual estado escolher?</h2>
+            <h2 style="text-align: center; margin-bottom: 20px;">🎯 Qual é o melhor estado?</h2>
             <div class="analysis-grid">
-                <div style="text-align: center;"><h3 style="color: #d4a017; margin-bottom: 15px;">🌲 Paraná</h3><p style="font-size:1.1rem">✔️ Melhor qualidade de vida<br>✔️ Infraestrutura completa<br>✔️ Clima agradável<br>✔️ Salário competitivo</p></div>
-                <div style="text-align: center;"><h3 style="color: #d4a017; margin-bottom: 15px;">🌽 Mato Grosso</h3><p style="font-size:1.1rem">✔️ Maiores salários<br>✔️ Mais oportunidades<br>✔️ Setor em expansão<br>✔️ Potencial de crescimento</p></div>
+                <div style="text-align: center;">
+                    <h3 style="color: #FFD700; margin-bottom: 15px;">Paraná</h3>
+                    <p>✔️ Melhor qualidade de vida<br>✔️ Infraestrutura desenvolvida<br>✔️ Menos sofrido<br>✔️ Salário competitivo</p>
+                </div>
+                <div style="text-align: center;">
+                    <h3 style="color: #FFD700; margin-bottom: 15px;">Mato Grosso</h3>
+                    <p>✔️ Maiores salários<br>✔️ Mais oportunidades<br>✔️ Setor em expansão<br>✔️ Potencial de crescimento</p>
+                </div>
             </div>
-            <div class="recommendation-box"><p><strong>Recomendação:</strong> Paraná para equilíbrio • Mato Grosso para máxima renda</p></div>
+            <div class="recommendation-box">
+                <p style="font-size: 1.2em;">
+                    <strong>Recomendação:</strong> Se busca equilíbrio e qualidade de vida, escolha o Paraná.<br>
+                    Se prioriza maior renda e crescimento rápido, Mato Grosso é a melhor opção.
+                </p>
+            </div>
         </div>
 
-        <!-- ========== SEÇÃO DA IA - ASSISTENTE PREMIUM ========== -->
+        <!-- ========== SEÇÃO DA IA - ASSISTENTE VIRTUAL ========== -->
         <div class="ia-section fade-in" id="ia-assistente">
             <div class="ia-title">
                 <span>🤖</span> Assistente Virtual AgriCompare
             </div>
             <div class="ia-subtitle">
-                ✦ Tire dúvidas sobre salários, custo de vida, vagas e muito mais ✦
+                Tire suas dúvidas sobre salários, custo de vida, vagas e muito mais
             </div>
             
             <div class="ia-chat-container">
                 <div class="ia-messages" id="iaMessages">
                     <div class="message bot">
-                        <div class="message-avatar">🌱</div>
+                        <div class="message-avatar">🌾</div>
                         <div class="message-content">
-                            Olá! Sou o assistente do AgriCompare. Posso ajudar com informações detalhadas sobre Paraná e Mato Grosso. Pergunte sobre salários, qualidade de vida, vagas ou dados do setor. 🌾
+                            Olá! Sou o assistente do AgriCompare. Posso ajudar com informações sobre salários, qualidade de vida, vagas nos estados e dados do setor. O que você gostaria de saber?
                         </div>
                     </div>
                 </div>
                 
                 <div class="ia-input-area">
                     <input type="text" id="iaInput" placeholder="Digite sua pergunta..." autocomplete="off">
-                    <button class="ia-send-btn" id="iaSendBtn">➤</button>
+                    <button class="ia-send-btn" id="iaSendBtn">📤</button>
                 </div>
                 
                 <div class="ia-suggestions">
                     <span class="suggestion-chip" onclick="perguntaSugerida('Qual o salário médio no Paraná?')">💰 Salário médio PR</span>
                     <span class="suggestion-chip" onclick="perguntaSugerida('Qual o salário médio no Mato Grosso?')">🌽 Salário médio MT</span>
-                    <span class="suggestion-chip" onclick="perguntaSugerida('Onde é melhor para viver?')">🏡 Qualidade de vida</span>
+                    <span class="suggestion-chip" onclick="perguntaSugerida('Onde é melhor para viver, Paraná ou Mato Grosso?')">🏡 Qualidade de vida</span>
                     <span class="suggestion-chip" onclick="perguntaSugerida('Quais regiões têm mais vagas?')">📊 Oportunidades</span>
-                    <span class="suggestion-chip" onclick="perguntaSugerida('Compare custo de vida PR vs MT')">💰 Custo de vida</span>
                 </div>
             </div>
         </div>
@@ -679,7 +188,7 @@
         <!-- ========== BARRA DE COMENTÁRIOS COM 3 EXEMPLOS ========== -->
         <div class="comment-section fade-in" id="comentarios">
             <div class="comment-title">
-                <span>💬</span> Avaliações & Comentários
+                <span>💬</span> Deixe seu comentário sobre o AgriCompare
             </div>
 
             <!-- formulário de comentário com estrelas -->
@@ -689,7 +198,206 @@
                     <input type="email" id="emailInput" placeholder="Seu e-mail (opcional)">
                 </div>
                 <div class="input-row">
-                    <textarea id="comentarioInput" placeholder="Compartilhe sua opinião sobre o AgriCompare..."></textarea>
+                    <textarea id="comentarioInput" placeholder="Escreva sua opinião, sugestão ou crítica sobre o site..."></textarea>
                 </div>
 
-                <!-- avaliação por estrel
+                <!-- avaliação por estrelas interativa -->
+                <div class="rating-container">
+                    <div class="stars" id="starRating">
+                        <span data-value="1">★</span>
+                        <span data-value="2">★</span>
+                        <span data-value="3">★</span>
+                        <span data-value="4">★</span>
+                        <span data-value="5">★</span>
+                    </div>
+                    <div class="rating-feedback" id="ratingFeedback">Avalie o site</div>
+                </div>
+
+                <button class="send-btn" id="enviarComentarioBtn">
+                    <span>📨</span> Enviar comentário
+                </button>
+            </div>
+
+            <!-- lista de comentários com 3 exemplos fixos -->
+            <div class="comment-list">
+                <div class="list-title"><span>🗣️</span> O que estão dizendo (3 comentários)</div>
+                <div id="comentariosFixos">
+                    <!-- Comentário 1 -->
+                    <div class="comment-card">
+                        <div class="card-header">
+                            <span class="comment-author">João Paulo Silva</span>
+                            <span class="comment-rating">★★★★★</span>
+                            <span class="comment-date">15/03/2024</span>
+                        </div>
+                        <div class="comment-text">Excelente comparação! Trabalho no Mato Grosso há 5 anos e os salários realmente são superiores. Mas confesso que a qualidade de vida no Paraná me faz pensar em mudar. Site muito útil!</div>
+                    </div>
+                    
+                    <!-- Comentário 2 -->
+                    <div class="comment-card">
+                        <div class="card-header">
+                            <span class="comment-author">Maria Aparecida Oliveira</span>
+                            <span class="comment-rating">★★★★☆</span>
+                            <span class="comment-date">10/03/2024</span>
+                        </div>
+                        <div class="comment-text">Sou engenheira agrônoma e estou decidindo entre vagas nos dois estados. Os dados batem com minhas pesquisas. Senti falta de informações sobre custo de vida, mas no geral está ótimo. Parabéns!</div>
+                    </div>
+                    
+                    <!-- Comentário 3 -->
+                    <div class="comment-card">
+                        <div class="card-header">
+                            <span class="comment-author">Carlos Eduardo Mendes</span>
+                            <span class="comment-rating">★★★★★</span>
+                            <span class="comment-date">05/03/2024</span>
+                        </div>
+                        <div class="comment-text">Trabalhei no norte do Paraná e agora estou em Sorriso/MT. A comparação é muito precisa: MT paga melhor, PR tem mais infraestrutura. Recomendo o site para quem está pensando em migrar.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botões de Ação -->
+        <div style="text-align: center; margin: 40px 0;">
+            <a href="#" class="btn btn-primary">📊 Ver vagas no Paraná</a>
+            <a href="#" class="btn btn-secondary">🌽 Ver vagas no Mato Grosso</a>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2024 AgriCompare - Informações atualizadas sobre salários na agricultura</p>
+            <p style="font-size: 0.9em; color: #6c757d; margin-top: 10px;">
+                Dados baseados em pesquisa do CAGED, IBGE e sindicatos rurais (2023-2024)
+            </p>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Sistema de estrelas interativo
+        (function() {
+            const stars = document.querySelectorAll('#starRating span');
+            const ratingFeedback = document.getElementById('ratingFeedback');
+            const enviarBtn = document.getElementById('enviarComentarioBtn');
+            
+            if (stars.length > 0) {
+                stars.forEach(star => {
+                    star.addEventListener('click', function() {
+                        const value = parseInt(this.getAttribute('data-value'));
+                        
+                        stars.forEach(s => s.classList.remove('active'));
+                        for (let i = 0; i < value; i++) {
+                            stars[i].classList.add('active');
+                        }
+                        
+                        const feedbacks = ['Ruim', 'Regular', 'Bom', 'Muito bom', 'Excelente'];
+                        ratingFeedback.textContent = `${value} estrela${value > 1 ? 's' : ''} - ${feedbacks[value-1]}`;
+                    });
+                });
+            }
+            
+            if (enviarBtn) {
+                enviarBtn.addEventListener('click', function() {
+                    alert('Comentário enviado com sucesso! (modo de demonstração)');
+                });
+            }
+        })();
+
+        // Sistema da IA
+        const iaMessages = document.getElementById('iaMessages');
+        const iaInput = document.getElementById('iaInput');
+        const iaSendBtn = document.getElementById('iaSendBtn');
+
+        // Base de conhecimento da IA
+        const respostasIA = {
+            'salário médio no paraná': 'De acordo com dados do CAGED e IBGE 2023-2024, o salário médio no Paraná é de R$ 3.212,00. Os salários iniciais giram em torno de R$ 2.200,00 e os cargos sênior podem chegar a R$ 6.500,00.',
+            
+            'salário médio no mato grosso': 'No Mato Grosso, o salário médio é de R$ 7.000,00, um dos mais altos do país no setor agro. Salários iniciais começam em R$ 2.800,00 e posições sênior ultrapassam R$ 8.200,00.',
+            
+            'qualidade de vida': 'O Paraná oferece melhor qualidade de vida, com clima ameno, infraestrutura mais desenvolvida, melhor educação e saúde. Já o Mato Grosso oferece maior potencial financeiro, mas com menos infraestrutura urbana.',
+            
+            'vagas': 'O Mato Grosso tem maior demanda por profissionais, com cerca de 8.000 vagas/ano. O Paraná oferece aproximadamente 5.000 vagas/ano, mas com maior concorrência.',
+            
+            'custo de vida': 'O custo de vida no Paraná é cerca de 15-20% mais alto que no Mato Grosso, principalmente em habitação. No entanto, a qualidade dos serviços e infraestrutura justifica a diferença.',
+            
+            'oportunidades': 'Mato Grosso lidera em oportunidades no agronegócio, especialmente nas regiões de Sorriso, Rondonópolis e Sinop. Paraná tem mercado forte em Cascavel, Londrina e Maringá.',
+            
+            'recomendação': 'Depende do seu perfil: se busca equilíbrio e qualidade de vida, escolha o Paraná. Se prioriza renda máxima e crescimento profissional acelerado, Mato Grosso é a melhor opção.'
+        };
+
+        function adicionarMensagem(texto, tipo) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${tipo}`;
+            
+            const avatar = document.createElement('div');
+            avatar.className = 'message-avatar';
+            avatar.textContent = tipo === 'user' ? '👤' : '🌾';
+            
+            const content = document.createElement('div');
+            content.className = 'message-content';
+            content.textContent = texto;
+            
+            messageDiv.appendChild(avatar);
+            messageDiv.appendChild(content);
+            
+            iaMessages.appendChild(messageDiv);
+            iaMessages.scrollTop = iaMessages.scrollHeight;
+        }
+
+        function processarPergunta(pergunta) {
+            const perguntaLower = pergunta.toLowerCase().trim();
+            
+            // Busca por palavras-chave
+            if (perguntaLower.includes('paraná') && perguntaLower.includes('salário')) {
+                return respostasIA['salário médio no paraná'];
+            } else if (perguntaLower.includes('mato grosso') && perguntaLower.includes('salário')) {
+                return respostasIA['salário médio no mato grosso'];
+            } else if (perguntaLower.includes('qualidade de vida') || perguntaLower.includes('viver')) {
+                return respostasIA['qualidade de vida'];
+            } else if (perguntaLower.includes('vaga') || perguntaLower.includes('oportunidade')) {
+                return respostasIA['oportunidades'];
+            } else if (perguntaLower.includes('custo de vida')) {
+                return respostasIA['custo de vida'];
+            } else if (perguntaLower.includes('recomendação') || perguntaLower.includes('melhor estado')) {
+                return respostasIA['recomendação'];
+            } else if (perguntaLower.includes('médio') && perguntaLower.includes('pr')) {
+                return respostasIA['salário médio no paraná'];
+            } else if (perguntaLower.includes('médio') && perguntaLower.includes('mt')) {
+                return respostasIA['salário médio no mato grosso'];
+            } else {
+                return "Desculpe, não tenho informação específica sobre isso. Posso ajudar com salários, qualidade de vida, vagas ou recomendações sobre Paraná e Mato Grosso.";
+            }
+        }
+
+        function enviarPergunta() {
+            const pergunta = iaInput.value.trim();
+            if (pergunta === '') return;
+            
+            adicionarMensagem(pergunta, 'user');
+            iaInput.value = '';
+            
+            // Simular processamento
+            setTimeout(() => {
+                const resposta = processarPergunta(pergunta);
+                adicionarMensagem(resposta, 'bot');
+            }, 600);
+        }
+
+        if (iaSendBtn) {
+            iaSendBtn.addEventListener('click', enviarPergunta);
+        }
+        
+        if (iaInput) {
+            iaInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    enviarPergunta();
+                }
+            });
+        }
+
+        // Função global para sugestões
+        window.perguntaSugerida = function(texto) {
+            iaInput.value = texto;
+            enviarPergunta();
+        };
+    </script>
+</body>
+</html>
