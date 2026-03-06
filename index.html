@@ -3,401 +3,327 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgriCompare - Salários na Agricultura | Paraná vs Mato Grosso</title>
+    <title>AgriCompare | Paraná vs Mato Grosso</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   
+    <div class="noise"></div>
+    
+    <!-- Background elements -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    
     <div class="container">
+        <!-- Header -->
         <header class="fade-in">
-            <h1>🌾 Agricultura Profissional: Paraná vs Mato Grosso</h1>
-            <img src="https://s2-g1.glbimg.com/bHX2MhOZ0L3liGRRWKoeI36FHm4=/0x0:919x613/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2021/l/V/Hn9XNVSMSzAQejvIELcw/edbad878-cbcb-408f-ba14-fbb8de79b838.jpg" alt="campo e trator">
-            <p>Compare salários, qualidade de vida e oportunidades no agronegócio brasileiro</p>
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🌱</span>
+                    <h1>Agri<span>Compare</span></h1>
+                </div>
+                <p class="tagline">Paraná vs Mato Grosso • Análise completa do agronegócio</p>
+            </div>
         </header>
 
-        <!-- Cards de comparação de salários -->
-        <div class="comparison-grid fade-in">
-            <!-- Paraná -->
-            <div class="state-card parana">
-                <img src="https://www.gov.br/secom/pt-br/assuntos/noticias-regionalizadas/safra-22-23/crescimento-na-producao-de-graos-no-parana-e-estimada-em-34-9-com-ganhos-de-produtividade/230815_secom_estimativasafra-22-23_foto-elzafiuza-agbr.jpg/@@images/e8c6975b-ee25-4a36-90a9-e5869e30d951.jpg" alt="lavoura PR">
-                <div class="state-icon">🌲</div>
-                <h2>Paraná</h2> 
-                <div class="salary-info">
-                    <div class="salary-item">
-                        <span class="salary-label">Salário Médio:</span>
-                        <span class="salary-value">R$ 3.212,00</span>
+        <!-- Hero Section -->
+        <section class="hero fade-in">
+            <div class="hero-text">
+                <h2>Onde sua carreira no agro <span>cresce mais?</span></h2>
+                <p>Compare salários, qualidade de vida e oportunidades nos dois maiores polos do agronegócio brasileiro.</p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">+45%</span>
+                        <span class="hero-stat-label">crescimento em 5 anos</span>
                     </div>
-                    <div class="salary-item">
-                        <span class="salary-label">Salário Inicial:</span>
-                        <span class="salary-value">R$ 2.200,00</span>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">15k+</span>
+                        <span class="hero-stat-label">vagas/ano</span>
                     </div>
-                    <div class="salary-item">
-                        <span class="salary-label">Salário Sênior:</span>
-                        <span class="salary-value">R$ 6.500,00</span>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">R$4.400</span>
+                        <span class="hero-stat-label">média nacional</span>
                     </div>
                 </div>
-                <div class="cutoff-score">
-                    <div class="score-display">650</div>
-                    <div class="score-label">Nota de Corte Média</div>
-                </div>
-                <div class="quality-item">
-                    <div class="quality-icon">⭐</div>
-                    <div class="quality-title">Qualidade de Vida</div>
-                    <div class="quality-text">Clima ameno, infraestrutura desenvolvida, boa educação</div>
-                </div>
-                <div style="text-align: center; margin-top: 20px;">
-                    <span class="best-salary-badge">👍 Mais equilibrado</span>
-                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=2070&auto=format&fit=crop" alt="Trator na fazenda">
+                <div class="image-overlay"></div>
+            </div>
+        </section>
+
+        <!-- Cards de comparação -->
+        <section class="comparison-section fade-in">
+            <div class="section-header">
+                <span class="section-tag">Comparação direta</span>
+                <h2>Paraná <span class="vs">vs</span> Mato Grosso</h2>
+                <p>Dados atualizados 2023-2024 • CAGED • IBGE • Sindicatos rurais</p>
             </div>
 
-            <!-- Mato Grosso -->
-            <div class="state-card mato-grosso">
-                <img src="https://matogrossoeconomico.com.br/wp-content/uploads/2024/04/SAFRA-COLHEITA-MAPA.jpeg" alt="colheita MT">
-                <div class="state-icon">🌽</div>
-                <h2>Mato Grosso</h2>
-                <div class="salary-info">
-                    <div class="salary-item">
-                        <span class="salary-label">Salário Médio:</span>
-                        <span class="salary-value">R$ 7.000,00</span>
+            <div class="comparison-grid">
+                <!-- Paraná Card -->
+                <div class="state-card parana">
+                    <div class="card-badge">🌲 Sul do Brasil</div>
+                    <div class="card-header-state">
+                        <span class="state-emoji">🌲</span>
+                        <h3>Paraná</h3>
                     </div>
-                    <div class="salary-item">
-                        <span class="salary-label">Salário Inicial:</span>
-                        <span class="salary-value">R$ 2.800,00</span>
+                    
+                    <div class="card-image">
+                        <img src="https://www.gov.br/secom/pt-br/assuntos/noticias-regionalizadas/safra-22-23/crescimento-na-producao-de-graos-no-parana-e-estimada-em-34-9-com-ganhos-de-produtividade/230815_secom_estimativasafra-22-23_foto-elzafiuza-agbr.jpg/@@images/e8c6975b-ee25-4a36-90a9-e5869e30d951.jpg" alt="Lavoura no Paraná">
                     </div>
-                    <div class="salary-item">
-                        <span class="salary-label">Salário Sênior:</span>
-                        <span class="salary-value">R$ 8.200,00</span>
+
+                    <div class="salary-highlight">
+                        <div class="salary-main">
+                            <span class="salary-label">Salário médio</span>
+                            <span class="salary-value">R$ 3.212</span>
+                        </div>
+                        <div class="salary-range">
+                            <span>Inicial: R$ 2.200</span>
+                            <span>Sênior: R$ 6.500</span>
+                        </div>
+                    </div>
+
+                    <div class="score-container">
+                        <div class="score-item">
+                            <span class="score-title">Qualidade de vida</span>
+                            <div class="score-bar">
+                                <div class="score-fill" style="width: 85%"></div>
+                            </div>
+                            <span class="score-value">8.5/10</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-title">Infraestrutura</span>
+                            <div class="score-bar">
+                                <div class="score-fill" style="width: 90%"></div>
+                            </div>
+                            <span class="score-value">9.0/10</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-title">Oportunidades</span>
+                            <div class="score-bar">
+                                <div class="score-fill" style="width: 75%"></div>
+                            </div>
+                            <span class="score-value">7.5/10</span>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <span class="tag">Clima ameno</span>
+                        <span class="tag">Educação</span>
+                        <span class="tag">Infraestrutura</span>
                     </div>
                 </div>
-                <div class="cutoff-score">
-                    <div class="score-display">720</div>
-                    <div class="score-label">Nota de Corte Média</div>
-                </div>
-                <div class="quality-item">
-                    <div class="quality-icon">💰</div>
-                    <div class="quality-title">Potencial Financeiro</div>
-                    <div class="quality-text">Maiores salários, forte crescimento do agronegócio</div>
-                </div>
-                <div style="text-align: center; margin-top: 20px;">
-                    <span class="best-salary-badge">🏆 Melhor salário</span>
-                </div>
-            </div>
-        </div>
 
-        <!-- Seção de Qualidade de Vida -->
-        <div class="quality-section fade-in">
-            <h2 style="text-align: center; margin-bottom: 30px; color: #2c3e50;">🌻 Qualidade de Vida na Agricultura</h2>
-            <div class="quality-grid">
-                <div class="quality-item">
-                    <div class="quality-icon">⚖️</div>
-                    <div class="quality-title">Equilíbrio Trabalho-Vida</div>
-                    <div class="quality-text">Paraná oferece melhor equilíbrio com jornadas mais organizadas</div>
-                </div>
-                <div class="quality-item">
-                    <div class="quality-icon">📈</div>
-                    <div class="quality-title">Oportunidades</div>
-                    <div class="quality-text">Mato Grosso tem maior demanda e crescimento rápido</div>
-                </div>
-                <div class="quality-item">
-                    <div class="quality-icon">🏥</div>
-                    <div class="quality-title">Infraestrutura</div>
-                    <div class="quality-text">Paraná tem melhor estrutura urbana e serviços</div>
-                </div>
-                <div class="quality-item">
-                    <div class="quality-icon">🌤️</div>
-                    <div class="quality-title">Clima</div>
-                    <div class="quality-text">Paraná: clima ameno | Mato Grosso: tropical com estações definidas</div>
-                </div>
-            </div>
-        </div>
+                <!-- Mato Grosso Card -->
+                <div class="state-card mato-grosso">
+                    <div class="card-badge">🌽 Centro-Oeste</div>
+                    <div class="card-header-state">
+                        <span class="state-emoji">🌽</span>
+                        <h3>Mato Grosso</h3>
+                    </div>
+                    
+                    <div class="card-image">
+                        <img src="https://matogrossoeconomico.com.br/wp-content/uploads/2024/04/SAFRA-COLHEITA-MAPA.jpeg" alt="Colheita no Mato Grosso">
+                    </div>
 
-        <!-- Estatísticas -->
-        <div class="stats-container fade-in">
-            <div class="stat-box">
-                <div class="stat-number">+45%</div>
-                <div class="stat-label">Crescimento do setor (5 anos)</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">82%</div>
-                <div class="stat-label">Satisfação profissional</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">15.000+</div>
-                <div class="stat-label">Vagas/ano</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">R$ 4.400</div>
-                <div class="stat-label">Média nacional</div>
-            </div>
-        </div>
+                    <div class="salary-highlight">
+                        <div class="salary-main">
+                            <span class="salary-label">Salário médio</span>
+                            <span class="salary-value">R$ 7.000</span>
+                        </div>
+                        <div class="salary-range">
+                            <span>Inicial: R$ 2.800</span>
+                            <span>Sênior: R$ 8.200</span>
+                        </div>
+                    </div>
 
-        <!-- Análise Comparativa -->
-        <div class="quality-section fade-in analysis-section">
-            <h2 style="text-align: center; margin-bottom: 20px;">🎯 Qual é o melhor estado?</h2>
-            <div class="analysis-grid">
-                <div style="text-align: center;">
-                    <h3 style="color: #FFD700; margin-bottom: 15px;">Paraná</h3>
-                    <p>✔️ Melhor qualidade de vida<br>✔️ Infraestrutura desenvolvida<br>✔️ Menos sofrido<br>✔️ Salário competitivo</p>
-                </div>
-                <div style="text-align: center;">
-                    <h3 style="color: #FFD700; margin-bottom: 15px;">Mato Grosso</h3>
-                    <p>✔️ Maiores salários<br>✔️ Mais oportunidades<br>✔️ Setor em expansão<br>✔️ Potencial de crescimento</p>
-                </div>
-            </div>
-            <div class="recommendation-box">
-                <p style="font-size: 1.2em;">
-                    <strong>Recomendação:</strong> Se busca equilíbrio e qualidade de vida, escolha o Paraná.<br>
-                    Se prioriza maior renda e crescimento rápido, Mato Grosso é a melhor opção.
-                </p>
-            </div>
-        </div>
+                    <div class="score-container">
+                        <div class="score-item">
+                            <span class="score-title">Qualidade de vida</span>
+                            <div class="score-bar">
+                                <div class="score-fill" style="width: 70%"></div>
+                            </div>
+                            <span class="score-value">7.0/10</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-title">Infraestrutura</span>
+                            <div class="score-bar">
+                                <div class="score-fill" style="width: 65%"></div>
+                            </div>
+                            <span class="score-value">6.5/10</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-title">Oportunidades</span>
+                            <div class="score-bar">
+                                <div class="score-fill" style="width: 95%"></div>
+                            </div>
+                            <span class="score-value">9.5/10</span>
+                        </div>
+                    </div>
 
-        <!-- ========== SEÇÃO DA IA - ASSISTENTE VIRTUAL ========== -->
-        <div class="ia-section fade-in" id="ia-assistente">
-            <div class="ia-title">
-                <span>🤖</span> Assistente Virtual AgriCompare
+                    <div class="card-footer">
+                        <span class="tag">Altos salários</span>
+                        <span class="tag">Expansão</span>
+                        <span class="tag">Mercado aquecido</span>
+                    </div>
+                </div>
             </div>
-            <div class="ia-subtitle">
-                Tire suas dúvidas sobre salários, custo de vida, vagas e muito mais
-            </div>
-            
-            <div class="ia-chat-container">
-                <div class="ia-messages" id="iaMessages">
+        </section>
+
+        <!-- IA Assistant Section -->
+        <section class="ia-section fade-in">
+            <div class="ia-backdrop"></div>
+            <div class="ia-content">
+                <div class="ia-header">
+                    <div class="ia-avatar">
+                        <span>🤖</span>
+                    </div>
+                    <div class="ia-title">
+                        <h3>Assistente virtual</h3>
+                        <p>Tire dúvidas sobre carreira no agronegócio</p>
+                    </div>
+                </div>
+
+                <div class="ia-chat" id="iaMessages">
                     <div class="message bot">
-                        <div class="message-avatar">🌾</div>
                         <div class="message-content">
-                            Olá! Sou o assistente do AgriCompare. Posso ajudar com informações sobre salários, qualidade de vida, vagas nos estados e dados do setor. O que você gostaria de saber?
+                            Olá! Sou o assistente do AgriCompare. Posso ajudar com informações sobre salários, qualidade de vida e oportunidades. O que você gostaria de saber?
                         </div>
                     </div>
                 </div>
-                
-                <div class="ia-input-area">
+
+                <div class="ia-input-container">
                     <input type="text" id="iaInput" placeholder="Digite sua pergunta..." autocomplete="off">
-                    <button class="ia-send-btn" id="iaSendBtn">📤</button>
+                    <button class="ia-send-btn" id="iaSendBtn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="ia-suggestions">
+                    <button class="suggestion-chip" onclick="perguntaSugerida('Qual o salário médio no Paraná?')">💰 Salário médio PR</button>
+                    <button class="suggestion-chip" onclick="perguntaSugerida('Qual o salário médio no Mato Grosso?')">🌽 Salário médio MT</button>
+                    <button class="suggestion-chip" onclick="perguntaSugerida('Onde é melhor para viver?')">🏡 Qualidade de vida</button>
+                    <button class="suggestion-chip" onclick="perguntaSugerida('Quais regiões têm mais vagas?')">📊 Oportunidades</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comments Section -->
+        <section class="comments-section fade-in">
+            <div class="section-header">
+                <span class="section-tag">Comunidade</span>
+                <h2>O que estão dizendo</h2>
+                <p>Experiências reais de profissionais do setor</p>
+            </div>
+
+            <!-- Comment Form -->
+            <div class="comment-form-container">
+                <h4>Deixe sua avaliação</h4>
+                <div class="rating-stars" id="starRating">
+                    <span data-value="1">★</span>
+                    <span data-value="2">★</span>
+                    <span data-value="3">★</span>
+                    <span data-value="4">★</span>
+                    <span data-value="5">★</span>
+                </div>
+                <span class="rating-feedback" id="ratingFeedback">Clique nas estrelas para avaliar</span>
+                
+                <div class="form-row">
+                    <input type="text" id="nomeInput" placeholder="Seu nome" value="Visitante">
+                </div>
+                <div class="form-row">
+                    <textarea id="comentarioInput" placeholder="Compartilhe sua experiência..."></textarea>
                 </div>
                 
-                <div class="ia-suggestions">
-                    <span class="suggestion-chip" onclick="perguntaSugerida('Qual o salário médio no Paraná?')">💰 Salário médio PR</span>
-                    <span class="suggestion-chip" onclick="perguntaSugerida('Qual o salário médio no Mato Grosso?')">🌽 Salário médio MT</span>
-                    <span class="suggestion-chip" onclick="perguntaSugerida('Onde é melhor para viver, Paraná ou Mato Grosso?')">🏡 Qualidade de vida</span>
-                    <span class="suggestion-chip" onclick="perguntaSugerida('Quais regiões têm mais vagas?')">📊 Oportunidades</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- ========== BARRA DE COMENTÁRIOS COM 3 EXEMPLOS ========== -->
-        <div class="comment-section fade-in" id="comentarios">
-            <div class="comment-title">
-                <span>💬</span> Deixe seu comentário sobre o AgriCompare
-            </div>
-
-            <!-- formulário de comentário com estrelas -->
-            <div class="comment-form">
-                <div class="input-row">
-                    <input type="text" id="nomeInput" placeholder="Seu nome *" value="Visitante">
-                    <input type="email" id="emailInput" placeholder="Seu e-mail (opcional)">
-                </div>
-                <div class="input-row">
-                    <textarea id="comentarioInput" placeholder="Escreva sua opinião, sugestão ou crítica sobre o site..."></textarea>
-                </div>
-
-                <!-- avaliação por estrelas interativa -->
-                <div class="rating-container">
-                    <div class="stars" id="starRating">
-                        <span data-value="1">★</span>
-                        <span data-value="2">★</span>
-                        <span data-value="3">★</span>
-                        <span data-value="4">★</span>
-                        <span data-value="5">★</span>
-                    </div>
-                    <div class="rating-feedback" id="ratingFeedback">Avalie o site</div>
-                </div>
-
                 <button class="send-btn" id="enviarComentarioBtn">
-                    <span>📨</span> Enviar comentário
+                    <span>Enviar comentário</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                 </button>
             </div>
 
-            <!-- lista de comentários com 3 exemplos fixos -->
-            <div class="comment-list">
-                <div class="list-title"><span>🗣️</span> O que estão dizendo (3 comentários)</div>
-                <div id="comentariosFixos">
-                    <!-- Comentário 1 -->
-                    <div class="comment-card">
-                        <div class="card-header">
-                            <span class="comment-author">João Paulo Silva</span>
-                            <span class="comment-rating">★★★★★</span>
-                            <span class="comment-date">15/03/2024</span>
+            <!-- Comments List -->
+            <div class="comments-grid">
+                <!-- Comment 1 -->
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="commenter-info">
+                            <span class="commenter-name">João Paulo Silva</span>
+                            <span class="commenter-role">Produtor rural • MT</span>
                         </div>
-                        <div class="comment-text">Excelente comparação! Trabalho no Mato Grosso há 5 anos e os salários realmente são superiores. Mas confesso que a qualidade de vida no Paraná me faz pensar em mudar. Site muito útil!</div>
+                        <span class="comment-rating">★★★★★</span>
                     </div>
-                    
-                    <!-- Comentário 2 -->
-                    <div class="comment-card">
-                        <div class="card-header">
-                            <span class="comment-author">Maria Aparecida Oliveira</span>
-                            <span class="comment-rating">★★★★☆</span>
-                            <span class="comment-date">10/03/2024</span>
+                    <p class="comment-text">Excelente comparação! Trabalho no Mato Grosso há 5 anos e os salários realmente são superiores. Mas confesso que a qualidade de vida no Paraná me faz pensar em mudar. Site muito útil!</p>
+                    <span class="comment-date">15 de março, 2024</span>
+                </div>
+
+                <!-- Comment 2 -->
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="commenter-info">
+                            <span class="commenter-name">Maria Aparecida Oliveira</span>
+                            <span class="commenter-role">Engenheira agrônoma • PR</span>
                         </div>
-                        <div class="comment-text">Sou engenheira agrônoma e estou decidindo entre vagas nos dois estados. Os dados batem com minhas pesquisas. Senti falta de informações sobre custo de vida, mas no geral está ótimo. Parabéns!</div>
+                        <span class="comment-rating">★★★★☆</span>
                     </div>
-                    
-                    <!-- Comentário 3 -->
-                    <div class="comment-card">
-                        <div class="card-header">
-                            <span class="comment-author">Carlos Eduardo Mendes</span>
-                            <span class="comment-rating">★★★★★</span>
-                            <span class="comment-date">05/03/2024</span>
+                    <p class="comment-text">Sou engenheira agrônoma e estou decidindo entre vagas nos dois estados. Os dados batem com minhas pesquisas. Senti falta de informações sobre custo de vida, mas no geral está ótimo.</p>
+                    <span class="comment-date">10 de março, 2024</span>
+                </div>
+
+                <!-- Comment 3 -->
+                <div class="comment-card">
+                    <div class="comment-header">
+                        <div class="commenter-info">
+                            <span class="commenter-name">Carlos Eduardo Mendes</span>
+                            <span class="commenter-role">Operador de máquinas • MT</span>
                         </div>
-                        <div class="comment-text">Trabalhei no norte do Paraná e agora estou em Sorriso/MT. A comparação é muito precisa: MT paga melhor, PR tem mais infraestrutura. Recomendo o site para quem está pensando em migrar.</div>
+                        <span class="comment-rating">★★★★★</span>
                     </div>
+                    <p class="comment-text">Trabalhei no norte do Paraná e agora estou em Sorriso/MT. A comparação é muito precisa: MT paga melhor, PR tem mais infraestrutura. Recomendo o site para quem está pensando em migrar.</p>
+                    <span class="comment-date">5 de março, 2024</span>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Botões de Ação -->
-        <div style="text-align: center; margin: 40px 0;">
-            <a href="#" class="btn btn-primary">📊 Ver vagas no Paraná</a>
-            <a href="#" class="btn btn-secondary">🌽 Ver vagas no Mato Grosso</a>
-        </div>
+        <!-- CTA Section -->
+        <section class="cta-section fade-in">
+            <div class="cta-content">
+                <h2>Pronto para decidir seu futuro no agro?</h2>
+                <p>Explore vagas disponíveis nos dois estados</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary">🇵🇷 Vagas no Paraná</a>
+                    <a href="#" class="btn btn-secondary">🇲🇹 Vagas no Mato Grosso</a>
+                </div>
+            </div>
+        </section>
 
         <!-- Footer -->
         <footer>
-            <p>© 2024 AgriCompare - Informações atualizadas sobre salários na agricultura</p>
-            <p style="font-size: 0.9em; color: #6c757d; margin-top: 10px;">
-                Dados baseados em pesquisa do CAGED, IBGE e sindicatos rurais (2023-2024)
-            </p>
+            <div class="footer-content">
+                <div class="footer-info">
+                    <span class="footer-logo">🌱 AgriCompare</span>
+                    <p>Dados baseados em pesquisa do CAGED, IBGE e sindicatos rurais (2023-2024)</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Sobre</a>
+                    <a href="#">Metodologia</a>
+                    <a href="#">Contato</a>
+                    <a href="#">Privacidade</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 AgriCompare. Todos os direitos reservados.</p>
+            </div>
         </footer>
     </div>
 
-    <!-- JavaScript -->
-    <script>
-        // Sistema de estrelas interativo
-        (function() {
-            const stars = document.querySelectorAll('#starRating span');
-            const ratingFeedback = document.getElementById('ratingFeedback');
-            const enviarBtn = document.getElementById('enviarComentarioBtn');
-            
-            if (stars.length > 0) {
-                stars.forEach(star => {
-                    star.addEventListener('click', function() {
-                        const value = parseInt(this.getAttribute('data-value'));
-                        
-                        stars.forEach(s => s.classList.remove('active'));
-                        for (let i = 0; i < value; i++) {
-                            stars[i].classList.add('active');
-                        }
-                        
-                        const feedbacks = ['Ruim', 'Regular', 'Bom', 'Muito bom', 'Excelente'];
-                        ratingFeedback.textContent = `${value} estrela${value > 1 ? 's' : ''} - ${feedbacks[value-1]}`;
-                    });
-                });
-            }
-            
-            if (enviarBtn) {
-                enviarBtn.addEventListener('click', function() {
-                    alert('Comentário enviado com sucesso! (modo de demonstração)');
-                });
-            }
-        })();
-
-        // Sistema da IA
-        const iaMessages = document.getElementById('iaMessages');
-        const iaInput = document.getElementById('iaInput');
-        const iaSendBtn = document.getElementById('iaSendBtn');
-
-        // Base de conhecimento da IA
-        const respostasIA = {
-            'salário médio no paraná': 'De acordo com dados do CAGED e IBGE 2023-2024, o salário médio no Paraná é de R$ 3.212,00. Os salários iniciais giram em torno de R$ 2.200,00 e os cargos sênior podem chegar a R$ 6.500,00.',
-            
-            'salário médio no mato grosso': 'No Mato Grosso, o salário médio é de R$ 7.000,00, um dos mais altos do país no setor agro. Salários iniciais começam em R$ 2.800,00 e posições sênior ultrapassam R$ 8.200,00.',
-            
-            'qualidade de vida': 'O Paraná oferece melhor qualidade de vida, com clima ameno, infraestrutura mais desenvolvida, melhor educação e saúde. Já o Mato Grosso oferece maior potencial financeiro, mas com menos infraestrutura urbana.',
-            
-            'vagas': 'O Mato Grosso tem maior demanda por profissionais, com cerca de 8.000 vagas/ano. O Paraná oferece aproximadamente 5.000 vagas/ano, mas com maior concorrência.',
-            
-            'custo de vida': 'O custo de vida no Paraná é cerca de 15-20% mais alto que no Mato Grosso, principalmente em habitação. No entanto, a qualidade dos serviços e infraestrutura justifica a diferença.',
-            
-            'oportunidades': 'Mato Grosso lidera em oportunidades no agronegócio, especialmente nas regiões de Sorriso, Rondonópolis e Sinop. Paraná tem mercado forte em Cascavel, Londrina e Maringá.',
-            
-            'recomendação': 'Depende do seu perfil: se busca equilíbrio e qualidade de vida, escolha o Paraná. Se prioriza renda máxima e crescimento profissional acelerado, Mato Grosso é a melhor opção.'
-        };
-
-        function adicionarMensagem(texto, tipo) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${tipo}`;
-            
-            const avatar = document.createElement('div');
-            avatar.className = 'message-avatar';
-            avatar.textContent = tipo === 'user' ? '👤' : '🌾';
-            
-            const content = document.createElement('div');
-            content.className = 'message-content';
-            content.textContent = texto;
-            
-            messageDiv.appendChild(avatar);
-            messageDiv.appendChild(content);
-            
-            iaMessages.appendChild(messageDiv);
-            iaMessages.scrollTop = iaMessages.scrollHeight;
-        }
-
-        function processarPergunta(pergunta) {
-            const perguntaLower = pergunta.toLowerCase().trim();
-            
-            // Busca por palavras-chave
-            if (perguntaLower.includes('paraná') && perguntaLower.includes('salário')) {
-                return respostasIA['salário médio no paraná'];
-            } else if (perguntaLower.includes('mato grosso') && perguntaLower.includes('salário')) {
-                return respostasIA['salário médio no mato grosso'];
-            } else if (perguntaLower.includes('qualidade de vida') || perguntaLower.includes('viver')) {
-                return respostasIA['qualidade de vida'];
-            } else if (perguntaLower.includes('vaga') || perguntaLower.includes('oportunidade')) {
-                return respostasIA['oportunidades'];
-            } else if (perguntaLower.includes('custo de vida')) {
-                return respostasIA['custo de vida'];
-            } else if (perguntaLower.includes('recomendação') || perguntaLower.includes('melhor estado')) {
-                return respostasIA['recomendação'];
-            } else if (perguntaLower.includes('médio') && perguntaLower.includes('pr')) {
-                return respostasIA['salário médio no paraná'];
-            } else if (perguntaLower.includes('médio') && perguntaLower.includes('mt')) {
-                return respostasIA['salário médio no mato grosso'];
-            } else {
-                return "Desculpe, não tenho informação específica sobre isso. Posso ajudar com salários, qualidade de vida, vagas ou recomendações sobre Paraná e Mato Grosso.";
-            }
-        }
-
-        function enviarPergunta() {
-            const pergunta = iaInput.value.trim();
-            if (pergunta === '') return;
-            
-            adicionarMensagem(pergunta, 'user');
-            iaInput.value = '';
-            
-            // Simular processamento
-            setTimeout(() => {
-                const resposta = processarPergunta(pergunta);
-                adicionarMensagem(resposta, 'bot');
-            }, 600);
-        }
-
-        if (iaSendBtn) {
-            iaSendBtn.addEventListener('click', enviarPergunta);
-        }
-        
-        if (iaInput) {
-            iaInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    enviarPergunta();
-                }
-            });
-        }
-
-        // Função global para sugestões
-        window.perguntaSugerida = function(texto) {
-            iaInput.value = texto;
-            enviarPergunta();
-        };
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
