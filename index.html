@@ -183,21 +183,27 @@
                         <span>🤖</span>
                     </div>
                     <div class="ia-title">
-                        <h3>Assistente virtual</h3>
-                        <p>Tire dúvidas sobre carreira no agronegócio</p>
+                        <h3>Assistente IA - AgriGPT</h3>
+                        <p>Pergunte qualquer coisa sobre o agronegócio</p>
                     </div>
                 </div>
 
                 <div class="ia-chat" id="iaMessages">
                     <div class="message bot">
                         <div class="message-content">
-                            Olá! Sou o assistente do AgriCompare. Posso ajudar com informações sobre salários, qualidade de vida e oportunidades. O que você gostaria de saber?
+                            Olá! Sou o AgriGPT, sua assistente de IA especializada no agronegócio. Posso responder perguntas sobre salários, qualidade de vida, oportunidades, custo de vida, clima, e muito mais! O que você gostaria de saber?
                         </div>
                     </div>
                 </div>
 
+                <div class="typing-indicator" id="typingIndicator">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
                 <div class="ia-input-container">
-                    <input type="text" id="iaInput" placeholder="Digite sua pergunta..." autocomplete="off">
+                    <input type="text" id="iaInput" placeholder="Faça uma pergunta..." autocomplete="off">
                     <button class="ia-send-btn" id="iaSendBtn">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -206,10 +212,12 @@
                 </div>
 
                 <div class="ia-suggestions">
-                    <button class="suggestion-chip" onclick="perguntaSugerida('Qual o salário médio no Paraná?')">💰 Salário médio PR</button>
-                    <button class="suggestion-chip" onclick="perguntaSugerida('Qual o salário médio no Mato Grosso?')">🌽 Salário médio MT</button>
-                    <button class="suggestion-chip" onclick="perguntaSugerida('Onde é melhor para viver?')">🏡 Qualidade de vida</button>
-                    <button class="suggestion-chip" onclick="perguntaSugerida('Quais regiões têm mais vagas?')">📊 Oportunidades</button>
+                    <button class="suggestion-chip">💰 Salário médio no Paraná?</button>
+                    <button class="suggestion-chip">🌽 Salário médio no Mato Grosso?</button>
+                    <button class="suggestion-chip">🏡 Qualidade de vida: PR vs MT?</button>
+                    <button class="suggestion-chip">📊 Oportunidades de emprego?</button>
+                    <button class="suggestion-chip">🌧️ Clima em cada estado?</button>
+                    <button class="suggestion-chip">🏫 Educação no Paraná?</button>
                 </div>
             </div>
         </section>
@@ -250,45 +258,8 @@
             </div>
 
             <!-- Comments List -->
-            <div class="comments-grid">
-                <!-- Comment 1 -->
-                <div class="comment-card">
-                    <div class="comment-header">
-                        <div class="commenter-info">
-                            <span class="commenter-name">João Paulo Silva</span>
-                            <span class="commenter-role">Produtor rural • MT</span>
-                        </div>
-                        <span class="comment-rating">★★★★★</span>
-                    </div>
-                    <p class="comment-text">Excelente comparação! Trabalho no Mato Grosso há 5 anos e os salários realmente são superiores. Mas confesso que a qualidade de vida no Paraná me faz pensar em mudar. Site muito útil!</p>
-                    <span class="comment-date">15 de março, 2024</span>
-                </div>
-
-                <!-- Comment 2 -->
-                <div class="comment-card">
-                    <div class="comment-header">
-                        <div class="commenter-info">
-                            <span class="commenter-name">Maria Aparecida Oliveira</span>
-                            <span class="commenter-role">Engenheira agrônoma • PR</span>
-                        </div>
-                        <span class="comment-rating">★★★★☆</span>
-                    </div>
-                    <p class="comment-text">Sou engenheira agrônoma e estou decidindo entre vagas nos dois estados. Os dados batem com minhas pesquisas. Senti falta de informações sobre custo de vida, mas no geral está ótimo.</p>
-                    <span class="comment-date">10 de março, 2024</span>
-                </div>
-
-                <!-- Comment 3 -->
-                <div class="comment-card">
-                    <div class="comment-header">
-                        <div class="commenter-info">
-                            <span class="commenter-name">Carlos Eduardo Mendes</span>
-                            <span class="commenter-role">Operador de máquinas • MT</span>
-                        </div>
-                        <span class="comment-rating">★★★★★</span>
-                    </div>
-                    <p class="comment-text">Trabalhei no norte do Paraná e agora estou em Sorriso/MT. A comparação é muito precisa: MT paga melhor, PR tem mais infraestrutura. Recomendo o site para quem está pensando em migrar.</p>
-                    <span class="comment-date">5 de março, 2024</span>
-                </div>
+            <div class="comments-grid" id="commentsGrid">
+                <!-- Comments will be loaded here -->
             </div>
         </section>
 
