@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mato Grosso vs Paraná - Comparativo dos Estados</title>
+    <title>MT vs PR Agro - Comparação Agronegócio</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header/Navigation -->
     <header class="header">
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <span class="logo-mt">MT</span>
-                    <span class="logo-vs">vs</span>
-                    <span class="logo-pr">PR</span>
+                    <span class="leaf-icon">🌾</span>
+                    <h1>MT vs PR Agro</h1>
                 </div>
                 <nav class="nav">
-                    <button class="nav-link active" data-tab="overview">Visão Geral</button>
-                    <button class="nav-link" data-tab="economy">Economia</button>
-                    <button class="nav-link" data-tab="geography">Geografia</button>
-                    <button class="nav-link" data-tab="agriculture">Agricultura</button>
-                    <button class="nav-link" data-tab="chat">💬 IA</button>
+                    <a href="#prices">Preços</a>
+                    <a href="#salary">Salários</a>
+                    <a href="#production">Produção</a>
+                    <a href="#comments">Comentários</a>
                 </nav>
+                <button class="login-btn">Entrar</button>
             </div>
         </div>
     </header>
@@ -30,261 +30,408 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Mato Grosso <span class="vs-text">vs</span> Paraná</h1>
-            <p>Explore uma comparação detalhada entre dois dos estados mais importantes do Brasil</p>
-            <button class="btn btn-primary" onclick="scrollToChat()">Converse com IA sobre os estados</button>
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <span class="badge badge-mt">Mato Grosso</span>
+                    <h2>Maior produtor agrícola do Brasil</h2>
+                    <p>Com 48,5 milhões de toneladas na safra 2025/26, Mato Grosso lidera a produção nacional de grãos, especialmente soja, milho e algodão.</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="scrollToSection('prices')">Ver Preços</button>
+                        <button class="btn btn-secondary">Saiba Mais</button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-box mt-gradient">48.5M</div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Tabs Content -->
-    <section class="tabs-section">
+    <!-- Comparison Section -->
+    <section class="comparison">
         <div class="container">
-            <!-- Overview Tab -->
-            <div class="tab-content active" id="overview">
-                <div class="comparison-grid">
-                    <!-- Mato Grosso Card -->
-                    <div class="state-card mt-card">
-                        <div class="card-header">
-                            <h2>Mato Grosso</h2>
-                            <div class="color-indicators">
-                                <div class="color-box mt-primary"></div>
-                                <div class="color-box mt-secondary"></div>
-                            </div>
-                        </div>
-                        <div class="card-content">
-                            <div class="stat">
-                                <span class="stat-label">População</span>
-                                <span class="stat-value">~3,6 milhões</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-label">Área</span>
-                                <span class="stat-value">903.357 km²</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-label">PIB</span>
-                                <span class="stat-value">R$ 273 bilhões</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-label">Posição no Brasil</span>
-                                <span class="stat-value">2º maior PIB</span>
-                            </div>
-                        </div>
+            <h2 class="section-title">Comparação MT vs PR</h2>
+            
+            <div class="comparison-grid">
+                <!-- MT Card -->
+                <div class="card card-elegant">
+                    <div class="card-header">
+                        <div class="card-icon mt-gradient">📊</div>
+                        <h3>Mato Grosso</h3>
                     </div>
-
-                    <!-- Paraná Card -->
-                    <div class="state-card pr-card">
-                        <div class="card-header">
-                            <h2>Paraná</h2>
-                            <div class="color-indicators">
-                                <div class="color-box pr-primary"></div>
-                                <div class="color-box pr-secondary"></div>
-                            </div>
+                    
+                    <div class="stats-list">
+                        <div class="stat-box">
+                            <p class="stat-label">Produção Total (2025/26)</p>
+                            <p class="stat-value mt-text">48,5 M ton</p>
                         </div>
-                        <div class="card-content">
-                            <div class="stat">
-                                <span class="stat-label">População</span>
-                                <span class="stat-value">~11,4 milhões</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-label">Área</span>
-                                <span class="stat-value">199.307 km²</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-label">PIB</span>
-                                <span class="stat-value">R$ 718,9 bilhões</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-label">Posição no Brasil</span>
-                                <span class="stat-value">5º maior PIB</span>
-                            </div>
+                        <div class="stat-box">
+                            <p class="stat-label">Soja - Preço Médio</p>
+                            <p class="stat-value mt-text">R$ 107,19</p>
+                            <p class="stat-small">por saca (fev/2026)</p>
+                        </div>
+                        <div class="stat-box">
+                            <p class="stat-label">Salário Trabalhador Rural</p>
+                            <p class="stat-value mt-text">R$ 2.473</p>
+                            <p class="stat-small">média mensal</p>
+                        </div>
+                        <div class="stat-box">
+                            <p class="stat-label">PIB Agrícola</p>
+                            <p class="stat-value mt-text">2º Maior</p>
+                            <p class="stat-small">do Brasil</p>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Economy Tab -->
-            <div class="tab-content" id="economy">
-                <div class="comparison-grid">
-                    <div class="state-card mt-card">
-                        <h3>Economia de Mato Grosso</h3>
-                        <ul class="info-list">
-                            <li>
-                                <strong>PIB: R$ 273 bilhões</strong>
-                                <p>2º maior do Brasil</p>
-                            </li>
-                            <li>
-                                <strong>Crescimento: 4,1% em 2025</strong>
-                                <p>2º maior crescimento esperado</p>
-                            </li>
-                            <li>
-                                <strong>Participação: 2,5% do PIB brasileiro</strong>
-                                <p>Crescimento de 1,3% para 2,5%</p>
-                            </li>
-                            <li>
-                                <strong>Setor dominante: Agropecuária</strong>
-                                <p>Maior produtor agrícola do Brasil</p>
-                            </li>
-                        </ul>
+                <!-- PR Card -->
+                <div class="card card-elegant">
+                    <div class="card-header">
+                        <div class="card-icon pr-gradient">🌱</div>
+                        <h3>Paraná</h3>
                     </div>
-
-                    <div class="state-card pr-card">
-                        <h3>Economia do Paraná</h3>
-                        <ul class="info-list">
-                            <li>
-                                <strong>PIB: R$ 718,9 bilhões</strong>
-                                <p>5º maior do Brasil</p>
-                            </li>
-                            <li>
-                                <strong>Crescimento: 63% em 6 anos</strong>
-                                <p>Crescimento consistente</p>
-                            </li>
-                            <li>
-                                <strong>Setores: Serviços, Indústria, Agricultura</strong>
-                                <p>Economia diversificada</p>
-                            </li>
-                            <li>
-                                <strong>Exportações: Agronegócio líder</strong>
-                                <p>Soja, carnes e fumo</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Geography Tab -->
-            <div class="tab-content" id="geography">
-                <div class="comparison-grid">
-                    <div class="state-card mt-card">
-                        <h3>Geografia de Mato Grosso</h3>
-                        <ul class="info-list">
-                            <li>
-                                <strong>Biomas: Amazônia (53,5%), Cerrado, Pantanal</strong>
-                                <p>Biodiversidade excepcional</p>
-                            </li>
-                            <li>
-                                <strong>Clima: Tropical e Subtropical</strong>
-                                <p>Verões entre 33-36°C</p>
-                            </li>
-                            <li>
-                                <strong>Pantanal: Maior planície alagada do mundo</strong>
-                                <p>Ecossistema único</p>
-                            </li>
-                            <li>
-                                <strong>Cerrado: Savana brasileira</strong>
-                                <p>Grande biodiversidade</p>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="state-card pr-card">
-                        <h3>Geografia do Paraná</h3>
-                        <ul class="info-list">
-                            <li>
-                                <strong>Bioma principal: Mata Atlântica</strong>
-                                <p>Uma das mais ricas em biodiversidade</p>
-                            </li>
-                            <li>
-                                <strong>Clima: Subtropical úmido</strong>
-                                <p>Invernos bem definidos</p>
-                            </li>
-                            <li>
-                                <strong>Cataratas do Iguazu</strong>
-                                <p>Patrimônio natural mundial</p>
-                            </li>
-                            <li>
-                                <strong>Densidade demográfica: Alta (~57 hab/km²)</strong>
-                                <p>Área menor, mais populosa</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Agriculture Tab -->
-            <div class="tab-content" id="agriculture">
-                <div class="comparison-grid">
-                    <div class="state-card mt-card">
-                        <h3>Agricultura de Mato Grosso</h3>
-                        <ul class="info-list">
-                            <li>
-                                <strong>Maior produtor agrícola do Brasil</strong>
-                                <p>15,4% da produção nacional</p>
-                            </li>
-                            <li>
-                                <strong>Soja: Maior produtor nacional</strong>
-                                <p>Cultivo em larga escala</p>
-                            </li>
-                            <li>
-                                <strong>Milho: Maior produtor nacional</strong>
-                                <p>Safrinha significativa</p>
-                            </li>
-                            <li>
-                                <strong>Algodão, Café e Cana-de-açúcar</strong>
-                                <p>Diversificação agrícola</p>
-                            </li>
-                            <li>
-                                <strong>Produção de grãos: 30,3% nacional</strong>
-                                <p>Liderança absoluta</p>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="state-card pr-card">
-                        <h3>Agricultura do Paraná</h3>
-                        <ul class="info-list">
-                            <li>
-                                <strong>2º maior produtor de grãos do Brasil</strong>
-                                <p>31,3 bilhões de toneladas</p>
-                            </li>
-                            <li>
-                                <strong>Cana-de-açúcar: 38,59 milhões de toneladas</strong>
-                                <p>Principal cultivo</p>
-                            </li>
-                            <li>
-                                <strong>Soja: 21,55 milhões de toneladas</strong>
-                                <p>Segundo cultivo</p>
-                            </li>
-                            <li>
-                                <strong>Milho, Trigo, Feijão e Café</strong>
-                                <p>Agricultura diversificada</p>
-                            </li>
-                            <li>
-                                <strong>Exportações: Soja, carnes e fumo</strong>
-                                <p>Produtos de alto valor</p>
-                            </li>
-                        </ul>
+                    
+                    <div class="stats-list">
+                        <div class="stat-box">
+                            <p class="stat-label">Produção Total (2025/26)</p>
+                            <p class="stat-value pr-text">22,3 M ton</p>
+                        </div>
+                        <div class="stat-box">
+                            <p class="stat-label">Soja - Preço Médio</p>
+                            <p class="stat-value pr-text">R$ 117,00</p>
+                            <p class="stat-small">por saca (fev/2026)</p>
+                        </div>
+                        <div class="stat-box">
+                            <p class="stat-label">Salário Agropecuária</p>
+                            <p class="stat-value pr-text">R$ 3.428</p>
+                            <p class="stat-small">média mensal</p>
+                        </div>
+                        <div class="stat-box">
+                            <p class="stat-label">Participação Nacional</p>
+                            <p class="stat-value pr-text">13,9%</p>
+                            <p class="stat-small">2º maior produtor</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section class="gallery-section">
+    <!-- Prices Section -->
+    <section id="prices" class="prices">
         <div class="container">
-            <h2>Paisagens e Características</h2>
-            <div class="gallery-grid">
-                <div class="gallery-column">
-                    <h3>Mato Grosso</h3>
-                    <div class="gallery-item">
-                        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663164954299/LLUuhsEDfehxWUxkBuxA4Y/TZGhAGYdrzgx_202fd460.jpg" alt="Pantanal de Mato Grosso">
-                        <p>Pantanal: Maior planície alagada do mundo</p>
+            <h2 class="section-title">Preços de Commodities</h2>
+            
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('soja')">Soja</button>
+                <button class="tab-btn" onclick="switchTab('milho')">Milho</button>
+                <button class="tab-btn" onclick="switchTab('trigo')">Trigo</button>
+                <button class="tab-btn" onclick="switchTab('algodao')">Algodão</button>
+            </div>
+
+            <div class="tab-content">
+                <div class="price-cards">
+                    <div class="card">
+                        <h4>Preço Atual - Mato Grosso</h4>
+                        <p class="price-value mt-text">R$ 107,19</p>
+                        <p class="price-unit">por saca (60kg)</p>
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663164954299/LLUuhsEDfehxWUxkBuxA4Y/Mg7OFcyDtDlt_5dde3f57.jpg" alt="Cerrado de Mato Grosso">
-                        <p>Cerrado: Savana brasileira com grande biodiversidade</p>
+                    <div class="card">
+                        <h4>Preço Atual - Paraná</h4>
+                        <p class="price-value pr-text">R$ 117,00</p>
+                        <p class="price-unit">por saca (60kg)</p>
                     </div>
                 </div>
 
-                <div class="gallery-column">
-                    <h3>Paraná</h3>
-                    <div class="gallery-item">
-                        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663164954299/LLUuhsEDfehxWUxkBuxA4Y/233idpHYh7oy_be5ebf9c.jpg" alt="Cataratas do Iguazu">
-                        <p>Cataratas do Iguazu: Patrimônio natural mundial</p>
+                <div class="card">
+                    <h4>Evolução de Preços (últimos 3 meses)</h4>
+                    <canvas id="priceChart"></canvas>
+                </div>
+
+                <div class="card">
+                    <h4>Tabela Comparativa</h4>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Métrica</th>
+                                <th>Mato Grosso</th>
+                                <th>Paraná</th>
+                                <th>Diferença</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Preço Atual (R$/saca)</td>
+                                <td>R$ 107,19</td>
+                                <td>R$ 117,00</td>
+                                <td class="positive">+R$ 9,81</td>
+                            </tr>
+                            <tr>
+                                <td>Variação (últimos 3 meses)</td>
+                                <td>+4.8%</td>
+                                <td>+2.6%</td>
+                                <td>-2.2%</td>
+                            </tr>
+                            <tr>
+                                <td>Tendência</td>
+                                <td class="positive">↑ Alta</td>
+                                <td class="positive">↑ Alta</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Salary Section -->
+    <section id="salary" class="salary">
+        <div class="container">
+            <h2 class="section-title">Salários e Remuneração</h2>
+            
+            <div class="salary-overview">
+                <div class="card">
+                    <p class="overview-label">Mato Grosso - Trabalhador Rural</p>
+                    <p class="overview-value mt-text">R$ 2.473</p>
+                    <p class="overview-unit">Salário médio mensal</p>
+                </div>
+                <div class="card highlight">
+                    <p class="overview-label">Diferença</p>
+                    <p class="overview-value positive">+R$ 955</p>
+                    <p class="overview-unit">38.6% a favor do PR</p>
+                </div>
+                <div class="card">
+                    <p class="overview-label">Paraná - Agropecuária</p>
+                    <p class="overview-value pr-text">R$ 3.428</p>
+                    <p class="overview-unit">Salário médio mensal</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h4>Salários por Categoria Profissional</h4>
+                <canvas id="salaryChart"></canvas>
+            </div>
+
+            <div class="card">
+                <h4>Comparação Detalhada</h4>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Categoria</th>
+                            <th>Mato Grosso</th>
+                            <th>Paraná</th>
+                            <th>Diferença</th>
+                            <th>%</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Trabalhador Rural</td>
+                            <td>R$ 2.473</td>
+                            <td>R$ 3.428</td>
+                            <td class="positive">+R$ 955</td>
+                            <td class="positive">+38.6%</td>
+                        </tr>
+                        <tr>
+                            <td>Operador de Máquinas</td>
+                            <td>R$ 3.200</td>
+                            <td>R$ 3.800</td>
+                            <td class="positive">+R$ 600</td>
+                            <td class="positive">+18.8%</td>
+                        </tr>
+                        <tr>
+                            <td>Técnico Agrícola</td>
+                            <td>R$ 3.500</td>
+                            <td>R$ 4.200</td>
+                            <td class="positive">+R$ 700</td>
+                            <td class="positive">+20.0%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Production Section -->
+    <section id="production" class="production">
+        <div class="container">
+            <h2 class="section-title">Dados de Produção</h2>
+            
+            <div class="production-overview">
+                <div class="card">
+                    <p class="overview-label">Mato Grosso - Safra 2025/26</p>
+                    <p class="overview-value mt-text">48,5M</p>
+                    <p class="overview-unit">toneladas produzidas</p>
+                </div>
+                <div class="card highlight">
+                    <p class="overview-label">Diferença</p>
+                    <p class="overview-value positive">26,2M</p>
+                    <p class="overview-unit">MT produz 2.17x mais</p>
+                </div>
+                <div class="card">
+                    <p class="overview-label">Paraná - Safra 2025/26</p>
+                    <p class="overview-value pr-text">22,3M</p>
+                    <p class="overview-unit">toneladas produzidas</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h4>Produção por Commodity (Safra 2025/26)</h4>
+                <canvas id="productionChart"></canvas>
+            </div>
+
+            <div class="production-grid">
+                <div class="card">
+                    <h4>Composição - Mato Grosso</h4>
+                    <canvas id="mtPieChart"></canvas>
+                </div>
+                <div class="card">
+                    <h4>Composição - Paraná</h4>
+                    <canvas id="prPieChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card">
+                <h4>Comparação Detalhada de Produção</h4>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Commodity</th>
+                            <th>MT (M ton)</th>
+                            <th>PR (M ton)</th>
+                            <th>Diferença</th>
+                            <th>MT % do Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Soja</td>
+                            <td>42.5M</td>
+                            <td>18.2M</td>
+                            <td class="positive">+24.3M</td>
+                            <td>87.6%</td>
+                        </tr>
+                        <tr>
+                            <td>Milho</td>
+                            <td>3.8M</td>
+                            <td>2.1M</td>
+                            <td class="positive">+1.7M</td>
+                            <td>7.8%</td>
+                        </tr>
+                        <tr>
+                            <td>Trigo</td>
+                            <td>0.8M</td>
+                            <td>1.2M</td>
+                            <td class="negative">-0.4M</td>
+                            <td>1.6%</td>
+                        </tr>
+                        <tr>
+                            <td>Algodão</td>
+                            <td>1.4M</td>
+                            <td>0.8M</td>
+                            <td class="positive">+0.6M</td>
+                            <td>2.9%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comments Section -->
+    <section id="comments" class="comments">
+        <div class="container">
+            <h2 class="section-title">Comunidade e Assistente IA</h2>
+            
+            <div class="comments-grid">
+                <div class="comments-main">
+                    <div class="card">
+                        <h3>Comentários da Comunidade</h3>
+                        
+                        <div class="comment-form">
+                            <h4>Deixe seu comentário</h4>
+                            <div class="form-group">
+                                <label>Sobre qual estado?</label>
+                                <div class="state-buttons">
+                                    <button class="state-btn active" data-state="mt">Mato Grosso</button>
+                                    <button class="state-btn" data-state="pr">Paraná</button>
+                                    <button class="state-btn" data-state="general">Geral</button>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Avaliação</label>
+                                <div class="rating">
+                                    <span class="star" onclick="setRating(1)">★</span>
+                                    <span class="star" onclick="setRating(2)">★</span>
+                                    <span class="star" onclick="setRating(3)">★</span>
+                                    <span class="star" onclick="setRating(4)">★</span>
+                                    <span class="star active" onclick="setRating(5)">★</span>
+                                </div>
+                            </div>
+
+                            <textarea placeholder="Compartilhe sua opinião sobre a comparação entre MT e PR..." class="comment-input"></textarea>
+                            <button class="btn btn-primary" onclick="submitComment()">Enviar Comentário</button>
+                        </div>
+
+                        <div class="comments-list">
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <p class="comment-author">João Silva</p>
+                                    <div class="comment-meta">
+                                        <span class="badge badge-mt">Mato Grosso</span>
+                                        <span class="comment-date">2 dias atrás</span>
+                                    </div>
+                                </div>
+                                <div class="comment-rating">★★★★★</div>
+                                <p class="comment-text">Mato Grosso realmente lidera em produção de soja. Impressionante!</p>
+                            </div>
+
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <p class="comment-author">Maria Santos</p>
+                                    <div class="comment-meta">
+                                        <span class="badge badge-pr">Paraná</span>
+                                        <span class="comment-date">1 dia atrás</span>
+                                    </div>
+                                </div>
+                                <div class="comment-rating">★★★★★</div>
+                                <p class="comment-text">O Paraná tem salários muito melhores no agronegócio. Qualidade de vida superior.</p>
+                            </div>
+
+                            <div class="comment">
+                                <div class="comment-header">
+                                    <p class="comment-author">Pedro Costa</p>
+                                    <div class="comment-meta">
+                                        <span class="badge badge-general">Geral</span>
+                                        <span class="comment-date">12 horas atrás</span>
+                                    </div>
+                                </div>
+                                <div class="comment-rating">★★★★</div>
+                                <p class="comment-text">Ambos os estados são fundamentais para a economia brasileira. Excelente comparação!</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="gallery-item">
-                        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663164954299/LLUuhsEDfehxWUxkBuxA4Y/LjxXuXMa2Lgd_9d49270f.jpg" alt="Mata Atlântica do Paraná">
-                        <p>Mata Atlântica: Uma das mais ricas em biodiversidade</p>
+                </div>
+
+                <div class="ai-sidebar">
+                    <div class="card ai-card">
+                        <h3>✨ Assistente IA</h3>
+                        
+                        <div class="ai-response" id="aiResponse" style="display: none;"></div>
+
+                        <textarea placeholder="Faça uma pergunta sobre dados agrícolas, preços ou salários..." class="ai-input" id="aiInput"></textarea>
+                        <button class="btn btn-primary" onclick="askAI()" style="width: 100%;">Enviar</button>
+
+                        <div class="ai-tips">
+                            <p class="ai-tips-title">Exemplos de perguntas:</p>
+                            <ul>
+                                <li>• Qual a diferença de preço da soja?</li>
+                                <li>• Qual estado produz mais milho?</li>
+                                <li>• Como estão os salários no PR?</li>
+                                <li>• Qual é a tendência de preços?</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -292,28 +439,13 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
+    <section class="cta">
         <div class="container">
-            <h2>Tem dúvidas sobre os estados?</h2>
-            <p>Converse com nosso assistente de IA para obter informações detalhadas e respostas personalizadas</p>
-            <button class="btn btn-primary" onclick="scrollToChat()">Abrir Chat com IA</button>
-        </div>
-    </section>
-
-    <!-- Chat Section -->
-    <section class="chat-section" id="chat-section">
-        <div class="container">
-            <h2>Chat com IA</h2>
-            <div class="chat-container">
-                <div class="chat-messages" id="chatMessages">
-                    <div class="message assistant-message">
-                        <p>Olá! Sou um assistente de IA especializado em informações sobre Mato Grosso e Paraná. Você pode fazer perguntas sobre economia, geografia, agricultura, população, ou qualquer outra característica desses estados. Como posso ajudá-lo?</p>
-                    </div>
-                </div>
-                <div class="chat-input-area">
-                    <input type="text" id="chatInput" class="chat-input" placeholder="Faça uma pergunta sobre Mato Grosso ou Paraná...">
-                    <button class="btn btn-send" onclick="sendMessage()">Enviar</button>
-                </div>
+            <h2>Explore Dados Completos do Agronegócio</h2>
+            <p>Acesse preços atualizados, análises de produção, dados de salários e converse com nosso assistente de IA</p>
+            <div class="cta-buttons">
+                <button class="btn btn-light" onclick="scrollToSection('prices')">Ver Preços de Commodities</button>
+                <button class="btn btn-outline">Conversar com IA</button>
             </div>
         </div>
     </section>
@@ -321,7 +453,35 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>© 2026 Mato Grosso vs Paraná. Dados baseados em informações do IBGE, IPARDES e fontes oficiais.</p>
+            <div class="footer-grid">
+                <div>
+                    <h4>MT vs PR Agro</h4>
+                    <p>Comparação completa do agronegócio entre Mato Grosso e Paraná</p>
+                </div>
+                <div>
+                    <h4>Seções</h4>
+                    <ul>
+                        <li><a href="#prices">Preços</a></li>
+                        <li><a href="#salary">Salários</a></li>
+                        <li><a href="#production">Produção</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Dados</h4>
+                    <ul>
+                        <li><a href="#">CONAB</a></li>
+                        <li><a href="#">OCEPAR</a></li>
+                        <li><a href="#">IBGE</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contato</h4>
+                    <p>info@mtvspragro.com.br</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MT vs PR Agro. Todos os direitos reservados.</p>
+            </div>
         </div>
     </footer>
 
