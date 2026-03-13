@@ -46,8 +46,26 @@ html {
 body {
     font-family: var(--font-sans);
     background-color: var(--background);
+    background-image: url('trator-bg.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: var(--foreground);
     line-height: 1.6;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.92);
+    pointer-events: none;
+    z-index: -1;
 }
 
 /* ============================================
