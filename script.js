@@ -32,18 +32,12 @@ Responda perguntas sobre esses estados de forma clara, informativa e comparativa
 
 let messageHistory = [];
 
-// ============================================
-// INICIALIZAÇÃO
-// ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
     initializeEventListeners();
     loadChatHistory();
 });
 
-// ============================================
-// EVENT LISTENERS
-// ============================================
 
 function initializeEventListeners() {
     // Tab navigation
@@ -67,9 +61,6 @@ function initializeEventListeners() {
     }
 }
 
-// ============================================
-// TAB SWITCHING
-// ============================================
 
 function switchTab(tabName) {
     // Hide all tabs
@@ -97,9 +88,6 @@ function switchTab(tabName) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ============================================
-// CHAT FUNCTIONALITY
-// ============================================
 
 function scrollToChat() {
     const chatSection = document.getElementById('chat-section');
@@ -188,9 +176,7 @@ function removeLoadingIndicator() {
     }
 }
 
-// ============================================
-// API COMMUNICATION
-// ============================================
+
 
 async function getAIResponse(question) {
     // Opção 1: Se você tiver uma API real, descomente e configure
@@ -278,10 +264,6 @@ function getLocalResponse(question) {
     return 'Desculpe, não tenho informações específicas sobre isso. Você pode fazer perguntas sobre economia, população, agricultura, geografia ou clima de Mato Grosso e Paraná.';
 }
 
-// ============================================
-// CHAT HISTORY
-// ============================================
-
 function saveChatHistory() {
     try {
         localStorage.setItem('chatHistory', JSON.stringify(messageHistory));
@@ -314,9 +296,6 @@ function clearChatHistory() {
     }
 }
 
-// ============================================
-// UTILITÁRIOS
-// ============================================
 
 function formatDate(date) {
     return new Intl.DateTimeFormat('pt-BR', {
