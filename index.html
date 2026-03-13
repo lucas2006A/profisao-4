@@ -3,188 +3,399 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgriCompare - Salários na Agricultura | Paraná vs Mato Grosso</title>
+    <title>AgriConnect IA | Salários na Agricultura</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header class="fade-in">
-            <h1>🌾 Agricultura Profissional: Paraná vs Mato Grosso</h1>
-            <p>Compare salários, qualidade de vida e oportunidades no agronegócio brasileiro</p>
-        </header>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/55999206543?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20salários%20na%20agricultura" 
+       class="whatsapp-float" 
+       target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Fale conosco!</span>
+    </a>
 
-        <!-- Imagem da Agricultura -->
-        <div class="agriculture-image fade-in">
-            <div class="image-overlay"></div>
-            <div class="image-content">
-                <h3>🌱 O Futuro do Agronegócio</h3>
-                <p>Tecnologia, sustentabilidade e oportunidades em dois dos maiores polos agrícolas do Brasil</p>
+    <!-- Header com navegação -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+                <span>Agri<span class="highlight">Connect</span> <span class="ia-badge">IA</span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#inicio" class="active">Início</a></li>
+                <li><a href="#comparacao">Comparação</a></li>
+                <li><a href="#salarios">Salários</a></li>
+                <li><a href="#ia">Assistente IA</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="https://wa.me/55999206543" target="_blank" class="btn-whatsapp-nav">
+                    <i class="fab fa-whatsapp"></i> (99) 92065-43
+                </a>
+                <button class="btn-outline" onclick="openChat()"><i class="fas fa-comment-dots"></i> Falar com IA</button>
             </div>
         </div>
+    </nav>
 
-        <!-- Cards de comparação de salários -->
-        <div class="comparison-grid fade-in">
-            <!-- Paraná -->
-            <div class="state-card parana">
-                <div class="state-icon">🌲</div>
-                <h2>Paraná</h2>
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-video-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-badge">🤖 Assistente IA 24/7 | 📱 WhatsApp (99) 92065-4321</span>
+            <h1 class="hero-title">Agricultura <span class="gradient-text">Inteligente</span></h1>
+            <p class="hero-subtitle">Descubra salários, notas de corte e qualidade de vida com nossa IA especializada</p>
+            <div class="hero-stats">
+                <div class="hero-stat-item">
+                    <span class="hero-stat-number">+45%</span>
+                    <span class="hero-stat-label">Crescimento</span>
+                </div>
+                <div class="hero-stat-item">
+                    <span class="hero-stat-number">15k+</span>
+                    <span class="hero-stat-label">Vagas/ano</span>
+                </div>
+                <div class="hero-stat-item">
+                    <span class="hero-stat-number">24/7</span>
+                    <span class="hero-stat-label">Suporte IA</span>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="openChat()"><i class="fas fa-comment-dots"></i> Perguntar à IA</button>
+                <a href="https://wa.me/55999206543" target="_blank" class="btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Role para ver mais</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Cards de comparação -->
+    <section class="comparison-section" id="comparacao">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">📊 Comparativo</span>
+                <h2>Paraná <span class="gradient-text">vs</span> Mato Grosso</h2>
+                <p>Análise detalhada com dados atualizados pela IA</p>
+            </div>
+
+            <div class="comparison-grid">
+                <!-- Paraná Card -->
+                <div class="state-card parana">
+                    <div class="card-header">
+                        <div class="state-flag">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <h3>Paraná</h3>
+                        <span class="state-badge">🌳 Sul do Brasil</span>
+                    </div>
+                    
+                    <div class="card-stats">
+                        <div class="card-stat">
+                            <span class="stat-label">Salário Médio</span>
+                            <span class="stat-value highlight">R$ 3.850</span>
+                        </div>
+                        <div class="card-stat">
+                            <span class="stat-label">Nota de Corte</span>
+                            <span class="stat-value">650</span>
+                        </div>
+                        <div class="card-stat">
+                            <span class="stat-label">Qualidade</span>
+                            <span class="stat-value">8.5/10</span>
+                        </div>
+                    </div>
+
+                    <div class="card-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle" style="color: #4CAF50;"></i>
+                            <span>Melhor qualidade de vida</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle" style="color: #4CAF50;"></i>
+                            <span>Infraestrutura desenvolvida</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check-circle" style="color: #4CAF50;"></i>
+                            <span>Clima ameno</span>
+                        </div>
+                    </div>
+
+                    <button class="card-btn parana-btn" onclick="askIA('parana')">
+                        <i class="fas fa-robot"></i> Perguntar à IA sobre o Paraná
+                    </button>
+                </div>
+
+                <!-- Mato Grosso Card -->
+                <div class="state-card mato-grosso featured">
+                    <div class="card-badge">🔥 Melhor Salário</div>
+                    <div class="card-header">
+                        <div class="state-flag">
+                            <i class="fas fa-wheat-alt"></i>
+                        </div>
+                        <h3>Mato Grosso</h3>
+                        <span class="state-badge">🌽 Centro-Oeste</span>
+                    </div>
+                    
+                    <div class="card-stats">
+                        <div class="card-stat">
+                            <span class="stat-label">Salário Médio</span>
+                            <span class="stat-value highlight">R$ 4.950</span>
+                        </div>
+                        <div class="card-stat">
+                            <span class="stat-label">Nota de Corte</span>
+                            <span class="stat-value">720</span>
+                        </div>
+                        <div class="card-stat">
+                            <span class="stat-label">Qualidade</span>
+                            <span class="stat-value">7.8/10</span>
+                        </div>
+                    </div>
+
+                    <div class="card-features">
+                        <div class="feature-item">
+                            <i class="fas fa-star" style="color: #FF9800;"></i>
+                            <span>Maiores salários do país</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-star" style="color: #FF9800;"></i>
+                            <span>Mercado em expansão</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-star" style="color: #FF9800;"></i>
+                            <span>Tecnologia de ponta</span>
+                        </div>
+                    </div>
+
+                    <button class="card-btn mato-grosso-btn" onclick="askIA('matogrosso')">
+                        <i class="fas fa-robot"></i> Perguntar à IA sobre MT
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção da IA -->
+    <section class="ia-section" id="ia">
+        <div class="container">
+            <div class="ia-header">
+                <div class="ia-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h2>Assistente Virtual <span class="gradient-text">AgriConnect IA</span></h2>
+                <p>Especialista em salários, carreiras e oportunidades no agronegócio</p>
+                <a href="https://wa.me/55999206543" target="_blank" class="ia-whatsapp-badge">
+                    <i class="fab fa-whatsapp"></i> Fale também no WhatsApp: (99) 92065-4321
+                </a>
+            </div>
+
+            <div class="ia-container">
+                <!-- Chat Area -->
+                <div class="chat-container" id="chatContainer">
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message ia-message">
+                            <div class="message-avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="message-content">
+                                <p>Olá! Sou a IA da AgriConnect. Posso ajudar com informações sobre:</p>
+                                <ul>
+                                    <li>💰 Salários médios no Paraná e Mato Grosso</li>
+                                    <li>📊 Notas de corte para cursos agrícolas</li>
+                                    <li>🌱 Qualidade de vida e condições de trabalho</li>
+                                    <li>🎯 Qual estado é melhor para seu perfil</li>
+                                </ul>
+                                <p><strong>Como posso ajudar você hoje?</strong></p>
+                                <p class="whatsapp-alternative">📱 Prefere WhatsApp? <a href="https://wa.me/55999206543" target="_blank">Clique aqui (99) 92065-4321</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-input-area">
+                        <div class="suggested-questions">
+                            <button class="suggested-btn" onclick="askQuestion('Qual o salário médio no Paraná?')">💰 Salário PR</button>
+                            <button class="suggested-btn" onclick="askQuestion('Qual a nota de corte em MT?')">📝 Nota MT</button>
+                            <button class="suggested-btn" onclick="askQuestion('Onde é menos sofrido trabalhar?')">🌿 Qualidade</button>
+                            <button class="suggested-btn" onclick="askQuestion('Qual estado devo escolher?')">🤔 Recomendação</button>
+                        </div>
+                        <div class="input-wrapper">
+                            <input type="text" id="userInput" placeholder="Digite sua pergunta sobre agricultura..." onkeypress="handleKeyPress(event)">
+                            <button onclick="sendMessage()" id="sendButton">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Enviar</span>
+                            </button>
+                        </div>
+                        <p class="ia-disclaimer">A IA responde com base em dados atualizados do CAGED, IBGE e sindicatos rurais 2024</p>
+                    </div>
+                </div>
+
+                <!-- Quick Info Panel -->
+                <div class="quick-info-panel">
+                    <h4><i class="fas fa-bolt"></i> Perguntas Frequentes</h4>
+                    <div class="faq-list">
+                        <div class="faq-item" onclick="askQuestion('Qual o melhor estado para começar na agricultura?')">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Melhor estado para iniciar?</span>
+                        </div>
+                        <div class="faq-item" onclick="askQuestion('Quanto ganha um agricultor iniciante no Paraná?')">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Salário iniciante PR?</span>
+                        </div>
+                        <div class="faq-item" onclick="askQuestion('Precisa de curso para trabalhar na agricultura?')">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Precisa de curso?</span>
+                        </div>
+                        <div class="faq-item" onclick="askQuestion('Qual estado tem mais vagas?')">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Onde tem mais vagas?</span>
+                        </div>
+                    </div>
+
+                    <div class="ia-stats">
+                        <div class="ia-stat">
+                            <i class="fas fa-database"></i>
+                            <div>
+                                <strong>10k+</strong>
+                                <span>dados processados</span>
+                            </div>
+                        </div>
+                        <div class="ia-stat">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <strong>5k+</strong>
+                                <span>consultas realizadas</span>
+                            </div>
+                        </div>
+                        <div class="ia-stat whatsapp-stat">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <strong>(99) 92065-4321</strong>
+                                <span>WhatsApp 24h</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/55999206543" target="_blank" class="whatsapp-panel-btn">
+                        <i class="fab fa-whatsapp"></i>
+                        Chamar no WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>🤖 Tire todas suas dúvidas com nossa IA</h2>
+                <p>Respostas instantâneas sobre salários, carreiras e oportunidades</p>
+                <div class="cta-buttons">
+                    <button class="btn-primary" onclick="openChat()">
+                        <i class="fas fa-comment-dots"></i> Conversar com IA
+                    </button>
+                    <a href="https://wa.me/55999206543" target="_blank" class="btn-whatsapp-cta">
+                        <i class="fab fa-whatsapp"></i> WhatsApp (99) 92065-4321
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contato">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>📱 Fale Conosco</h2>
+                    <p>Estamos disponíveis 24 horas por dia, 7 dias por semana</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <h4>WhatsApp</h4>
+                                <a href="https://wa.me/55999206543" target="_blank">(99) 92065-4321</a>
+                                <span>⏰ Atendimento 24h</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>E-mail</h4>
+                                <a href="mailto:contato@agriconnect.com.br">contato@agriconnect.com.br</a>
+                                <span>📧 Respondemos em até 2h</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <i class="fas fa-robot"></i>
+                            <div>
+                                <h4>Assistente IA</h4>
+                                <span>Disponível 24/7 no chat acima</span>
+                                <button class="btn-small" onclick="openChat()">Abrir Chat</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 
-                <div class="salary-info">
-                    <div class="salary-item">
-                        <span class="salary-label">Salário Médio:</span>
-                        <span class="salary-value">R$ 3.850,00</span>
+                <div class="contact-qr">
+                    <div class="qr-code">
+                        <i class="fab fa-whatsapp" style="font-size: 80px; color: #25D366;"></i>
+                        <h3>WhatsApp</h3>
+                        <p class="qr-number">(46) 999206543</p>
+                        <p>Clique no ícone flutuante<br>ou escaneie o código</p>
+                        <a href="https://wa.me/55999206543" target="_blank" class="qr-button">
+                            <i class="fab fa-whatsapp"></i> Iniciar conversa
+                        </a>
                     </div>
-                    <div class="salary-item">
-                        <span class="salary-label">Salário Inicial:</span>
-                        <span class="salary-value">R$ 2.200,00</span>
-                    </div>
-                    <div class="salary-item">
-                        <span class="salary-label">Salário Sênior:</span>
-                        <span class="salary-value">R$ 6.500,00</span>
-                    </div>
-                </div>
-
-                <div class="cutoff-score">
-                    <div class="score-display">650</div>
-                    <div class="score-label">Nota de Corte Média</div>
-                </div>
-
-                <div class="quality-item">
-                    <div class="quality-icon">⭐</div>
-                    <div class="quality-title">Qualidade de Vida</div>
-                    <div class="quality-text">Clima ameno, infraestrutura desenvolvida, boa educação</div>
-                </div>
-
-                <div style="text-align: center; margin-top: 20px;">
-                    <span class="best-salary-badge">👍 Mais equilibrado</span>
-                </div>
-            </div>
-
-            <!-- Mato Grosso -->
-            <div class="state-card mato-grosso">
-                <div class="state-icon">🌽</div>
-                <h2>Mato Grosso</h2>
-                
-                <div class="salary-info">
-                    <div class="salary-item">
-                        <span class="salary-label">Salário Médio:</span>
-                        <span class="salary-value">R$ 4.950,00</span>
-                    </div>
-                    <div class="salary-item">
-                        <span class="salary-label">Salário Inicial:</span>
-                        <span class="salary-value">R$ 2.800,00</span>
-                    </div>
-                    <div class="salary-item">
-                        <span class="salary-label">Salário Sênior:</span>
-                        <span class="salary-value">R$ 8.200,00</span>
-                    </div>
-                </div>
-
-                <div class="cutoff-score">
-                    <div class="score-display">720</div>
-                    <div class="score-label">Nota de Corte Média</div>
-                </div>
-
-                <div class="quality-item">
-                    <div class="quality-icon">💰</div>
-                    <div class="quality-title">Potencial Financeiro</div>
-                    <div class="quality-text">Maiores salários, forte crescimento do agronegócio</div>
-                </div>
-
-                <div style="text-align: center; margin-top: 20px;">
-                    <span class="best-salary-badge">🏆 Melhor salário</span>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Seção de Qualidade de Vida -->
-        <div class="quality-section fade-in">
-            <h2 style="text-align: center; margin-bottom: 30px; color: #2c3e50;">🌻 Qualidade de Vida na Agricultura</h2>
-            
-            <div class="quality-grid">
-                <div class="quality-item">
-                    <div class="quality-icon">⚖️</div>
-                    <div class="quality-title">Equilíbrio Trabalho-Vida</div>
-                    <div class="quality-text">Paraná oferece melhor equilíbrio com jornadas mais organizadas</div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <div class="footer-logo">
+                        <i class="fas fa-robot"></i>
+                        <span>Agri<span>Connect IA</span></span>
+                    </div>
+                    <p>Inteligência artificial especializada em agronegócio.</p>
+                    <div class="footer-whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/55999206543" target="_blank">(99) 92065-4321</a>
+                    </div>
                 </div>
-
-                <div class="quality-item">
-                    <div class="quality-icon">📈</div>
-                    <div class="quality-title">Oportunidades</div>
-                    <div class="quality-text">Mato Grosso tem maior demanda e crescimento rápido</div>
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#comparacao">Comparação</a></li>
+                        <li><a href="#ia">Assistente IA</a></li>
+                        <li><a href="#contato">Contato WhatsApp</a></li>
+                    </ul>
                 </div>
-
-                <div class="quality-item">
-                    <div class="quality-icon">🏥</div>
-                    <div class="quality-title">Infraestrutura</div>
-                    <div class="quality-text">Paraná tem melhor estrutura urbana e serviços</div>
+                <div class="footer-contact">
+                    <h4>Atendimento</h4>
+                    <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/55999206543" target="_blank">(99) 92065-4321</a></p>
+                    <p><i class="fas fa-clock"></i> 24 horas por dia</p>
+                    <p><i class="fas fa-robot"></i> IA sempre disponível</p>
                 </div>
-
-                <div class="quality-item">
-                    <div class="quality-icon">🌤️</div>
-                    <div class="quality-title">Clima</div>
-                    <div class="quality-text">Paraná: clima ameno | Mato Grosso: tropical com estações definidas</div>
-                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 AgriConnect IA - Dados em tempo real do agronegócio brasileiro</p>
+                <p>📱 WhatsApp 24h: <a href="https://wa.me/55999206543" target="_blank">(99) 92065-4321</a></p>
             </div>
         </div>
+    </footer>
 
-        <!-- Estatísticas -->
-        <div class="stats-container fade-in">
-            <div class="stat-box">
-                <div class="stat-number">+45%</div>
-                <div class="stat-label">Crescimento do setor (5 anos)</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">82%</div>
-                <div class="stat-label">Satisfação profissional</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">15.000+</div>
-                <div class="stat-label">Vagas/ano</div>
-            </div>
-            <div class="stat-box">
-                <div class="stat-number">R$ 4.400</div>
-                <div class="stat-label">Média nacional</div>
-            </div>
-        </div>
-
-        <!-- Análise Comparativa -->
-        <div class="quality-section fade-in analysis-section">
-            <h2 style="text-align: center; margin-bottom: 20px;">🎯 Qual é o melhor estado?</h2>
-            
-            <div class="analysis-grid">
-                <div style="text-align: center;">
-                    <h3 style="color: #FFD700; margin-bottom: 15px;">Paraná</h3>
-                    <p>✔️ Melhor qualidade de vida<br>✔️ Infraestrutura desenvolvida<br>✔️ Menos sofrido<br>✔️ Salário competitivo</p>
-                </div>
-                
-                <div style="text-align: center;">
-                    <h3 style="color: #FFD700; margin-bottom: 15px;">Mato Grosso</h3>
-                    <p>✔️ Maiores salários<br>✔️ Mais oportunidades<br>✔️ Setor em expansão<br>✔️ Potencial de crescimento</p>
-                </div>
-            </div>
-            
-            <div class="recommendation-box">
-                <p style="font-size: 1.2em;">
-                    <strong>Recomendação:</strong> Se busca equilíbrio e qualidade de vida, escolha o Paraná.<br>
-                    Se prioriza maior renda e crescimento rápido, Mato Grosso é a melhor opção.
-                </p>
-            </div>
-        </div>
-
-        <!-- Botões de Ação -->
-        <div style="text-align: center; margin: 40px 0;">
-            <a href="#" class="btn btn-primary">📊 Ver vagas no Paraná</a>
-            <a href="#" class="btn btn-secondary">🌽 Ver vagas no Mato Grosso</a>
-        </div>
-
-        <!-- Footer -->
-        <footer>
-            <p>© 2024 AgriCompare - Informações atualizadas sobre salários na agricultura</p>
-            <p style="font-size: 0.9em; color: #6c757d; margin-top: 10px;">
-                Dados baseados em pesquisa do CAGED, IBGE e sindicatos rurais (2023-2024)
-            </p>
-        </footer>
-    </div>
+    <script src="script.js"></script>
 </body>
 </html>
