@@ -1,150 +1,1143 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agricultura: O Coração do Brasil</title>
+    <title>AgriCompare | Paraná vs Mato Grosso</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Estilos Gerais */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0f1a14;
+            color: #e2f0e5;
             line-height: 1.6;
-            color: #333;
-            background-color: #f4f7f2;
+            overflow-x: hidden;
+            position: relative;
         }
 
-        /* Cabeçalho */
-        header {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 60vh;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
+        /* Background elements */
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc0IiBudW1PY3RhdmVzPSIzIiAvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNmKSIgb3BhY2l0eT0iMC4wNCIgLz48L3N2Zz4=');
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.4;
         }
 
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        .blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.2;
         }
 
-        header p {
-            font-size: 1.2rem;
-            max-width: 600px;
+        .blob-1 {
+            width: 400px;
+            height: 400px;
+            background: #2e7d32;
+            top: -100px;
+            left: -100px;
         }
 
-        /* Seções */
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            background: #1565c0;
+            bottom: -100px;
+            right: -100px;
+        }
+
+        .blob-3 {
+            width: 300px;
+            height: 300px;
+            background: #ff8f00;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
         .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 10;
+            width: 100%;
         }
 
-        .section {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
-        h2 {
-            color: #2d5a27;
-            border-bottom: 2px solid #8eb057;
-            padding-bottom: 10px;
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Header */
+        header {
+            padding: 24px 0;
+            position: sticky;
+            top: 0;
+            background: rgba(15, 26, 20, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            font-size: 32px;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .logo h1 span {
+            color: #81c784;
+            font-weight: 800;
+        }
+
+        .tagline {
+            font-size: 14px;
+            color: #a0b8a8;
+            background: rgba(46, 125, 50, 0.15);
+            padding: 8px 16px;
+            border-radius: 40px;
+            border: 1px solid rgba(129, 199, 132, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            padding: 60px 0;
+            align-items: center;
+        }
+
+        .hero-text h2 {
+            font-size: 52px;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -1px;
             margin-bottom: 20px;
         }
 
-        /* Grid de Serviços/Cultivos */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+        .hero-text h2 span {
+            color: #81c784;
+            position: relative;
+            display: inline-block;
         }
 
-        .card {
-            background: #f9fbf8;
-            padding: 20px;
-            border-left: 5px solid #2d5a27;
+        .hero-text h2 span::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #81c784;
+            border-radius: 4px;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: #a0b8a8;
+            margin-bottom: 32px;
+            max-width: 480px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+
+        .hero-stat-number {
+            display: block;
+            font-size: 36px;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.2;
+        }
+
+        .hero-stat-label {
+            font-size: 14px;
+            color: #a0b8a8;
+        }
+
+        .hero-image {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            height: 400px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(15, 26, 20, 0.6) 0%, rgba(15, 26, 20, 0.2) 100%);
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(46, 125, 50, 0.2);
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #81c784;
+            border: 1px solid rgba(129, 199, 132, 0.2);
+            margin-bottom: 16px;
+        }
+
+        .section-header h2 {
+            font-size: 42px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+        }
+
+        .section-header h2 .vs {
+            color: #ffb74d;
+            font-weight: 800;
+            font-size: 48px;
+            margin: 0 8px;
+        }
+
+        .section-header p {
+            color: #a0b8a8;
+            font-size: 16px;
+        }
+
+        /* Comparison Grid */
+        .comparison-section {
+            margin: 60px 0;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 60px;
+        }
+
+        .state-card {
+            background: rgba(18, 36, 24, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 32px;
+            padding: 28px;
+            transition: all 0.3s ease;
+        }
+
+        .state-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(129, 199, 132, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-badge {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #d0e0d5;
+        }
+
+        .card-header-state {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .state-emoji {
+            font-size: 36px;
+        }
+
+        .card-header-state h3 {
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .parana .card-header-state h3 {
+            color: #66bb6a;
+        }
+
+        .mato-grosso .card-header-state h3 {
+            color: #ffb74d;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.3s;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
+        .state-card:hover .card-image img {
+            transform: scale(1.05);
         }
 
-        /* Rodapé */
-        footer {
-            background-color: #2d5a27;
+        .salary-highlight {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 24px;
+            border-left: 4px solid;
+        }
+
+        .parana .salary-highlight {
+            border-left-color: #66bb6a;
+        }
+
+        .mato-grosso .salary-highlight {
+            border-left-color: #ffb74d;
+        }
+
+        .salary-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+
+        .salary-label {
+            font-size: 14px;
+            color: #a0b8a8;
+        }
+
+        .salary-value {
+            font-size: 40px;
+            font-weight: 800;
+        }
+
+        .salary-range {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: #a0b8a8;
+        }
+
+        .score-container {
+            margin-bottom: 24px;
+        }
+
+        .score-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .score-title {
+            width: 120px;
+            font-size: 14px;
+            color: #d0e0d5;
+        }
+
+        .score-bar {
+            flex: 1;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .score-fill {
+            height: 100%;
+            border-radius: 8px;
+        }
+
+        .parana .score-fill {
+            background: linear-gradient(90deg, #66bb6a, #81c784);
+        }
+
+        .mato-grosso .score-fill {
+            background: linear-gradient(90deg, #ffb74d, #ffa726);
+        }
+
+        .score-value {
+            font-size: 14px;
+            font-weight: 600;
+            min-width: 45px;
+            text-align: right;
+        }
+
+        .card-footer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 13px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* IA Assistant */
+        .ia-section {
+            position: relative;
+            margin: 80px 0;
+        }
+
+        .ia-backdrop {
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            right: -50px;
+            bottom: -50px;
+            background: radial-gradient(circle at 30% 50%, rgba(46, 125, 50, 0.2), transparent 70%);
+            z-index: -1;
+        }
+
+        .ia-content {
+            background: rgba(15, 26, 20, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(129, 199, 132, 0.3);
+            border-radius: 40px;
+            padding: 32px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .ia-header {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .ia-avatar {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #2e7d32, #1e5a22);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            border: 2px solid #81c784;
+        }
+
+        .ia-title h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .ia-title p {
+            color: #a0b8a8;
+            font-size: 14px;
+        }
+
+        .ia-chat {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 24px;
+            padding: 20px;
+            margin-bottom: 20px;
+            min-height: 200px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .message {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .message.bot .message-content {
+            background: #1a3a1a;
+            color: #e2f0e5;
+            padding: 14px 18px;
+            border-radius: 20px 20px 20px 4px;
+            max-width: 85%;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message.user .message-content {
+            background: #2e7d32;
             color: white;
+            padding: 14px 18px;
+            border-radius: 20px 20px 4px 20px;
+            max-width: 85%;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .typing-indicator {
+            display: none;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+        }
+
+        .typing-indicator span {
+            height: 8px;
+            width: 8px;
+            background: #81c784;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+            animation: typing 1s infinite;
+        }
+
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: 0.4;
+            }
+            30% {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+        }
+
+        .ia-input-container {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .ia-input-container input {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 40px;
+            padding: 16px 20px;
+            font-size: 16px;
+            color: #e2f0e5;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .ia-input-container input:focus {
+            border-color: #81c784;
+            box-shadow: 0 0 0 2px rgba(129, 199, 132, 0.2);
+        }
+
+        .ia-input-container input::placeholder {
+            color: #6b8a73;
+        }
+
+        .ia-send-btn {
+            width: 56px;
+            height: 56px;
+            background: #2e7d32;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 20px;
+        }
+
+        .ia-send-btn:hover {
+            background: #1e5a22;
+            transform: scale(1.05);
+        }
+
+        .ia-suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .suggestion-chip {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 40px;
+            padding: 10px 18px;
+            font-size: 14px;
+            color: #a0b8a8;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .suggestion-chip:hover {
+            background: rgba(46, 125, 50, 0.3);
+            border-color: #81c784;
+            color: #e2f0e5;
+            transform: translateY(-2px);
+        }
+
+        /* Comments Section */
+        .comments-section {
+            margin: 60px 0;
+        }
+
+        .comment-form-container {
+            background: rgba(18, 36, 24, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 32px;
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+
+        .comment-form-container h4 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .rating-stars span {
+            font-size: 32px;
+            color: #4a4a4a;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .rating-stars span.active,
+        .rating-stars span:hover {
+            color: #ffb74d;
+        }
+
+        .rating-feedback {
+            display: block;
+            font-size: 14px;
+            color: #a0b8a8;
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            margin-bottom: 16px;
+        }
+
+        .form-row input,
+        .form-row textarea {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 14px 18px;
+            font-size: 15px;
+            color: #e2f0e5;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .form-row textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-row input:focus,
+        .form-row textarea:focus {
+            border-color: #81c784;
+        }
+
+        .send-btn {
+            background: #2e7d32;
+            border: none;
+            border-radius: 40px;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .send-btn:hover {
+            background: #1e5a22;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+        }
+
+        .comments-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .comment-card {
+            background: rgba(18, 36, 24, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 24px;
+            transition: all 0.2s;
+        }
+
+        .comment-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(129, 199, 132, 0.2);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .commenter-name {
+            font-weight: 700;
+            font-size: 16px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .commenter-role {
+            font-size: 12px;
+            color: #a0b8a8;
+            display: block;
+        }
+
+        .comment-rating {
+            color: #ffb74d;
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+
+        .comment-text {
+            font-size: 14px;
+            color: #d0e0d5;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .comment-date {
+            font-size: 12px;
+            color: #6b8a73;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            margin: 60px 0;
+        }
+
+        .cta-content {
+            background: linear-gradient(135deg, #1a3a1a, #0e2a0e);
+            border-radius: 48px;
+            padding: 64px 32px;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 40px;
+            border: 1px solid rgba(129, 199, 132, 0.3);
+        }
+
+        .cta-content h2 {
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+
+        .cta-content p {
+            font-size: 18px;
+            color: #a0b8a8;
+            margin-bottom: 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 40px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: #2e7d32;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1e5a22;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(46, 125, 50, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #e2f0e5;
+            border: 2px solid #81c784;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(129, 199, 132, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 80px;
+            padding: 40px 0 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .footer-logo {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .footer-info p {
+            font-size: 14px;
+            color: #6b8a73;
+            max-width: 320px;
+            margin-top: 8px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #a0b8a8;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #81c784;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            font-size: 13px;
+            color: #4a6b52;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
         }
 
         /* Responsividade */
-        @media (max-width: 600px) {
-            header h1 { font-size: 2rem; }
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-text p {
+                margin: 0 auto 32px;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+            .hero-image {
+                max-width: 600px;
+                margin: 0 auto;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            .comments-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-header h2 {
+                font-size: 32px;
+            }
+            .hero-text h2 {
+                font-size: 36px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            .hero-stats {
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;
+            }
         }
     </style>
 </head>
 <body>
-
-    <header>
-        <h1>Orgulho de ser Agricultor</h1>
-        <p>Cultivando o futuro com dedicação, tecnologia e respeito à terra.</p>
-    </header>
-
+    <div class="noise"></div>
+    
+    <!-- Background elements -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    
     <div class="container">
-        
-        <section class="section">
-            <h2>Sobre a Profissão</h2>
-            <p>Ser agricultor é mais do que um trabalho; é uma missão. É entender os ciclos da natureza, lidar com o solo e garantir que o alimento chegue à mesa de milhões de pessoas. Do plantio à colheita, cada etapa exige paciência e conhecimento técnico.</p>
+        <!-- Header -->
+        <header class="fade-in">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-icon">🌱</span>
+                    <h1>Agri<span>Compare</span></h1>
+                </div>
+                <p class="tagline">Paraná vs Mato Grosso • Análise completa do agronegócio</p>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero fade-in">
+            <div class="hero-text">
+                <h2>Onde sua carreira no agro <span>cresce mais?</span></h2>
+                <p>Compare salários, qualidade de vida e oportunidades nos dois maiores polos do agronegócio brasileiro.</p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">+45%</span>
+                        <span class="hero-stat-label">crescimento em 5 anos</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">15k+</span>
+                        <span class="hero-stat-label">vagas/ano</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">R$4.400</span>
+                        <span class="hero-stat-label">média nacional</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=2070&auto=format&fit=crop" alt="Trator na fazenda">
+                <div class="image-overlay"></div>
+            </div>
         </section>
 
-        <section class="section">
-            <h2>Minhas Especialidades</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Plantio Sustentável</h3>
-                    <p>Uso de técnicas que preservam os nutrientes do solo e garantem colheitas saudáveis a longo prazo.</p>
+        <!-- Cards de comparação -->
+        <section class="comparison-section fade-in">
+            <div class="section-header">
+                <span class="section-tag">Comparação direta</span>
+                <h2>Paraná <span class="vs">vs</span> Mato Grosso</h2>
+                <p>Dados atualizados 2023-2024 • CAGED • IBGE • Sindicatos rurais</p>
+            </div>
+
+            <div class="comparison-grid">
+                <!-- Paraná Card -->
+                <div class="state-card parana">
+                    <div class="card-badge">🌲 Sul do Brasil</div>
+                    <div class="card-header-state">
+                        <span class="state-emoji">🌲</span>
+                        <h3>Paraná</h3>
+                    </div>
+                    
+                    <div class="card-image">
+                        <img src="https://www.gov.br/secom/pt-br/assuntos/noticias-regionalizadas/safra-22-23/crescimento-na-producao-de-graos-no-parana-e-estimada-em-34-9-com-ganhos-de-produtividade/230815_secom_estimativasafra-22-23_foto-elzafiuza-agbr.jpg/@@images/e8c6975b-ee25-4a36-90a9-e5869e30d951.jpg" alt="Lavoura no Paraná">
+                    </div>
+
+                    <div class="salary-highlight">
+                        <div class="salary-main">
+                            <span class="salary-label">Salário médio</span>
+                            <span class="salary-value">R$ 3.212</span>
+                        </div>
+                        <div class="salary-range">
+                            <span>Inicial: R$ 2.200</span>
+                            <span>Sênior: R$ 6.500</span>
+                        </div>
+                    </div>
+
+                    <div class="score-container">
+                        <div class="score-item">
+                            <span class="score-title">Qualidade de vida</span>
+                            <div class="score-bar">
+                                <div class="score-fill" style="width: 85%"></div>
+                            </div>
+                            <span class="score-value">8.5/10</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-title">Infraestrutura</span>
+                            <div class="score-bar">
+                                <div class="score-fill" style="width: 90%"></div>
+                            </div>
+                            <span class="score-value">9.0/10</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-title">Oportunidades</span>
+                            <div class="score-bar">
+                                <div class="score-fill" style="width: 75%"></div>
+                            </div>
+                            <span class="score-value">7.5/10</span>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <span class="tag">Clima ameno</span>
+                        <span class="tag">Educação</span>
+                        <span class="tag">Infraestrutura</span>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3>Gestão de Cultivos</h3>
-                    <p>Monitoramento constante contra pragas e otimização do uso de recursos hídricos.</p>
-                </div>
-                <div class="card">
-                    <h3>Tecnologia no Campo</h3>
-                    <p>Aplicação de maquinário moderno e monitoramento digital para aumentar a produtividade.</p>
+
+                <!-- Mato Grosso Card -->
+                <div class="state-card mato-grosso">
+                    <div class="card-badge">🌽 Centro-Oeste</div>
+                    <div class="card-header-state">
+                        <span class="state-emoji">🌽</span>
+                        <h3>Mato Grosso</h3>
+                    </div>
+                    
+                    <div class="card-image">
+                        <img src="https://matogrossoeconomico.com.br/wp-content/uploads/2024/04/SAFRA-COLHEITA-MAPA.jpeg" alt="Colheita no Mato Grosso">
+                    </div>
+
+                    <div class="salary-highlight">
+                        <div class="salary-main">
+                            <span class="salary-label">Salário médio</span>
+                            <span class="salary-value">R$ 7.000</span>
+                        </div>
+                        <div class="salary-range">
+                            <span>Inicial: R$ 2.800</span>
+                            <span>Sênior: R$ 8.200</span>
+                        </div>
+                    </div>
+
+                    <div class="score-container">
+                        <div class="score-item">
+                            <span class="score-title">Qualidade de vida</span>
+                            <div class="score-bar">
+                                <div class="score-fill" style="width: 70%"></div>
+                            </div>
+                            <span class="score-value">7.0/10</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-title">Infraestrutura</span>
+                            <div class="score-bar">
+                                <div class="score-fill" style="width: 65%"></div>
+                            </div>
+                            <span class="score-value">6.5/10</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-title">Oportunidades</span>
+                            <div class="score-bar">
+                                <div class="score-fill" style="width: 95%"></div>
+                            </div>
+                            <span class="score-value">9.5/10</span>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <span class="tag">Altos salários</span>
+                        <span class="tag">Expansão</span>
+                        <span class="tag">Mercado aquecido</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="section">
-            <h2>Contato</h2>
-            <p>Interessado em saber mais sobre os produtos ou trocar experiências sobre o agronegócio? Entre em contato!</p>
-            <p style="margin-top: 15px;"><strong>Email:</strong> contato@meusitio.com.br</p>
-            <p><strong>Localização:</strong> Interior de São Paulo / Brasil</p>
-        </section>
-
-    </div>
-
-    <footer>
-        <p>&copy; 2026 - Profissão Agricultor | Feito com dedicação.</p>
-    </footer>
-
-</body>
-</html>
+        <!-- IA Assistant Section -->
+        <section class="ia-section fade-in">
+            <div class="ia-backdrop"></div>
+            <div class="ia-content">
+                <div class="ia
