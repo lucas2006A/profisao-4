@@ -54,6 +54,25 @@ body {
     color: var(--foreground);
     line-height: 1.6;
     position: relative;
+    animation: changeBackground 15s infinite;
+}
+
+@keyframes changeBackground {
+    0% {
+        background-image: url('trator-bg.jpg');
+    }
+    25% {
+        background-image: url('trator-bg-2.jpg');
+    }
+    50% {
+        background-image: url('trator-bg-3.jpg');
+    }
+    75% {
+        background-image: url('trator-bg-4.jpg');
+    }
+    100% {
+        background-image: url('trator-bg.jpg');
+    }
 }
 
 body::before {
