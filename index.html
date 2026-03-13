@@ -3,285 +3,289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgriConnect IA | Salários na Agricultura</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <title>Mato Grosso vs Paraná - Comparativo dos Estados</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/5546999453676?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20salários%20na%20agricultura" 
-       class="whatsapp-float" 
-       target="_blank">
-        <i class="fab fa-whatsapp"></i>
-        <span class="whatsapp-tooltip">Fale conosco!</span>
-    </a>
-
-    <!-- Header com navegação -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <i class="fas fa-robot"></i>
-                <span>Agri<span class="highlight">Connect</span> <span class="ia-badge">IA</span></span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#inicio" class="active">Início</a></li>
-                <li><a href="#comparacao">Comparação</a></li>
-                <li><a href="#salarios">Salários</a></li>
-                <li><a href="#ia">Assistente IA</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-            <div class="nav-buttons">
-                <a href="https://wa.me/5546999453676" target="_blank" class="btn-whatsapp-nav">
-                    <i class="fab fa-whatsapp"></i> (46) 99945-3676
-                </a>
-                <button class="btn-outline" onclick="openChat()"><i class="fas fa-comment-dots"></i> Falar com IA</button>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="logo-mt">MT</span>
+                    <span class="logo-vs">vs</span>
+                    <span class="logo-pr">PR</span>
+                </div>
+                <nav class="nav">
+                    <button class="nav-link active" data-tab="overview">Visão Geral</button>
+                    <button class="nav-link" data-tab="economy">Economia</button>
+                    <button class="nav-link" data-tab="geography">Geografia</button>
+                    <button class="nav-link" data-tab="agriculture">Agricultura</button>
+                    <button class="nav-link" data-tab="chat">💬 IA</button>
+                </nav>
             </div>
         </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="inicio">
-        <div class="hero-video-bg"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <span class="hero-badge">🤖 Assistente IA 24/7 | 📱 WhatsApp (46) 99945-3676</span>
-            <h1 class="hero-title">Agricultura <span class="gradient-text">Inteligente</span></h1>
-            <p class="hero-subtitle">Descubra salários, notas de corte e qualidade de vida com nossa IA especializada</p>
-            <div class="hero-stats">
-                <div class="hero-stat-item">
-                    <span class="hero-stat-number">+45%</span>
-                    <span class="hero-stat-label">Crescimento</span>
-                </div>
-                <div class="hero-stat-item">
-                    <span class="hero-stat-number">15k+</span>
-                    <span class="hero-stat-label">Vagas/ano</span>
-                </div>
-                <div class="hero-stat-item">
-                    <span class="hero-stat-number">24/7</span>
-                    <span class="hero-stat-label">Suporte IA</span>
-                </div>
-            </div>
-            <div class="hero-buttons">
-                <button class="btn-primary" onclick="openChat()"><i class="fas fa-comment-dots"></i> Perguntar à IA</button>
-                <a href="https://wa.me/5546999453676" target="_blank" class="btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-            </div>
-        </div>
-        <div class="hero-scroll">
-            <span>Role para ver mais</span>
-            <i class="fas fa-chevron-down"></i>
+    <section class="hero">
+        <div class="container">
+            <h1>Mato Grosso <span class="vs-text">vs</span> Paraná</h1>
+            <p>Explore uma comparação detalhada entre dois dos estados mais importantes do Brasil</p>
+            <button class="btn btn-primary" onclick="scrollToChat()">Converse com IA sobre os estados</button>
         </div>
     </section>
 
-    <!-- Cards de comparação -->
-    <section class="comparison-section" id="comparacao">
+    <!-- Tabs Content -->
+    <section class="tabs-section">
         <div class="container">
-            <div class="section-header">
-                <span class="section-tag">📊 Comparativo</span>
-                <h2>Paraná <span class="gradient-text">vs</span> Mato Grosso</h2>
-                <p>Análise detalhada com dados atualizados pela IA</p>
+            <!-- Overview Tab -->
+            <div class="tab-content active" id="overview">
+                <div class="comparison-grid">
+                    <!-- Mato Grosso Card -->
+                    <div class="state-card mt-card">
+                        <div class="card-header">
+                            <h2>Mato Grosso</h2>
+                            <div class="color-indicators">
+                                <div class="color-box mt-primary"></div>
+                                <div class="color-box mt-secondary"></div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="stat">
+                                <span class="stat-label">População</span>
+                                <span class="stat-value">~3,6 milhões</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Área</span>
+                                <span class="stat-value">903.357 km²</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">PIB</span>
+                                <span class="stat-value">R$ 273 bilhões</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Posição no Brasil</span>
+                                <span class="stat-value">2º maior PIB</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Paraná Card -->
+                    <div class="state-card pr-card">
+                        <div class="card-header">
+                            <h2>Paraná</h2>
+                            <div class="color-indicators">
+                                <div class="color-box pr-primary"></div>
+                                <div class="color-box pr-secondary"></div>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <div class="stat">
+                                <span class="stat-label">População</span>
+                                <span class="stat-value">~11,4 milhões</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Área</span>
+                                <span class="stat-value">199.307 km²</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">PIB</span>
+                                <span class="stat-value">R$ 718,9 bilhões</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Posição no Brasil</span>
+                                <span class="stat-value">5º maior PIB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="comparison-grid">
-                <!-- Paraná Card -->
-                <div class="state-card parana">
-                    <div class="card-header">
-                        <div class="state-flag">
-                            <i class="fas fa-tree"></i>
-                        </div>
-                        <h3>Paraná</h3>
-                        <span class="state-badge">🌳 Sul do Brasil</span>
-                    </div>
-                    
-                    <div class="card-stats">
-                        <div class="card-stat">
-                            <span class="stat-label">Salário Médio</span>
-                            <span class="stat-value highlight">R$ 3.850</span>
-                        </div>
-                        <div class="card-stat">
-                            <span class="stat-label">Nota de Corte</span>
-                            <span class="stat-value">650</span>
-                        </div>
-                        <div class="card-stat">
-                            <span class="stat-label">Qualidade</span>
-                            <span class="stat-value">8.5/10</span>
-                        </div>
-                    </div>
-
-                    <div class="card-features">
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle" style="color: #4CAF50;"></i>
-                            <span>Melhor qualidade de vida</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle" style="color: #4CAF50;"></i>
-                            <span>Infraestrutura desenvolvida</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-check-circle" style="color: #4CAF50;"></i>
-                            <span>Clima ameno</span>
-                        </div>
+            <!-- Economy Tab -->
+            <div class="tab-content" id="economy">
+                <div class="comparison-grid">
+                    <div class="state-card mt-card">
+                        <h3>Economia de Mato Grosso</h3>
+                        <ul class="info-list">
+                            <li>
+                                <strong>PIB: R$ 273 bilhões</strong>
+                                <p>2º maior do Brasil</p>
+                            </li>
+                            <li>
+                                <strong>Crescimento: 4,1% em 2025</strong>
+                                <p>2º maior crescimento esperado</p>
+                            </li>
+                            <li>
+                                <strong>Participação: 2,5% do PIB brasileiro</strong>
+                                <p>Crescimento de 1,3% para 2,5%</p>
+                            </li>
+                            <li>
+                                <strong>Setor dominante: Agropecuária</strong>
+                                <p>Maior produtor agrícola do Brasil</p>
+                            </li>
+                        </ul>
                     </div>
 
-                    <button class="card-btn parana-btn" onclick="askIA('parana')">
-                        <i class="fas fa-robot"></i> Perguntar à IA sobre o Paraná
-                    </button>
+                    <div class="state-card pr-card">
+                        <h3>Economia do Paraná</h3>
+                        <ul class="info-list">
+                            <li>
+                                <strong>PIB: R$ 718,9 bilhões</strong>
+                                <p>5º maior do Brasil</p>
+                            </li>
+                            <li>
+                                <strong>Crescimento: 63% em 6 anos</strong>
+                                <p>Crescimento consistente</p>
+                            </li>
+                            <li>
+                                <strong>Setores: Serviços, Indústria, Agricultura</strong>
+                                <p>Economia diversificada</p>
+                            </li>
+                            <li>
+                                <strong>Exportações: Agronegócio líder</strong>
+                                <p>Soja, carnes e fumo</p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+            </div>
 
-                <!-- Mato Grosso Card -->
-                <div class="state-card mato-grosso featured">
-                    <div class="card-badge">🔥 Melhor Salário</div>
-                    <div class="card-header">
-                        <div class="state-flag">
-                            <i class="fas fa-wheat-alt"></i>
-                        </div>
-                        <h3>Mato Grosso</h3>
-                        <span class="state-badge">🌽 Centro-Oeste</span>
-                    </div>
-                    
-                    <div class="card-stats">
-                        <div class="card-stat">
-                            <span class="stat-label">Salário Médio</span>
-                            <span class="stat-value highlight">R$ 4.950</span>
-                        </div>
-                        <div class="card-stat">
-                            <span class="stat-label">Nota de Corte</span>
-                            <span class="stat-value">720</span>
-                        </div>
-                        <div class="card-stat">
-                            <span class="stat-label">Qualidade</span>
-                            <span class="stat-value">7.8/10</span>
-                        </div>
-                    </div>
-
-                    <div class="card-features">
-                        <div class="feature-item">
-                            <i class="fas fa-star" style="color: #FF9800;"></i>
-                            <span>Maiores salários do país</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-star" style="color: #FF9800;"></i>
-                            <span>Mercado em expansão</span>
-                        </div>
-                        <div class="feature-item">
-                            <i class="fas fa-star" style="color: #FF9800;"></i>
-                            <span>Tecnologia de ponta</span>
-                        </div>
+            <!-- Geography Tab -->
+            <div class="tab-content" id="geography">
+                <div class="comparison-grid">
+                    <div class="state-card mt-card">
+                        <h3>Geografia de Mato Grosso</h3>
+                        <ul class="info-list">
+                            <li>
+                                <strong>Biomas: Amazônia (53,5%), Cerrado, Pantanal</strong>
+                                <p>Biodiversidade excepcional</p>
+                            </li>
+                            <li>
+                                <strong>Clima: Tropical e Subtropical</strong>
+                                <p>Verões entre 33-36°C</p>
+                            </li>
+                            <li>
+                                <strong>Pantanal: Maior planície alagada do mundo</strong>
+                                <p>Ecossistema único</p>
+                            </li>
+                            <li>
+                                <strong>Cerrado: Savana brasileira</strong>
+                                <p>Grande biodiversidade</p>
+                            </li>
+                        </ul>
                     </div>
 
-                    <button class="card-btn mato-grosso-btn" onclick="askIA('matogrosso')">
-                        <i class="fas fa-robot"></i> Perguntar à IA sobre MT
-                    </button>
+                    <div class="state-card pr-card">
+                        <h3>Geografia do Paraná</h3>
+                        <ul class="info-list">
+                            <li>
+                                <strong>Bioma principal: Mata Atlântica</strong>
+                                <p>Uma das mais ricas em biodiversidade</p>
+                            </li>
+                            <li>
+                                <strong>Clima: Subtropical úmido</strong>
+                                <p>Invernos bem definidos</p>
+                            </li>
+                            <li>
+                                <strong>Cataratas do Iguazu</strong>
+                                <p>Patrimônio natural mundial</p>
+                            </li>
+                            <li>
+                                <strong>Densidade demográfica: Alta (~57 hab/km²)</strong>
+                                <p>Área menor, mais populosa</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agriculture Tab -->
+            <div class="tab-content" id="agriculture">
+                <div class="comparison-grid">
+                    <div class="state-card mt-card">
+                        <h3>Agricultura de Mato Grosso</h3>
+                        <ul class="info-list">
+                            <li>
+                                <strong>Maior produtor agrícola do Brasil</strong>
+                                <p>15,4% da produção nacional</p>
+                            </li>
+                            <li>
+                                <strong>Soja: Maior produtor nacional</strong>
+                                <p>Cultivo em larga escala</p>
+                            </li>
+                            <li>
+                                <strong>Milho: Maior produtor nacional</strong>
+                                <p>Safrinha significativa</p>
+                            </li>
+                            <li>
+                                <strong>Algodão, Café e Cana-de-açúcar</strong>
+                                <p>Diversificação agrícola</p>
+                            </li>
+                            <li>
+                                <strong>Produção de grãos: 30,3% nacional</strong>
+                                <p>Liderança absoluta</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="state-card pr-card">
+                        <h3>Agricultura do Paraná</h3>
+                        <ul class="info-list">
+                            <li>
+                                <strong>2º maior produtor de grãos do Brasil</strong>
+                                <p>31,3 bilhões de toneladas</p>
+                            </li>
+                            <li>
+                                <strong>Cana-de-açúcar: 38,59 milhões de toneladas</strong>
+                                <p>Principal cultivo</p>
+                            </li>
+                            <li>
+                                <strong>Soja: 21,55 milhões de toneladas</strong>
+                                <p>Segundo cultivo</p>
+                            </li>
+                            <li>
+                                <strong>Milho, Trigo, Feijão e Café</strong>
+                                <p>Agricultura diversificada</p>
+                            </li>
+                            <li>
+                                <strong>Exportações: Soja, carnes e fumo</strong>
+                                <p>Produtos de alto valor</p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Seção da IA -->
-    <section class="ia-section" id="ia">
+    <!-- Gallery Section -->
+    <section class="gallery-section">
         <div class="container">
-            <div class="ia-header">
-                <div class="ia-avatar">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <h2>Assistente Virtual <span class="gradient-text">AgriConnect IA</span></h2>
-                <p>Especialista em salários, carreiras e oportunidades no agronegócio</p>
-                <a href="https://wa.me/5546999453676" target="_blank" class="ia-whatsapp-badge">
-                    <i class="fab fa-whatsapp"></i> Fale também no WhatsApp: (46) 99945-3676
-                </a>
-            </div>
-
-            <div class="ia-container">
-                <!-- Chat Area -->
-                <div class="chat-container" id="chatContainer">
-                    <div class="chat-messages" id="chatMessages">
-                        <div class="message ia-message">
-                            <div class="message-avatar">
-                                <i class="fas fa-robot"></i>
-                            </div>
-                            <div class="message-content">
-                                <p>Olá! Sou a IA da AgriConnect. Posso ajudar com informações sobre:</p>
-                                <ul>
-                                    <li>💰 Salários médios no Paraná e Mato Grosso</li>
-                                    <li>📊 Notas de corte para cursos agrícolas</li>
-                                    <li>🌱 Qualidade de vida e condições de trabalho</li>
-                                    <li>🎯 Qual estado é melhor para seu perfil</li>
-                                </ul>
-                                <p><strong>Como posso ajudar você hoje?</strong></p>
-                                <p class="whatsapp-alternative">📱 Prefere WhatsApp? <a href="https://wa.me/5546999453676" target="_blank">Clique aqui (46) 99945-3676</a></p>
-                            </div>
-                        </div>
+            <h2>Paisagens e Características</h2>
+            <div class="gallery-grid">
+                <div class="gallery-column">
+                    <h3>Mato Grosso</h3>
+                    <div class="gallery-item">
+                        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663164954299/LLUuhsEDfehxWUxkBuxA4Y/TZGhAGYdrzgx_202fd460.jpg" alt="Pantanal de Mato Grosso">
+                        <p>Pantanal: Maior planície alagada do mundo</p>
                     </div>
-
-                    <div class="chat-input-area">
-                        <div class="suggested-questions">
-                            <button class="suggested-btn" onclick="askQuestion('Qual o salário médio no Paraná?')">💰 Salário PR</button>
-                            <button class="suggested-btn" onclick="askQuestion('Qual a nota de corte em MT?')">📝 Nota MT</button>
-                            <button class="suggested-btn" onclick="askQuestion('Onde é menos sofrido trabalhar?')">🌿 Qualidade</button>
-                            <button class="suggested-btn" onclick="askQuestion('Qual estado devo escolher?')">🤔 Recomendação</button>
-                        </div>
-                        <div class="input-wrapper">
-                            <input type="text" id="userInput" placeholder="Digite sua pergunta sobre agricultura..." onkeypress="handleKeyPress(event)">
-                            <button onclick="sendMessage()" id="sendButton">
-                                <i class="fas fa-paper-plane"></i>
-                                <span>Enviar</span>
-                            </button>
-                        </div>
-                        <p class="ia-disclaimer">A IA responde com base em dados atualizados do CAGED, IBGE e sindicatos rurais 2024</p>
+                    <div class="gallery-item">
+                        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663164954299/LLUuhsEDfehxWUxkBuxA4Y/Mg7OFcyDtDlt_5dde3f57.jpg" alt="Cerrado de Mato Grosso">
+                        <p>Cerrado: Savana brasileira com grande biodiversidade</p>
                     </div>
                 </div>
 
-                <!-- Quick Info Panel -->
-                <div class="quick-info-panel">
-                    <h4><i class="fas fa-bolt"></i> Perguntas Frequentes</h4>
-                    <div class="faq-list">
-                        <div class="faq-item" onclick="askQuestion('Qual o melhor estado para começar na agricultura?')">
-                            <i class="fas fa-question-circle"></i>
-                            <span>Melhor estado para iniciar?</span>
-                        </div>
-                        <div class="faq-item" onclick="askQuestion('Quanto ganha um agricultor iniciante no Paraná?')">
-                            <i class="fas fa-question-circle"></i>
-                            <span>Salário iniciante PR?</span>
-                        </div>
-                        <div class="faq-item" onclick="askQuestion('Precisa de curso para trabalhar na agricultura?')">
-                            <i class="fas fa-question-circle"></i>
-                            <span>Precisa de curso?</span>
-                        </div>
-                        <div class="faq-item" onclick="askQuestion('Qual estado tem mais vagas?')">
-                            <i class="fas fa-question-circle"></i>
-                            <span>Onde tem mais vagas?</span>
-                        </div>
+                <div class="gallery-column">
+                    <h3>Paraná</h3>
+                    <div class="gallery-item">
+                        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663164954299/LLUuhsEDfehxWUxkBuxA4Y/233idpHYh7oy_be5ebf9c.jpg" alt="Cataratas do Iguazu">
+                        <p>Cataratas do Iguazu: Patrimônio natural mundial</p>
                     </div>
-
-                    <div class="ia-stats">
-                        <div class="ia-stat">
-                            <i class="fas fa-database"></i>
-                            <div>
-                                <strong>10k+</strong>
-                                <span>dados processados</span>
-                            </div>
-                        </div>
-                        <div class="ia-stat">
-                            <i class="fas fa-users"></i>
-                            <div>
-                                <strong>5k+</strong>
-                                <span>consultas realizadas</span>
-                            </div>
-                        </div>
-                        <div class="ia-stat whatsapp-stat">
-                            <i class="fab fa-whatsapp"></i>
-                            <div>
-                                <strong>(46) 99945-3676</strong>
-                                <span>WhatsApp 24h</span>
-                            </div>
-                        </div>
+                    <div class="gallery-item">
+                        <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663164954299/LLUuhsEDfehxWUxkBuxA4Y/LjxXuXMa2Lgd_9d49270f.jpg" alt="Mata Atlântica do Paraná">
+                        <p>Mata Atlântica: Uma das mais ricas em biodiversidade</p>
                     </div>
-
-                    <a href="https://wa.me/5546999453676" target="_blank" class="whatsapp-panel-btn">
-                        <i class="fab fa-whatsapp"></i>
-                        Chamar no WhatsApp
-                    </a>
                 </div>
             </div>
         </div>
@@ -290,69 +294,25 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <div class="cta-content">
-                <h2>🤖 Tire todas suas dúvidas com nossa IA</h2>
-                <p>Respostas instantâneas sobre salários, carreiras e oportunidades</p>
-                <div class="cta-buttons">
-                    <button class="btn-primary" onclick="openChat()">
-                        <i class="fas fa-comment-dots"></i> Conversar com IA
-                    </button>
-                    <a href="https://wa.me/5546999453676" target="_blank" class="btn-whatsapp-cta">
-                        <i class="fab fa-whatsapp"></i> WhatsApp (46) 99945-3676
-                    </a>
-                </div>
-            </div>
+            <h2>Tem dúvidas sobre os estados?</h2>
+            <p>Converse com nosso assistente de IA para obter informações detalhadas e respostas personalizadas</p>
+            <button class="btn btn-primary" onclick="scrollToChat()">Abrir Chat com IA</button>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section" id="contato">
+    <!-- Chat Section -->
+    <section class="chat-section" id="chat-section">
         <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h2>📱 Fale Conosco</h2>
-                    <p>Estamos disponíveis 24 horas por dia, 7 dias por semana</p>
-                    
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <i class="fab fa-whatsapp"></i>
-                            <div>
-                                <h4>WhatsApp</h4>
-                                <a href="https://wa.me/5546999453676" target="_blank">(46) 99945-3676</a>
-                                <span>⏰ Atendimento 24h</span>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-method">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h4>E-mail</h4>
-                                <a href="mailto:contato@agriconnect.com.br">contato@agriconnect.com.br</a>
-                                <span>📧 Respondemos em até 2h</span>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-method">
-                            <i class="fas fa-robot"></i>
-                            <div>
-                                <h4>Assistente IA</h4>
-                                <span>Disponível 24/7 no chat acima</span>
-                                <button class="btn-small" onclick="openChat()">Abrir Chat</button>
-                            </div>
-                        </div>
+            <h2>Chat com IA</h2>
+            <div class="chat-container">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message assistant-message">
+                        <p>Olá! Sou um assistente de IA especializado em informações sobre Mato Grosso e Paraná. Você pode fazer perguntas sobre economia, geografia, agricultura, população, ou qualquer outra característica desses estados. Como posso ajudá-lo?</p>
                     </div>
                 </div>
-                
-                <div class="contact-qr">
-                    <div class="qr-code">
-                        <i class="fab fa-whatsapp" style="font-size: 80px; color: #25D366;"></i>
-                        <h3>WhatsApp</h3>
-                        <p class="qr-number">(46) 99945-3676</p>
-                        <p>Clique no ícone flutuante<br>para conversar</p>
-                        <a href="https://wa.me/5546999453676" target="_blank" class="qr-button">
-                            <i class="fab fa-whatsapp"></i> Iniciar conversa
-                        </a>
-                    </div>
+                <div class="chat-input-area">
+                    <input type="text" id="chatInput" class="chat-input" placeholder="Faça uma pergunta sobre Mato Grosso ou Paraná...">
+                    <button class="btn btn-send" onclick="sendMessage()">Enviar</button>
                 </div>
             </div>
         </div>
@@ -361,38 +321,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-info">
-                    <div class="footer-logo">
-                        <i class="fas fa-robot"></i>
-                        <span>Agri<span>Connect IA</span></span>
-                    </div>
-                    <p>Inteligência artificial especializada em agronegócio.</p>
-                    <div class="footer-whatsapp">
-                        <i class="fab fa-whatsapp"></i>
-                        <a href="https://wa.me/5546999453676" target="_blank">(46) 99945-3676</a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h4>Links Rápidos</h4>
-                    <ul>
-                        <li><a href="#inicio">Início</a></li>
-                        <li><a href="#comparacao">Comparação</a></li>
-                        <li><a href="#ia">Assistente IA</a></li>
-                        <li><a href="#contato">Contato WhatsApp</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4>Atendimento</h4>
-                    <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5546999453676" target="_blank">(46) 99945-3676</a></p>
-                    <p><i class="fas fa-clock"></i> 24 horas por dia</p>
-                    <p><i class="fas fa-robot"></i> IA sempre disponível</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2024 AgriConnect IA - Dados em tempo real do agronegócio brasileiro</p>
-                <p>📱 WhatsApp 24h: <a href="https://wa.me/5546999453676" target="_blank">(46) 99945-3676</a></p>
-            </div>
+            <p>© 2026 Mato Grosso vs Paraná. Dados baseados em informações do IBGE, IPARDES e fontes oficiais.</p>
         </div>
     </footer>
 
