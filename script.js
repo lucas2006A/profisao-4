@@ -1,4 +1,5 @@
 // Banco de dados de respostas da IA
+    // Compar
 const iaDatabase = {
     // Salários e informações do Paraná
     'salário paraná': '🌲 No Paraná, o salário médio na agricultura é de R$ 3.850,00. Profissionais iniciantes ganham cerca de R$ 2.200,00, enquanto seniores podem chegar a R$ 6.500,00. O estado oferece excelente equilíbrio entre salário e qualidade de vida!',
