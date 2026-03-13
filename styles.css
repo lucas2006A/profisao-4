@@ -54,7 +54,7 @@ body {
     color: var(--foreground);
     line-height: 1.6;
     position: relative;
-    animation: changeBackground 15s infinite;
+    animation: changeBackground 20s infinite;
 }
 
 @keyframes changeBackground {
