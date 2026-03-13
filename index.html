@@ -1,329 +1,150 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgriCompare | Paraná vs Mato Grosso</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>Agricultura: O Coração do Brasil</title>
+    <style>
+        /* Estilos Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f2;
+        }
+
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+        }
+
+        /* Seções */
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #2d5a27;
+            border-bottom: 2px solid #8eb057;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Grid de Serviços/Cultivos */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #f9fbf8;
+            padding: 20px;
+            border-left: 5px solid #2d5a27;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #2d5a27;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+        }
+    </style>
 </head>
 <body>
-    <div class="noise"></div>
-    
-    <!-- Background elements -->
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-    
+
+    <header>
+        <h1>Orgulho de ser Agricultor</h1>
+        <p>Cultivando o futuro com dedicação, tecnologia e respeito à terra.</p>
+    </header>
+
     <div class="container">
-        <!-- Header -->
-        <header class="fade-in">
-            <div class="header-content">
-                <div class="logo">
-                    <span class="logo-icon">🌱</span>
-                    <h1>Agri<span>Compare</span></h1>
-                </div>
-                <p class="tagline">Paraná vs Mato Grosso • Análise completa do agronegócio</p>
-            </div>
-        </header>
-
-        <!-- Hero Section -->
-        <section class="hero fade-in">
-            <div class="hero-text">
-                <h2>Onde sua carreira no agro <span>cresce mais?</span></h2>
-                <p>Compare salários, qualidade de vida e oportunidades nos dois maiores polos do agronegócio brasileiro.</p>
-                <div class="hero-stats">
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">+45%</span>
-                        <span class="hero-stat-label">crescimento em 5 anos</span>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">15k+</span>
-                        <span class="hero-stat-label">vagas/ano</span>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">R$4.400</span>
-                        <span class="hero-stat-label">média nacional</span>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=2070&auto=format&fit=crop" alt="Trator na fazenda">
-                <div class="image-overlay"></div>
-            </div>
+        
+        <section class="section">
+            <h2>Sobre a Profissão</h2>
+            <p>Ser agricultor é mais do que um trabalho; é uma missão. É entender os ciclos da natureza, lidar com o solo e garantir que o alimento chegue à mesa de milhões de pessoas. Do plantio à colheita, cada etapa exige paciência e conhecimento técnico.</p>
         </section>
 
-        <!-- Cards de comparação -->
-        <section class="comparison-section fade-in">
-            <div class="section-header">
-                <span class="section-tag">Comparação direta</span>
-                <h2>Paraná <span class="vs">vs</span> Mato Grosso</h2>
-                <p>Dados atualizados 2023-2024 • CAGED • IBGE • Sindicatos rurais</p>
-            </div>
-
-            <div class="comparison-grid">
-                <!-- Paraná Card -->
-                <div class="state-card parana">
-                    <div class="card-badge">🌲 Sul do Brasil</div>
-                    <div class="card-header-state">
-                        <span class="state-emoji">🌲</span>
-                        <h3>Paraná</h3>
-                    </div>
-                    
-                    <div class="card-image">
-                        <img src="https://www.gov.br/secom/pt-br/assuntos/noticias-regionalizadas/safra-22-23/crescimento-na-producao-de-graos-no-parana-e-estimada-em-34-9-com-ganhos-de-produtividade/230815_secom_estimativasafra-22-23_foto-elzafiuza-agbr.jpg/@@images/e8c6975b-ee25-4a36-90a9-e5869e30d951.jpg" alt="Lavoura no Paraná">
-                    </div>
-
-                    <div class="salary-highlight">
-                        <div class="salary-main">
-                            <span class="salary-label">Salário médio</span>
-                            <span class="salary-value">R$ 3.212</span>
-                        </div>
-                        <div class="salary-range">
-                            <span>Inicial: R$ 2.200</span>
-                            <span>Sênior: R$ 6.500</span>
-                        </div>
-                    </div>
-
-                    <div class="score-container">
-                        <div class="score-item">
-                            <span class="score-title">Qualidade de vida</span>
-                            <div class="score-bar">
-                                <div class="score-fill" style="width: 85%"></div>
-                            </div>
-                            <span class="score-value">8.5/10</span>
-                        </div>
-                        <div class="score-item">
-                            <span class="score-title">Infraestrutura</span>
-                            <div class="score-bar">
-                                <div class="score-fill" style="width: 90%"></div>
-                            </div>
-                            <span class="score-value">9.0/10</span>
-                        </div>
-                        <div class="score-item">
-                            <span class="score-title">Oportunidades</span>
-                            <div class="score-bar">
-                                <div class="score-fill" style="width: 75%"></div>
-                            </div>
-                            <span class="score-value">7.5/10</span>
-                        </div>
-                    </div>
-
-                    <div class="card-footer">
-                        <span class="tag">Clima ameno</span>
-                        <span class="tag">Educação</span>
-                        <span class="tag">Infraestrutura</span>
-                    </div>
+        <section class="section">
+            <h2>Minhas Especialidades</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Plantio Sustentável</h3>
+                    <p>Uso de técnicas que preservam os nutrientes do solo e garantem colheitas saudáveis a longo prazo.</p>
                 </div>
-
-                <!-- Mato Grosso Card -->
-                <div class="state-card mato-grosso">
-                    <div class="card-badge">🌽 Centro-Oeste</div>
-                    <div class="card-header-state">
-                        <span class="state-emoji">🌽</span>
-                        <h3>Mato Grosso</h3>
-                    </div>
-                    
-                    <div class="card-image">
-                        <img src="https://matogrossoeconomico.com.br/wp-content/uploads/2024/04/SAFRA-COLHEITA-MAPA.jpeg" alt="Colheita no Mato Grosso">
-                    </div>
-
-                    <div class="salary-highlight">
-                        <div class="salary-main">
-                            <span class="salary-label">Salário médio</span>
-                            <span class="salary-value">R$ 7.000</span>
-                        </div>
-                        <div class="salary-range">
-                            <span>Inicial: R$ 2.800</span>
-                            <span>Sênior: R$ 8.200</span>
-                        </div>
-                    </div>
-
-                    <div class="score-container">
-                        <div class="score-item">
-                            <span class="score-title">Qualidade de vida</span>
-                            <div class="score-bar">
-                                <div class="score-fill" style="width: 70%"></div>
-                            </div>
-                            <span class="score-value">7.0/10</span>
-                        </div>
-                        <div class="score-item">
-                            <span class="score-title">Infraestrutura</span>
-                            <div class="score-bar">
-                                <div class="score-fill" style="width: 65%"></div>
-                            </div>
-                            <span class="score-value">6.5/10</span>
-                        </div>
-                        <div class="score-item">
-                            <span class="score-title">Oportunidades</span>
-                            <div class="score-bar">
-                                <div class="score-fill" style="width: 95%"></div>
-                            </div>
-                            <span class="score-value">9.5/10</span>
-                        </div>
-                    </div>
-
-                    <div class="card-footer">
-                        <span class="tag">Altos salários</span>
-                        <span class="tag">Expansão</span>
-                        <span class="tag">Mercado aquecido</span>
-                    </div>
+                <div class="card">
+                    <h3>Gestão de Cultivos</h3>
+                    <p>Monitoramento constante contra pragas e otimização do uso de recursos hídricos.</p>
+                </div>
+                <div class="card">
+                    <h3>Tecnologia no Campo</h3>
+                    <p>Aplicação de maquinário moderno e monitoramento digital para aumentar a produtividade.</p>
                 </div>
             </div>
         </section>
 
-        <!-- IA Assistant Section -->
-        <section class="ia-section fade-in">
-            <div class="ia-backdrop"></div>
-            <div class="ia-content">
-                <div class="ia-header">
-                    <div class="ia-avatar">
-                        <span>🤖</span>
-                    </div>
-                    <div class="ia-title">
-                        <h3>Assistente virtual</h3>
-                        <p>Tire dúvidas sobre carreira no agronegócio</p>
-                    </div>
-                </div>
-
-                <div class="ia-chat" id="iaMessages">
-                    <div class="message bot">
-                        <div class="message-content">
-                            Olá! Sou o assistente do AgriCompare. Posso ajudar com informações sobre salários, qualidade de vida e oportunidades. O que você gostaria de saber?
-                        </div>
-                    </div>
-                </div>
-
-                <div class="ia-input-container">
-                    <input type="text" id="iaInput" placeholder="Digite sua pergunta..." autocomplete="off">
-                    <button class="ia-send-btn" id="iaSendBtn">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </button>
-                </div>
-
-                <div class="ia-suggestions">
-                    <button class="suggestion-chip" onclick="perguntaSugerida('Qual o salário médio no Paraná?')">💰 Salário médio PR</button>
-                    <button class="suggestion-chip" onclick="perguntaSugerida('Qual o salário médio no Mato Grosso?')">🌽 Salário médio MT</button>
-                    <button class="suggestion-chip" onclick="perguntaSugerida('Onde é melhor para viver?')">🏡 Qualidade de vida</button>
-                    <button class="suggestion-chip" onclick="perguntaSugerida('Quais regiões têm mais vagas?')">📊 Oportunidades</button>
-                </div>
-            </div>
+        <section class="section">
+            <h2>Contato</h2>
+            <p>Interessado em saber mais sobre os produtos ou trocar experiências sobre o agronegócio? Entre em contato!</p>
+            <p style="margin-top: 15px;"><strong>Email:</strong> contato@meusitio.com.br</p>
+            <p><strong>Localização:</strong> Interior de São Paulo / Brasil</p>
         </section>
 
-        <!-- Comments Section -->
-        <section class="comments-section fade-in">
-            <div class="section-header">
-                <span class="section-tag">Comunidade</span>
-                <h2>O que estão dizendo</h2>
-                <p>Experiências reais de profissionais do setor</p>
-            </div>
-
-            <!-- Comment Form -->
-            <div class="comment-form-container">
-                <h4>Deixe sua avaliação</h4>
-                <div class="rating-stars" id="starRating">
-                    <span data-value="1">★</span>
-                    <span data-value="2">★</span>
-                    <span data-value="3">★</span>
-                    <span data-value="4">★</span>
-                    <span data-value="5">★</span>
-                </div>
-                <span class="rating-feedback" id="ratingFeedback">Clique nas estrelas para avaliar</span>
-                
-                <div class="form-row">
-                    <input type="text" id="nomeInput" placeholder="Seu nome" value="Visitante">
-                </div>
-                <div class="form-row">
-                    <textarea id="comentarioInput" placeholder="Compartilhe sua experiência..."></textarea>
-                </div>
-                
-                <button class="send-btn" id="enviarComentarioBtn">
-                    <span>Enviar comentário</span>
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Comments List -->
-            <div class="comments-grid">
-                <!-- Comment 1 -->
-                <div class="comment-card">
-                    <div class="comment-header">
-                        <div class="commenter-info">
-                            <span class="commenter-name">João Paulo Silva</span>
-                            <span class="commenter-role">Produtor rural • MT</span>
-                        </div>
-                        <span class="comment-rating">★★★★★</span>
-                    </div>
-                    <p class="comment-text">Excelente comparação! Trabalho no Mato Grosso há 5 anos e os salários realmente são superiores. Mas confesso que a qualidade de vida no Paraná me faz pensar em mudar. Site muito útil!</p>
-                    <span class="comment-date">15 de março, 2024</span>
-                </div>
-
-                <!-- Comment 2 -->
-                <div class="comment-card">
-                    <div class="comment-header">
-                        <div class="commenter-info">
-                            <span class="commenter-name">Maria Aparecida Oliveira</span>
-                            <span class="commenter-role">Engenheira agrônoma • PR</span>
-                        </div>
-                        <span class="comment-rating">★★★★☆</span>
-                    </div>
-                    <p class="comment-text">Sou engenheira agrônoma e estou decidindo entre vagas nos dois estados. Os dados batem com minhas pesquisas. Senti falta de informações sobre custo de vida, mas no geral está ótimo.</p>
-                    <span class="comment-date">10 de março, 2024</span>
-                </div>
-
-                <!-- Comment 3 -->
-                <div class="comment-card">
-                    <div class="comment-header">
-                        <div class="commenter-info">
-                            <span class="commenter-name">Carlos Eduardo Mendes</span>
-                            <span class="commenter-role">Operador de máquinas • MT</span>
-                        </div>
-                        <span class="comment-rating">★★★★★</span>
-                    </div>
-                    <p class="comment-text">Trabalhei no norte do Paraná e agora estou em Sorriso/MT. A comparação é muito precisa: MT paga melhor, PR tem mais infraestrutura. Recomendo o site para quem está pensando em migrar.</p>
-                    <span class="comment-date">5 de março, 2024</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="cta-section fade-in">
-            <div class="cta-content">
-                <h2>Pronto para decidir seu futuro no agro?</h2>
-                <p>Explore vagas disponíveis nos dois estados</p>
-                <div class="cta-buttons">
-                    <a href="#" class="btn btn-primary">🇵🇷 Vagas no Paraná</a>
-                    <a href="#" class="btn btn-secondary">🇲🇹 Vagas no Mato Grosso</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer>
-            <div class="footer-content">
-                <div class="footer-info">
-                    <span class="footer-logo">🌱 AgriCompare</span>
-                    <p>Dados baseados em pesquisa do CAGED, IBGE e sindicatos rurais (2023-2024)</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#">Sobre</a>
-                    <a href="#">Metodologia</a>
-                    <a href="#">Contato</a>
-                    <a href="#">Privacidade</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2024 AgriCompare. Todos os direitos reservados.</p>
-            </div>
-        </footer>
     </div>
 
-    <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2026 - Profissão Agricultor | Feito com dedicação.</p>
+    </footer>
+
 </body>
 </html>
