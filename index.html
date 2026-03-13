@@ -3,464 +3,408 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AgriCompare | Paraná vs Mato Grosso</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>AgriConnect | Salários na Agricultura - Paraná vs Mato Grosso</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="noise"></div>
-    
-    <!-- Background elements -->
-    <div class="blob blob-1"></div>
-    <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
-    
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <div class="header-content">
-                <div class="logo">
-                    <span class="logo-icon">🌱</span>
-                    <h1>Agri<span>Compare</span></h1>
-                </div>
-                <nav class="main-nav">
-                    <a href="#comparison">Comparação</a>
-                    <a href="#assistant">Assistente IA</a>
-                    <a href="#comments">Comunidade</a>
-                </nav>
+    <!-- Header com navegação -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-seedling"></i>
+                <span>Agri<span class="highlight">Connect</span></span>
             </div>
-        </header>
+            <ul class="nav-menu">
+                <li><a href="#inicio" class="active">Início</a></li>
+                <li><a href="#comparacao">Comparação</a></li>
+                <li><a href="#salarios">Salários</a></li>
+                <li><a href="#qualidade">Qualidade</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <button class="btn-outline"><i class="fas fa-user"></i> Área do Agricultor</button>
+            </div>
+        </div>
+    </nav>
 
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-text">
-                <h2>Onde sua carreira no agro <span>cresce mais?</span></h2>
-                <p>Compare salários, qualidade de vida e oportunidades nos dois maiores polos do agronegócio brasileiro.</p>
-                
-                <div class="hero-stats">
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">+45%</span>
-                        <span class="hero-stat-label">crescimento em 5 anos</span>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">15k+</span>
-                        <span class="hero-stat-label">vagas/ano</span>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">R$5.106</span>
-                        <span class="hero-stat-label">média nacional</span>
-                    </div>
+    <!-- Hero Section com vídeo background -->
+    <section class="hero" id="inicio">
+        <div class="hero-video-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-badge">📍 Dados 2024</span>
+            <h1 class="hero-title">Agricultura <span class="gradient-text">Profissional</span></h1>
+            <p class="hero-subtitle">Descubra as melhores oportunidades e salários nos maiores polos agrícolas do Brasil</p>
+            <div class="hero-stats">
+                <div class="hero-stat-item">
+                    <span class="hero-stat-number">+45%</span>
+                    <span class="hero-stat-label">Crescimento</span>
                 </div>
-
-                <div class="hero-cta">
-                    <a href="#assistant" class="btn btn-primary">
-                        <i class="fas fa-robot"></i>
-                        Pergunte à IA
-                    </a>
-                    <a href="#comparison" class="btn btn-outline">
-                        <i class="fas fa-chart-bar"></i>
-                        Ver comparação
-                    </a>
+                <div class="hero-stat-item">
+                    <span class="hero-stat-number">15k+</span>
+                    <span class="hero-stat-label">Vagas/ano</span>
+                </div>
+                <div class="hero-stat-item">
+                    <span class="hero-stat-number">R$4.4k</span>
+                    <span class="hero-stat-label">Média nacional</span>
                 </div>
             </div>
-            
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=2070&auto=format&fit=crop" alt="Trator na fazenda">
-                <div class="image-overlay"></div>
-                <div class="image-badge">
-                    <i class="fas fa-tractor"></i>
-                    <span>Agronegócio brasileiro</span>
+            <div class="hero-buttons">
+                <button class="btn-primary"><i class="fas fa-chart-line"></i> Ver Comparativo</button>
+                <button class="btn-secondary"><i class="fas fa-play"></i> Como funciona</button>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Role para ver mais</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Seção de Introdução -->
+    <section class="intro-section">
+        <div class="container">
+            <div class="intro-grid">
+                <div class="intro-text">
+                    <span class="section-tag">🌟 Oportunidades no Campo</span>
+                    <h2>O agronegócio brasileiro <span class="gradient-text">bate recordes</span></h2>
+                    <p>Com tecnologia de ponta e profissionalização do setor, a agricultura oferece carreiras promissoras com salários competitivos em todo o país.</p>
+                    <div class="intro-features">
+                        <div class="intro-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Mercado em expansão</span>
+                        </div>
+                        <div class="intro-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Valorização profissional</span>
+                        </div>
+                        <div class="intro-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Tecnologia de ponta</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="intro-image">
+                    <img src="https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Agricultura moderna">
+                    <div class="intro-image-card">
+                        <i class="fas fa-tractor"></i>
+                        <span>+2.5M de profissionais</span>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Cards de comparação -->
-        <section id="comparison" class="comparison-section">
+    <!-- Cards de comparação principal -->
+    <section class="comparison-section" id="comparacao">
+        <div class="container">
             <div class="section-header">
-                <span class="section-tag">Comparação direta</span>
-                <h2>Paraná <span class="vs">vs</span> Mato Grosso</h2>
-                <p>Dados atualizados 2024 • CAGED • IBGE • Sindicatos rurais</p>
+                <span class="section-tag">📊 Comparativo</span>
+                <h2>Paraná <span class="gradient-text">vs</span> Mato Grosso</h2>
+                <p>Análise detalhada dos dois maiores polos agrícolas do Brasil</p>
             </div>
 
             <div class="comparison-grid">
                 <!-- Paraná Card -->
                 <div class="state-card parana">
                     <div class="card-header">
-                        <span class="region-badge">🌲 Sul do Brasil</span>
+                        <div class="state-flag">
+                            <i class="fas fa-tree"></i>
+                        </div>
                         <h3>Paraná</h3>
+                        <span class="state-badge">🌳 Sul do Brasil</span>
                     </div>
                     
-                    <div class="card-image">
-                        <img src="https://www.gov.br/secom/pt-br/assuntos/noticias-regionalizadas/safra-22-23/crescimento-na-producao-de-graos-no-parana-e-estimada-em-34-9-com-ganhos-de-produtividade/230815_secom_estimativasafra-22-23_foto-elzafiuza-agbr.jpg/@@images/e8c6975b-ee25-4a36-90a9-e5869e30d951.jpg" alt="Lavoura no Paraná">
-                        <div class="image-caption">Produção de grãos</div>
+                    <div class="card-stats">
+                        <div class="card-stat">
+                            <span class="stat-label">Salário Médio</span>
+                            <span class="stat-value highlight">R$ 3.850</span>
+                        </div>
+                        <div class="card-stat">
+                            <span class="stat-label">Nota de Corte</span>
+                            <span class="stat-value">650</span>
+                        </div>
+                        <div class="card-stat">
+                            <span class="stat-label">Vagas/mês</span>
+                            <span class="stat-value">1.200+</span>
+                        </div>
                     </div>
 
-                    <div class="salary-highlight">
-                        <div class="salary-main">
-                            <span class="salary-label">Salário médio</span>
-                            <span class="salary-value">R$ 3.212</span>
+                    <div class="salary-breakdown">
+                        <h4>Detalhamento salarial</h4>
+                        <div class="salary-bar">
+                            <div class="salary-bar-item">
+                                <span>Inicial</span>
+                                <span>R$ 2.200</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 55%"></div>
+                            </div>
                         </div>
-                        <div class="salary-range">
-                            <span><i class="fas fa-arrow-up"></i> Inicial: R$ 2.200</span>
-                            <span><i class="fas fa-star"></i> Sênior: R$ 6.500</span>
+                        <div class="salary-bar">
+                            <div class="salary-bar-item">
+                                <span>Pleno</span>
+                                <span>R$ 3.850</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="salary-bar">
+                            <div class="salary-bar-item">
+                                <span>Sênior</span>
+                                <span>R$ 6.500</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 100%"></div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="economy-stats">
-                        <div class="economy-item">
-                            <i class="fas fa-chart-line"></i>
+                    <div class="card-features">
+                        <div class="feature-item">
+                            <i class="fas fa-thumbs-up"></i>
                             <div>
-                                <span class="economy-label">PIB Agro</span>
-                                <span class="economy-value">R$ 158 bi</span>
+                                <strong>Qualidade de vida</strong>
+                                <span>Melhor infraestrutura</span>
                             </div>
                         </div>
-                        <div class="economy-item">
-                            <i class="fas fa-weight-hanging"></i>
+                        <div class="feature-item">
+                            <i class="fas fa-cloud-sun"></i>
                             <div>
-                                <span class="economy-label">Produção grãos</span>
-                                <span class="economy-value">38 mi ton</span>
+                                <strong>Clima ameno</strong>
+                                <span>Temperaturas agradáveis</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="score-container">
-                        <div class="score-item">
-                            <span class="score-title">Qualidade de vida</span>
-                            <div class="score-bar">
-                                <div class="score-fill" style="width: 85%"></div>
-                            </div>
-                            <span class="score-value">8.5/10</span>
-                        </div>
-                        <div class="score-item">
-                            <span class="score-title">Infraestrutura</span>
-                            <div class="score-bar">
-                                <div class="score-fill" style="width: 90%"></div>
-                            </div>
-                            <span class="score-value">9.0/10</span>
-                        </div>
-                        <div class="score-item">
-                            <span class="score-title">Oportunidades</span>
-                            <div class="score-bar">
-                                <div class="score-fill" style="width: 75%"></div>
-                            </div>
-                            <span class="score-value">7.5/10</span>
-                        </div>
-                        <div class="score-item">
-                            <span class="score-title">Custo de vida</span>
-                            <div class="score-bar">
-                                <div class="score-fill" style="width: 35%"></div>
-                            </div>
-                            <span class="score-value">-35%</span>
-                        </div>
-                    </div>
-
-                    <div class="card-footer">
-                        <span class="tag"><i class="fas fa-temperature-low"></i> Clima ameno</span>
-                        <span class="tag"><i class="fas fa-school"></i> Educação</span>
-                        <span class="tag"><i class="fas fa-road"></i> Infraestrutura</span>
-                        <span class="tag"><i class="fas fa-tree"></i> Qualidade de vida</span>
-                    </div>
-
-                    <div class="card-highlight">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Destaque: Melhor infraestrutura e qualidade de vida</span>
-                    </div>
+                    <button class="card-btn parana-btn">
+                        Ver vagas no Paraná <i class="fas fa-arrow-right"></i>
+                    </button>
                 </div>
 
                 <!-- Mato Grosso Card -->
-                <div class="state-card mato-grosso">
+                <div class="state-card mato-grosso featured">
+                    <div class="card-badge">🔥 Mais procurado</div>
                     <div class="card-header">
-                        <span class="region-badge">🌽 Centro-Oeste</span>
+                        <div class="state-flag">
+                            <i class="fas fa-wheat-alt"></i>
+                        </div>
                         <h3>Mato Grosso</h3>
+                        <span class="state-badge">🌽 Centro-Oeste</span>
                     </div>
                     
-                    <div class="card-image">
+                    <div class="card-stats">
+                        <div class="card-stat">
+                            <span class="stat-label">Salário Médio</span>
+                            <span class="stat-value highlight">R$ 4.950</span>
+                        </div>
+                        <div class="card-stat">
+                            <span class="stat-label">Nota de Corte</span>
+                            <span class="stat-value">720</span>
+                        </div>
+                        <div class="card-stat">
+                            <span class="stat-label">Vagas/mês</span>
+                            <span class="stat-value">2.500+</span>
+                        </div>
+                    </div>
+
+                    <div class="salary-breakdown">
+                        <h4>Detalhamento salarial</h4>
+                        <div class="card-image">
                         <img src="https://matogrossoeconomico.com.br/wp-content/uploads/2024/04/SAFRA-COLHEITA-MAPA.jpeg" alt="Colheita no Mato Grosso">
-                        <div class="image-caption">Colheita de soja</div>
+                        <div class="salary-bar">
+                            <div class="salary-bar-item">
+                                <span>Inicial</span>
+                                <span>R$ 2.800</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <div class="salary-bar">
+                            <div class="salary-bar-item">
+                                <span>Pleno</span>
+                                <span>R$ 4.950</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="salary-bar">
+                            <div class="salary-bar-item">
+                                <span>Sênior</span>
+                                <span>R$ 8.200</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 100%"></div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="salary-highlight">
-                        <div class="salary-main">
-                            <span class="salary-label">Salário médio</span>
-                            <span class="salary-value">R$ 7.000</span>
-                        </div>
-                        <div class="salary-range">
-                            <span><i class="fas fa-arrow-up"></i> Inicial: R$ 2.800</span>
-                            <span><i class="fas fa-star"></i> Sênior: R$ 8.200</span>
-                        </div>
-                    </div>
-
-                    <div class="economy-stats">
-                        <div class="economy-item">
+                    <div class="card-features">
+                        <div class="feature-item">
                             <i class="fas fa-chart-line"></i>
                             <div>
-                                <span class="economy-label">PIB Agro</span>
-                                <span class="economy-value">R$ 245 bi</span>
+                                <strong>Maior potencial</strong>
+                                <span>Crescimento acelerado</span>
                             </div>
                         </div>
-                        <div class="economy-item">
-                            <i class="fas fa-weight-hanging"></i>
+                        <div class="feature-item">
+                            <i class="fas fa-tractor"></i>
                             <div>
-                                <span class="economy-label">Produção grãos</span>
-                                <span class="economy-value">92 mi ton</span>
+                                <strong>Tecnologia</strong>
+                                <span>Agricultura de precisão</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="score-container">
-                        <div class="score-item">
-                            <span class="score-title">Qualidade de vida</span>
-                            <div class="score-bar">
-                                <div class="score-fill" style="width: 70%"></div>
-                            </div>
-                            <span class="score-value">7.0/10</span>
-                        </div>
-                        <div class="score-item">
-                            <span class="score-title">Infraestrutura</span>
-                            <div class="score-bar">
-                                <div class="score-fill" style="width: 65%"></div>
-                            </div>
-                            <span class="score-value">6.5/10</span>
-                        </div>
-                        <div class="score-item">
-                            <span class="score-title">Oportunidades</span>
-                            <div class="score-bar">
-                                <div class="score-fill" style="width: 95%"></div>
-                            </div>
-                            <span class="score-value">9.5/10</span>
-                        </div>
-                        <div class="score-item">
-                            <span class="score-title">Custo de vida</span>
-                            <div class="score-bar">
-                                <div class="score-fill" style="width: 15%"></div>
-                            </div>
-                            <span class="score-value">-15%</span>
-                        </div>
-                    </div>
+                    <button class="card-btn mato-grosso-btn">
+                        Ver vagas no MT <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <div class="card-footer">
-                        <span class="tag"><i class="fas fa-money-bill"></i> Altos salários</span>
-                        <span class="tag"><i class="fas fa-chart-line"></i> Expansão</span>
-                        <span class="tag"><i class="fas fa-fire"></i> Mercado aquecido</span>
-                        <span class="tag"><i class="fas fa-tractor"></i> Agro forte</span>
-                    </div>
+    <!-- Seção de Qualidade de Vida -->
+    <section class="quality-section" id="qualidade">
+        <div class="container">
+            <div class="section-header light">
+                <span class="section-tag">⚖️ Qualidade de Vida</span>
+                <h2>Onde é <span class="gradient-text">menos sofrido</span> trabalhar?</h2>
+                <p>Análise completa do equilíbrio entre trabalho e qualidade de vida</p>
+            </div>
 
-                    <div class="card-highlight">
-                        <i class="fas fa-trophy"></i>
-                        <span>Destaque: Maiores salários e oportunidades</span>
+            <div class="quality-grid">
+                <div class="quality-card">
+                    <div class="quality-icon-wrapper">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h4>Equilíbrio</h4>
+                    <p>Paraná oferece jornadas mais organizadas e melhor qualidade de vida</p>
+                    <div class="quality-meter">
+                        <span>Paraná 85%</span>
+                        <span>Mato Grosso 70%</span>
+                    </div>
+                </div>
+
+                <div class="quality-card featured">
+                    <div class="quality-icon-wrapper">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h4>Bem-estar</h4>
+                    <p>Infraestrutura, saúde e educação de qualidade no Paraná</p>
+                    <div class="quality-meter">
+                        <span>Paraná 90%</span>
+                        <span>Mato Grosso 65%</span>
+                    </div>
+                </div>
+
+                <div class="quality-card">
+                    <div class="quality-icon-wrapper">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h4>Crescimento</h4>
+                    <p>Mato Grosso tem mais oportunidades e crescimento rápido</p>
+                    <div class="quality-meter">
+                        <span>Paraná 75%</span>
+                        <span>Mato Grosso 95%</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Resumo Comparativo -->
-            <div class="comparison-summary">
-                <div class="summary-card">
-                    <h4><i class="fas fa-balance-scale"></i> Resumo da comparação 2024</h4>
-                    <div class="summary-grid">
-                        <div class="summary-item">
-                            <i class="fas fa-map-marker-alt parana-icon"></i>
-                            <h5>Paraná</h5>
-                            <ul>
-                                <li><strong>Salário médio:</strong> R$ 3.212</li>
-                                <li><strong>PIB Agro:</strong> R$ 158 bilhões</li>
-                                <li><strong>Produção grãos:</strong> 38 mi ton</li>
-                                <li><strong>IDH:</strong> 0,792 (muito alto)</li>
-                                <li><strong>População:</strong> 11,5 milhões</li>
-                                <li><strong>Custo de vida:</strong> 35% abaixo da média</li>
-                            </ul>
-                        </div>
-                        <div class="summary-item">
-                            <i class="fas fa-map-marker-alt matogrosso-icon"></i>
-                            <h5>Mato Grosso</h5>
-                            <ul>
-                                <li><strong>Salário médio:</strong> R$ 7.000</li>
-                                <li><strong>PIB Agro:</strong> R$ 245 bilhões</li>
-                                <li><strong>Produção grãos:</strong> 92 mi ton</li>
-                                <li><strong>IDH:</strong> 0,736 (alto)</li>
-                                <li><strong>População:</strong> 3,5 milhões</li>
-                                <li><strong>Custo de vida:</strong> 15% abaixo da média</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <p class="summary-conclusion">
-                        <i class="fas fa-lightbulb"></i>
-                        <strong>Conclusão:</strong> MT oferece salários 118% maiores e mais oportunidades, 
-                        enquanto PR tem melhor infraestrutura e qualidade de vida. A escolha depende do seu perfil profissional.
-                    </p>
+            <div class="recommendation-box">
+                <i class="fas fa-crown"></i>
+                <h3>Veredito final</h3>
+                <p>Se você busca <strong>qualidade de vida e menos desgaste</strong>, o Paraná é ideal. Se prioriza <strong>maior renda e crescimento profissional</strong>, Mato Grosso é a melhor escolha.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Notas de Corte -->
+    <section class="scores-section">
+        <div class="container">
+            <div class="scores-grid">
+                <div class="score-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Ensino Técnico</h3>
+                    <div class="score-value">PR: 600 | MT: 680</div>
+                </div>
+                <div class="score-card">
+                    <i class="fas fa-university"></i>
+                    <h3>Ensino Superior</h3>
+                    <div class="score-value">PR: 650 | MT: 720</div>
+                </div>
+                <div class="score-card">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Especialização</h3>
+                    <div class="score-value">PR: 700 | MT: 750</div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- IA Assistant Section -->
-        <section id="assistant" class="ia-section">
-            <div class="ia-backdrop"></div>
-            <div class="ia-content">
-                <div class="ia-header">
-                    <div class="ia-avatar">
-                        <span>🤖</span>
-                    </div>
-                    <div class="ia-title">
-                        <h3>Assistente IA - AgriGPT</h3>
-                        <p>Especialista em agronegócio • Respondo com dados reais</p>
-                    </div>
-                    <div class="ia-status">
-                        <span class="status-dot"></span>
-                        <span>Online</span>
-                    </div>
-                </div>
-
-                <div class="ia-chat" id="iaMessages">
-                    <div class="message bot">
-                        <div class="message-content">
-                            <i class="fas fa-leaf"></i>
-                            Olá! Sou o AgriGPT, especialista no agronegócio brasileiro. 
-                            Tenho dados atualizados sobre:
-                            <ul style="margin-top: 8px; margin-left: 20px;">
-                                <li>💰 Salários: PR (R$ 3.212) e MT (R$ 7.000)</li>
-                                <li>📊 Produção: PR (38mi t) e MT (92mi t)</li>
-                                <li>🏡 Qualidade de vida e infraestrutura</li>
-                                <li>🌧️ Clima e safras</li>
-                            </ul>
-                            O que você gostaria de saber?
-                        </div>
-                    </div>
-                </div>
-
-                <div class="typing-indicator" id="typingIndicator">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-
-                <div class="ia-input-container">
-                    <input type="text" id="iaInput" placeholder="Faça uma pergunta (ex: salário médio no MT)..." autocomplete="off">
-                    <button class="ia-send-btn" id="iaSendBtn">
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </div>
-
-                <div class="ia-suggestions">
-                    <button class="suggestion-chip" data-question="salário médio no Paraná">
-                        <i class="fas fa-money-bill-wave"></i> Salário PR
-                    </button>
-                    <button class="suggestion-chip" data-question="salário médio no Mato Grosso">
-                        <i class="fas fa-chart-line"></i> Salário MT
-                    </button>
-                    <button class="suggestion-chip" data-question="qualidade de vida Paraná vs Mato Grosso">
-                        <i class="fas fa-home"></i> Qualidade de vida
-                    </button>
-                    <button class="suggestion-chip" data-question="oportunidades de emprego">
-                        <i class="fas fa-briefcase"></i> Oportunidades
-                    </button>
-                    <button class="suggestion-chip" data-question="produção de grãos">
-                        <i class="fas fa-seedling"></i> Produção
-                    </button>
-                    <button class="suggestion-chip" data-question="custo de vida">
-                        <i class="fas fa-coins"></i> Custo de vida
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Comments Section -->
-        <section id="comments" class="comments-section">
-            <div class="section-header">
-                <span class="section-tag">Comunidade</span>
-                <h2>O que estão dizendo</h2>
-                <p>Experiências reais de profissionais do setor</p>
-            </div>
-
-            <!-- Comment Form -->
-            <div class="comment-form-container">
-                <h4><i class="fas fa-pen"></i> Deixe sua avaliação</h4>
-                
-                <div class="rating-container">
-                    <span class="rating-label">Sua nota:</span>
-                    <div class="rating-stars" id="starRating">
-                        <span data-value="1">★</span>
-                        <span data-value="2">★</span>
-                        <span data-value="3">★</span>
-                        <span data-value="4">★</span>
-                        <span data-value="5">★</span>
-                    </div>
-                </div>
-                
-                <span class="rating-feedback" id="ratingFeedback">Clique nas estrelas para avaliar</span>
-                
-                <div class="form-row">
-                    <i class="fas fa-user input-icon"></i>
-                    <input type="text" id="nomeInput" placeholder="Seu nome" value="Visitante">
-                </div>
-                
-                <div class="form-row">
-                    <i class="fas fa-comment input-icon"></i>
-                    <textarea id="comentarioInput" placeholder="Compartilhe sua experiência..."></textarea>
-                </div>
-                
-                <button class="send-btn" id="enviarComentarioBtn">
-                    <span>Enviar comentário</span>
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
-
-            <!-- Comments List -->
-            <div class="comments-grid" id="commentsGrid"></div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="cta-section">
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
             <div class="cta-content">
-                <h2>Pronto para decidir seu futuro no agro?</h2>
-                <p>Mais de 15.000 vagas disponíveis nos dois estados</p>
-                <div class="cta-buttons">
-                    <a href="#" class="btn btn-primary btn-large">
-                        <i class="fas fa-search"></i>
-                        Vagas no Paraná
-                    </a>
-                    <a href="#" class="btn btn-secondary btn-large">
-                        <i class="fas fa-search"></i>
-                        Vagas no Mato Grosso
-                    </a>
-                </div>
+                <h2>Pronto para começar sua jornada no agronegócio?</h2>
+                <p>Cadastre-se e receba vagas exclusivas na área agrícola</p>
+                <form class="cta-form">
+                    <input type="email" placeholder="Seu melhor e-mail">
+                    <button type="submit">Quero receber vagas <i class="fas fa-paper-plane"></i></button>
+                </form>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Footer -->
-        <footer>
-            <div class="footer-content">
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
                 <div class="footer-info">
-                    <span class="footer-logo">🌱 AgriCompare</span>
-                    <p>Dados baseados em pesquisa do CAGED, IBGE e sindicatos rurais (2024)</p>
-                    <div class="footer-social">
+                    <div class="footer-logo">
+                        <i class="fas fa-seedling"></i>
+                        <span>Agri<span>Connect</span></span>
+                    </div>
+                    <p>Conectando profissionais ao futuro do agronegócio brasileiro.</p>
+                    <div class="social-links">
                         <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-linkedin"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
-                    <div class="footer-links-column">
-                        <h5>Sobre</h5>
-                        <a href="#">Quem somos</a>
-                        <a href="#">Metodologia</a>
-                        <a href="#">Fontes</a>
-                    </div>
-                    <div class="footer-links-column">
-                        <h5>Suporte</h5>
-                        <a href="#">FAQ</a>
-                        <a href="#">Contato</a>
-                        <a href="#">Privacidade</a>
-                    </div>
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#comparacao">Comparação</a></li>
+                        <li><a href="#salarios">Salários</a></li>
+                        <li><a href="#qualidade">Qualidade</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Estados</h4>
+                    <ul>
+                        <li><a href="#">Paraná</a></li>
+                        <li><a href="#">Mato Grosso</a></li>
+                        <li><a href="#">São Paulo</a></li>
+                        <li><a href="#">Minas Gerais</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contato</h4>
+                    <p><i class="fas fa-envelope"></i> contato@agriconnect.com.br</p>
+                    <p><i class="fas fa-phone"></i> (11) 99999-9999</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2024 AgriCompare. Todos os direitos reservados.</p>
+                <p>© 2024 AgriConnect. Todos os direitos reservados.</p>
+                <p>Dados atualizados conforme CAGED e IBGE 2024</p>
             </div>
-        </footer>
-    </div>
-
-    <script src="script.js"></script>
+        </div>
+    </footer>
 </body>
 </html>
