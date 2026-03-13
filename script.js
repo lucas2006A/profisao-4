@@ -1,330 +1,351 @@
-// Banco de dados de respostas da IA
-    // Compar
-const iaDatabase = {
-    // Salários e informações do Paraná
-    'salário paraná': '🌲 No Paraná, o salário médio na agricultura é de R$ 3.850,00. Profissionais iniciantes ganham cerca de R$ 2.200,00, enquanto seniores podem chegar a R$ 6.500,00. O estado oferece excelente equilíbrio entre salário e qualidade de vida!',
-    
-    'salário pr': '🌲 Paraná: Salário médio R$ 3.850,00 | Iniciante: R$ 2.200,00 | Pleno: R$ 3.850,00 | Sênior: R$ 6.500,00',
-    
-    'quanto ganha no paraná': '💰 Média salarial PR: R$ 3.850,00. Faixa completa: Iniciante (R$ 2.200) → Pleno (R$ 3.850) → Sênior (R$ 6.500)',
-    
-    'salário inicial paraná': '🌱 No Paraná, um profissional iniciante na agricultura ganha em média R$ 2.200,00 mensais.',
-    
-    'salário senior paraná': '👨‍🌾 Profissionais seniores no Paraná podem ganhar até R$ 6.500,00, dependendo da especialização e experiência.',
-    
-    // Salários e informações do Mato Grosso
-    'salário mato grosso': '🌽 O MATO GROSSO tem os MAIORES salários do agronegócio! Média de R$ 4.950,00. Iniciantes: R$ 2.800,00 | Plenos: R$ 4.950,00 | Sêniores: R$ 8.200,00 💰',
-    
-    'salário mt': '🌽 MATO GROSSO: Salário médio R$ 4.950,00 (maior do Brasil!) | Iniciante: R$ 2.800 | Sênior: até R$ 8.200',
-    
-    'quanto ganha no mato grosso': '💵 No Mato Grosso os salários são os mais altos: média R$ 4.950, podendo chegar a R$ 8.200 para cargos de liderança.',
-    
-    'salário inicial mato grosso': '🌱 No Mato Grosso, iniciantes ganham R$ 2.800,00 - um dos melhores salários iniciais do país!',
-    
-    'salário senior mato grosso': '👑 Profissionais seniores no Mato Grosso podem ganhar até R$ 8.200,00! Líderes e especialistas ganham ainda mais.',
-    
-    // Comparação direta
-    'qual estado paga mais': '🏆 MATO GROSSO paga mais! Média de R$ 4.950 contra R$ 3.850 do Paraná. Diferença de R$ 1.100 por mês (R$ 13.200/ano)!',
-    
-    'comparação salário': '📊 MATO GROSSO: R$ 4.950 | PARANÁ: R$ 3.850. MT paga 28% mais que PR na média geral.',
-    
-    'qual melhor salário': '🎯 MELHOR SALÁRIO: MATO GROSSO (R$ 4.950). PARANÁ também tem bons salários (R$ 3.850) com melhor qualidade de vida.',
-    
-    // Notas de corte
-    'nota de corte paraná': '📝 PARANÁ - Notas de corte: Técnico: 600 | Superior: 650 | Especialização: 700 | Média geral: 650 pontos',
-    
-    'nota de corte pr': '📚 PR: Média 650 pontos. Cursos concorridos podem exigir até 700 pontos.',
-    
-    'nota de corte mato grosso': '🎯 MATO GROSSO - Notas de corte: Técnico: 680 | Superior: 720 | Especialização: 750 | Média geral: 720 pontos',
-    
-    'nota de corte mt': '📈 MT: Média 720 pontos. Mais concorrido devido aos altos salários.',
-    
-    'nota de corte comparação': '⚖️ Comparação: MT (720) x PR (650). Mato Grosso exige notas mais altas, mas compensa com melhores salários.',
-    
-    // Qualidade de vida
-    'qualidade de vida paraná': '⭐ PARANÁ: 8.5/10 em qualidade de vida! Clima ameno, cidades organizadas, boa infraestrutura, saúde e educação de qualidade. É o estado MENOS SOFRIDO para trabalhar.',
-    
-    'qualidade de vida mato grosso': '🌟 MATO GROSSO: 7.8/10 em qualidade de vida. Clima quente, cidades em desenvolvimento, mas com ótimas oportunidades e crescimento rápido.',
-    
-    'menos sofrido': '😌 PARANÁ é MENOS SOFRIDO! Clima mais ameno, jornadas organizadas, infraestrutura desenvolvida. MT tem mais oportunidades mas é mais puxado.',
-    
-    'onde trabalhar': '🤔 Escolha baseada no seu perfil:\n\n🌲 PARANÁ: Melhor qualidade de vida, menos estresse, mais infraestrutura\n\n🌽 MATO GROSSO: Maiores salários, mais oportunidades, crescimento rápido',
-    
-    'qualidade de vida comparação': '📊 QUALIDADE DE VIDA:\nParaná: 8.5/10 (👍 melhor)\nMato Grosso: 7.8/10\n\nPR ganha em: clima, infraestrutura, saúde, educação\nMT ganha em: salários, oportunidades',
-    
-    // Vagas e oportunidades
-    'vagas paraná': '📌 PARANÁ: aproximadamente 1.200 vagas/mês no setor agrícola. Mercado estável e diversificado.',
-    
-    'vagas mato grosso': '🚀 MATO GROSSO: mais de 2.500 vagas/mês! É o estado com MAIOR demanda por profissionais do agro.',
-    
-    'onde tem mais vagas': '📈 MATO GROSSO tem MAIS VAGAS: 2.500/mês contra 1.200/mês do Paraná. Mercado MT aquecido!',
-    
-    // Carreira e crescimento
-    'crescimento profissional': '📈 CRESCIMENTO:\nMT: Rápido (muitas oportunidades, alta demanda)\nPR: Estável (carreiras sólidas, boas empresas)',
-    
-    'plano de carreira': '🎯 CARREIRA NO AGRO:\n\nPARANÁ: Empresas consolidadas, planos estruturados\n\nMATO GROSSO: Crescimento acelerado, muitas promoções',
-    
-    // Requisitos
-    'precisa de curso': '📚 RECOMENDAÇÕES:\n- Curso técnico em agropecuária (600-680 pontos)\n- Superior em agronomia (650-720 pontos)\n- Especialização em agricultura de precisão (700-750 pontos)',
-    
-    'formação necessária': '🎓 FORMAÇÃO:\nTécnico: 2 anos (salário inicial R$ 2.200-2.800)\nSuperior: 4-5 anos (salário inicial R$ 2.800-3.500)\nEspecialização: +2 anos (salários 30% maiores)',
-    
-    // Dicas
-    'dica carreira': '💡 DICA IA: Comece com curso técnico, ganhe experiência, depois faça superior. No MT o crescimento é mais rápido!',
-    
-    'melhor estado para começar': '🤔 PARA COMEÇAR:\nSe quer qualidade de vida: 🌲 PARANÁ\nSe quer ganhar mais: 🌽 MATO GROSSO\n\nAmbos são ótimos! Depende do seu objetivo.',
-    
-    // Informações gerais
-    'media nacional': '📊 MÉDIA NACIONAL na agricultura: R$ 4.400,00. MT está acima (R$ 4.950) e PR um pouco abaixo (R$ 3.850) da média.',
-    
-    'setor agricola': '🌾 O setor agrícola brasileiro cresceu 45% nos últimos 5 anos. São mais de 15.000 vagas/ano com 82% de satisfação profissional!',
-    
-    // Respostas padrão
-    'default': '🤖 Posso ajudar com informações sobre:\n\n💰 Salários (PR e MT)\n📝 Notas de corte\n🌱 Qualidade de vida\n🎯 Qual estado escolher\n📊 Comparativos\n\nO que você gostaria de saber?',
-    
-    'oi': 'Olá! 👋 Sou a IA da AgriConnect. Como posso ajudar você hoje?',
-    
-    'olá': 'Olá! 👋 Tudo bem? Estou aqui para tirar suas dúvidas sobre carreira no agronegócio!',
-    
-    'ajuda': '🤖 COMANDOS DISPONÍVEIS:\n- salário [estado]\n- nota de corte [estado]\n- qualidade de vida\n- vagas [estado]\n- comparação\n- menos sofrido\n- melhor estado\n- dica carreira'
-};
+// ============================================
+// CONFIGURAÇÃO E VARIÁVEIS GLOBAIS
+// ============================================
 
-// Função para encontrar a melhor resposta
-function findBestResponse(pergunta) {
-    pergunta = pergunta.toLowerCase()
-        .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // Remove acentos
-        .replace(/[^\w\s]/g, ''); // Remove pontuação
-    
-    // Palavras-chave para匹配
-    const keywords = {
-        'salario': ['salário', 'salario', 'quanto ganha', 'remuneracao', 'renda', 'ganha'],
-        'parana': ['parana', 'pr', 'paraná'],
-        'matogrosso': ['mato grosso', 'mt', 'matogrosso'],
-        'nota': ['nota', 'corte', 'pontos', 'enem', 'vestibular'],
-        'qualidade': ['qualidade', 'vida', 'bem-estar', 'bem estar'],
-        'sofrido': ['sofrido', 'cansativo', 'difícil', 'difícil'],
-        'vaga': ['vaga', 'oportunidade', 'emprego', 'trabalho'],
-        'comparacao': ['comparação', 'comparacao', 'vs', 'versus', 'x'],
-        'carreira': ['carreira', 'profissional', 'crescer', 'crescimento'],
-        'curso': ['curso', 'faculdade', 'universidade', 'estudar']
-    };
-    
-    // Tenta匹配respostas exatas primeiro
-    for (let key in iaDatabase) {
-        if (pergunta.includes(key)) {
-            return iaDatabase[key];
-        }
-    }
-    
-    // Tenta匹配por palavras-chave
-    if (pergunta.includes('salario') || pergunta.includes('quanto')) {
-        if (pergunta.includes('parana') || pergunta.includes('pr')) {
-            return iaDatabase['salário paraná'];
-        }
-        if (pergunta.includes('mato grosso') || pergunta.includes('mt')) {
-            return iaDatabase['salário mato grosso'];
-        }
-        if (pergunta.includes('compar') || pergunta.includes('vs')) {
-            return iaDatabase['comparação salário'];
-        }
-        return iaDatabase['qual estado paga mais'];
-    }
-    
-    if (pergunta.includes('nota') || pergunta.includes('corte')) {
-        if (pergunta.includes('parana') || pergunta.includes('pr')) {
-            return iaDatabase['nota de corte paraná'];
-        }
-        if (pergunta.includes('mato grosso') || pergunta.includes('mt')) {
-            return iaDatabase['nota de corte mato grosso'];
-        }
-        return iaDatabase['nota de corte comparação'];
-    }
-    
-    if (pergunta.includes('qualidade') || pergunta.includes('vida')) {
-        return iaDatabase['qualidade de vida comparada'];
-    }
-    
-    if (pergunta.includes('sofrido') || pergunta.includes('menos')) {
-        return iaDatabase['menos sofrido'];
-    }
-    
-    if (pergunta.includes('vaga') || pergunta.includes('oportunidade')) {
-        if (pergunta.includes('parana') || pergunta.includes('pr')) {
-            return iaDatabase['vagas paraná'];
-        }
-        if (pergunta.includes('mato grosso') || pergunta.includes('mt')) {
-            return iaDatabase['vagas mato grosso'];
-        }
-        return iaDatabase['onde tem mais vagas'];
-    }
-    
-    if (pergunta.includes('melhor') || pergunta.includes('recomenda')) {
-        if (pergunta.includes('estado') || pergunta.includes('trabalhar')) {
-            return iaDatabase['onde trabalhar'];
-        }
-        if (pergunta.includes('salario') || pergunta.includes('paga')) {
-            return iaDatabase['qual melhor salário'];
-        }
-    }
-    
-    if (pergunta.includes('curso') || pergunta.includes('faculdade')) {
-        return iaDatabase['precisa de curso'];
-    }
-    
-    if (pergunta.includes('carreira') || pergunta.includes('crescer')) {
-        return iaDatabase['dica carreira'];
-    }
-    
-    if (pergunta.includes('oi') || pergunta.includes('ola')) {
-        return iaDatabase['oi'];
-    }
-    
-    if (pergunta.includes('ajuda') || pergunta.includes('comandos')) {
-        return iaDatabase['ajuda'];
-    }
-    
-    return iaDatabase['default'];
-}
+const API_BASE_URL = 'https://api.manus.im'; // Altere para sua API real
+const SYSTEM_PROMPT = `Você é um assistente especializado em informações sobre os estados brasileiros de Mato Grosso e Paraná.
 
-// Função para enviar mensagem
-function sendMessage() {
-    const input = document.getElementById('userInput');
-    const message = input.value.trim();
-    
-    if (message === '') return;
-    
-    // Adiciona mensagem do usuário
-    addMessage(message, 'user');
-    input.value = '';
-    
-    // Simula digitação da IA
-    setTimeout(() => {
-        const response = findBestResponse(message);
-        addMessage(response, 'ia');
-    }, 1000);
-}
+Dados sobre Mato Grosso:
+- População: ~3,6 milhões
+- Área: 903.357 km²
+- PIB: R$ 273 bilhões (2º maior do Brasil)
+- Crescimento esperado: 4,1% em 2025
+- Biomas: Amazônia (53,5%), Cerrado, Pantanal
+- Clima: Tropical e subtropical
+- Agricultura: Maior produtor agrícola do Brasil (15,4% da produção nacional)
+- Principais culturas: Soja, milho, algodão, café, cana-de-açúcar
+- Produção de grãos: 30,3% da produção nacional
 
-// Função para adicionar mensagem ao chat
-function addMessage(text, sender) {
-    const messagesContainer = document.getElementById('chatMessages');
-    const messageDiv = document.createElement('div');
-    messageDiv.className = `message ${sender}-message`;
-    
-    const avatar = document.createElement('div');
-    avatar.className = 'message-avatar';
-    avatar.innerHTML = sender === 'ia' ? '<i class="fas fa-robot"></i>' : '<i class="fas fa-user"></i>';
-    
-    const content = document.createElement('div');
-    content.className = 'message-content';
-    
-    // Formata o texto com quebras de linha
-    const formattedText = text.replace(/\n/g, '<br>');
-    content.innerHTML = `<p>${formattedText}</p>`;
-    
-    messageDiv.appendChild(avatar);
-    messageDiv.appendChild(content);
-    messagesContainer.appendChild(messageDiv);
-    
-    // Scroll para a última mensagem
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
-}
+Dados sobre Paraná:
+- População: ~11,4 milhões (5º estado mais populoso)
+- Área: 199.307 km²
+- PIB: R$ 718,9 bilhões (5º maior do Brasil)
+- Crescimento: 63% em 6 anos
+- Bioma principal: Mata Atlântica
+- Clima: Subtropical úmido
+- Agricultura: 2º maior produtor de grãos do Brasil
+- Principais culturas: Cana-de-açúcar (38,59 milhões de toneladas), soja (21,55 milhões), milho (17,88 milhões)
+- Exportações: Soja, carnes, fumo
+- Atrações: Cataratas do Iguazu
 
-// Função para perguntas sugeridas
-function askQuestion(question) {
-    document.getElementById('userInput').value = question;
-    sendMessage();
-}
+Responda perguntas sobre esses estados de forma clara, informativa e comparativa quando apropriado. Cite dados específicos quando disponível.`;
 
-// Função para perguntar à IA sobre estado específico
-function askIA(state) {
-    if (state === 'parana') {
-        askQuestion('Quero saber mais sobre trabalhar no Paraná');
-    } else if (state === 'matogrosso') {
-        askQuestion('Me fale sobre as oportunidades no Mato Grosso');
-    }
-}
+let messageHistory = [];
 
-// Função para abrir o chat (scroll até a seção IA)
-function openChat() {
-    document.getElementById('ia').scrollIntoView({ behavior: 'smooth' });
-    setTimeout(() => {
-        document.getElementById('userInput').focus();
-    }, 1000);
-}
+// ============================================
+// INICIALIZAÇÃO
+// ============================================
 
-// Função para scroll suave
-function scrollToSection(sectionId) {
-    document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-}
-
-// Função para lidar com tecla Enter
-function handleKeyPress(event) {
-    if (event.key === 'Enter') {
-        sendMessage();
-    }
-}
-
-// Inicialização quando a página carrega
 document.addEventListener('DOMContentLoaded', function() {
-    // Adiciona evento de clique nos botões de pergunta sugerida
-    const suggestedButtons = document.querySelectorAll('.suggested-btn');
-    suggestedButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const question = this.textContent;
-            // Mapeia texto do botão para pergunta real
-            if (question.includes('💰 Salário PR')) {
-                askQuestion('Qual o salário médio no Paraná?');
-            } else if (question.includes('📝 Nota MT')) {
-                askQuestion('Qual a nota de corte em Mato Grosso?');
-            } else if (question.includes('🌿 Qualidade')) {
-                askQuestion('Onde é menos sofrido trabalhar?');
-            } else if (question.includes('🤔 Recomendação')) {
-                askQuestion('Qual estado devo escolher?');
-            }
-        });
-    });
-    
-    // Adiciona evento de clique nos itens FAQ
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-        item.addEventListener('click', function() {
-            const question = this.querySelector('span').textContent;
-            // Mapeia FAQ para perguntas
-            if (question.includes('Melhor estado para iniciar')) {
-                askQuestion('Qual o melhor estado para começar na agricultura?');
-            } else if (question.includes('Salário iniciante PR')) {
-                askQuestion('Quanto ganha um agricultor iniciante no Paraná?');
-            } else if (question.includes('Precisa de curso')) {
-                askQuestion('Precisa de curso para trabalhar na agricultura?');
-            } else if (question.includes('Onde tem mais vagas')) {
-                askQuestion('Qual estado tem mais vagas?');
-            }
-        });
-    });
-    
-    // Adiciona mensagem de boas-vindas da IA
-    console.log('🤖 IA da AgriConnect carregada e pronta para ajudar!');
+    initializeEventListeners();
+    loadChatHistory();
 });
 
-// Adiciona suporte para navegação ativa no menu
-window.addEventListener('scroll', function() {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute('id');
-        }
+// ============================================
+// EVENT LISTENERS
+// ============================================
+
+function initializeEventListeners() {
+    // Tab navigation
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            const tabName = this.getAttribute('data-tab');
+            switchTab(tabName);
+        });
     });
-    
+
+    // Chat input
+    const chatInput = document.getElementById('chatInput');
+    if (chatInput) {
+        chatInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+    }
+}
+
+// ============================================
+// TAB SWITCHING
+// ============================================
+
+function switchTab(tabName) {
+    // Hide all tabs
+    const tabContents = document.querySelectorAll('.tab-content');
+    tabContents.forEach(tab => {
+        tab.classList.remove('active');
+    });
+
+    // Show selected tab
+    const selectedTab = document.getElementById(tabName);
+    if (selectedTab) {
+        selectedTab.classList.add('active');
+    }
+
+    // Update nav links
+    const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) {
+        if (link.getAttribute('data-tab') === tabName) {
             link.classList.add('active');
         }
     });
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ============================================
+// CHAT FUNCTIONALITY
+// ============================================
+
+function scrollToChat() {
+    const chatSection = document.getElementById('chat-section');
+    if (chatSection) {
+        chatSection.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('chatInput').focus();
+    }
+}
+
+function sendMessage() {
+    const chatInput = document.getElementById('chatInput');
+    const message = chatInput.value.trim();
+
+    if (!message) return;
+
+    // Add user message to chat
+    addMessageToChat(message, 'user');
+    chatInput.value = '';
+
+    // Add to history
+    messageHistory.push({
+        role: 'user',
+        content: message
+    });
+
+    // Show loading indicator
+    showLoadingIndicator();
+
+    // Send to API or use local response
+    getAIResponse(message).then(response => {
+        removeLoadingIndicator();
+        addMessageToChat(response, 'assistant');
+        
+        // Add to history
+        messageHistory.push({
+            role: 'assistant',
+            content: response
+        });
+
+        // Save chat history
+        saveChatHistory();
+    }).catch(error => {
+        removeLoadingIndicator();
+        console.error('Error:', error);
+        addMessageToChat(
+            'Desculpe, ocorreu um erro ao processar sua pergunta. Por favor, tente novamente.',
+            'assistant'
+        );
+    });
+}
+
+function addMessageToChat(message, role) {
+    const chatMessages = document.getElementById('chatMessages');
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${role}-message`;
+
+    const messageP = document.createElement('p');
+    messageP.textContent = message;
+
+    messageDiv.appendChild(messageP);
+    chatMessages.appendChild(messageDiv);
+
+    // Scroll to bottom
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function showLoadingIndicator() {
+    const chatMessages = document.getElementById('chatMessages');
+    const loadingDiv = document.createElement('div');
+    loadingDiv.className = 'message assistant-message';
+    loadingDiv.id = 'loading-indicator';
+
+    const loadingP = document.createElement('p');
+    loadingP.textContent = '⏳ Processando...';
+
+    loadingDiv.appendChild(loadingP);
+    chatMessages.appendChild(loadingDiv);
+
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function removeLoadingIndicator() {
+    const loadingIndicator = document.getElementById('loading-indicator');
+    if (loadingIndicator) {
+        loadingIndicator.remove();
+    }
+}
+
+// ============================================
+// API COMMUNICATION
+// ============================================
+
+async function getAIResponse(question) {
+    // Opção 1: Se você tiver uma API real, descomente e configure
+    /*
+    try {
+        const response = await fetch(`${API_BASE_URL}/api/chat`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                question: question,
+                history: messageHistory
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('API Error');
+        }
+
+        const data = await response.json();
+        return data.answer || 'Desculpe, não consegui processar sua pergunta.';
+    } catch (error) {
+        console.error('API Error:', error);
+        throw error;
+    }
+    */
+
+    // Opção 2: Usar respostas locais baseadas em palavras-chave
+    return getLocalResponse(question);
+}
+
+function getLocalResponse(question) {
+    const lowerQuestion = question.toLowerCase();
+
+    // Respostas sobre PIB
+    if (lowerQuestion.includes('pib') || lowerQuestion.includes('produto interno bruto')) {
+        if (lowerQuestion.includes('mato grosso') || lowerQuestion.includes('mt')) {
+            return 'Mato Grosso tem um PIB de R$ 273 bilhões, sendo o 2º maior do Brasil. O estado apresenta crescimento esperado de 4,1% em 2025, com participação de 2,5% do PIB brasileiro.';
+        } else if (lowerQuestion.includes('paraná') || lowerQuestion.includes('pr')) {
+            return 'O Paraná possui um PIB de R$ 718,9 bilhões, sendo o 5º maior do Brasil. O estado apresentou crescimento de 63% nos últimos 6 anos, com economia diversificada em serviços, indústria e agricultura.';
+        }
+    }
+
+    // Respostas sobre população
+    if (lowerQuestion.includes('população') || lowerQuestion.includes('habitantes')) {
+        if (lowerQuestion.includes('mato grosso') || lowerQuestion.includes('mt')) {
+            return 'Mato Grosso tem uma população de aproximadamente 3,6 milhões de habitantes, com densidade demográfica baixa de cerca de 4 hab/km².';
+        } else if (lowerQuestion.includes('paraná') || lowerQuestion.includes('pr')) {
+            return 'O Paraná tem uma população de aproximadamente 11,4 milhões de habitantes, sendo o 5º estado mais populoso do Brasil, com densidade demográfica alta de cerca de 57 hab/km².';
+        }
+    }
+
+    // Respostas sobre agricultura
+    if (lowerQuestion.includes('agricultura') || lowerQuestion.includes('culturas') || lowerQuestion.includes('produção agrícola')) {
+        if (lowerQuestion.includes('mato grosso') || lowerQuestion.includes('mt')) {
+            return 'Mato Grosso é o maior produtor agrícola do Brasil, responsável por 15,4% da produção nacional. As principais culturas são soja, milho, algodão, café e cana-de-açúcar. O estado produz 30,3% dos grãos do Brasil.';
+        } else if (lowerQuestion.includes('paraná') || lowerQuestion.includes('pr')) {
+            return 'O Paraná é o 2º maior produtor de grãos do Brasil. As principais culturas são cana-de-açúcar (38,59 milhões de toneladas), soja (21,55 milhões), milho (17,88 milhões), além de trigo, feijão e café.';
+        }
+    }
+
+    // Respostas sobre geografia
+    if (lowerQuestion.includes('geografia') || lowerQuestion.includes('bioma') || lowerQuestion.includes('clima')) {
+        if (lowerQuestion.includes('mato grosso') || lowerQuestion.includes('mt')) {
+            return 'Mato Grosso possui três biomas principais: Amazônia (53,5%), Cerrado e Pantanal. O clima é tropical e subtropical, com verões entre 33-36°C. O Pantanal é a maior planície alagada do mundo.';
+        } else if (lowerQuestion.includes('paraná') || lowerQuestion.includes('pr')) {
+            return 'O Paraná é caracterizado principalmente pela Mata Atlântica, uma das mais ricas em biodiversidade do mundo. O clima é subtropical úmido com invernos bem definidos. O estado abriga as famosas Cataratas do Iguazu.';
+        }
+    }
+
+    // Respostas sobre comparação
+    if (lowerQuestion.includes('comparar') || lowerQuestion.includes('diferença') || lowerQuestion.includes('qual é maior')) {
+        if ((lowerQuestion.includes('pib') || lowerQuestion.includes('economia')) && 
+            (lowerQuestion.includes('mato grosso') && lowerQuestion.includes('paraná'))) {
+            return 'O Paraná tem um PIB maior (R$ 718,9 bi vs R$ 273 bi), mas Mato Grosso é o maior produtor agrícola. Paraná tem economia mais diversificada, enquanto Mato Grosso é focado em agropecuária.';
+        }
+        if ((lowerQuestion.includes('população') || lowerQuestion.includes('habitantes')) && 
+            (lowerQuestion.includes('mato grosso') && lowerQuestion.includes('paraná'))) {
+            return 'O Paraná tem população muito maior (11,4 mi vs 3,6 mi). Apesar de ter área menor, o Paraná é mais densamente povoado (57 hab/km² vs 4 hab/km²).';
+        }
+    }
+
+    // Resposta padrão
+    return 'Desculpe, não tenho informações específicas sobre isso. Você pode fazer perguntas sobre economia, população, agricultura, geografia ou clima de Mato Grosso e Paraná.';
+}
+
+// ============================================
+// CHAT HISTORY
+// ============================================
+
+function saveChatHistory() {
+    try {
+        localStorage.setItem('chatHistory', JSON.stringify(messageHistory));
+    } catch (error) {
+        console.error('Error saving chat history:', error);
+    }
+}
+
+function loadChatHistory() {
+    try {
+        const saved = localStorage.getItem('chatHistory');
+        if (saved) {
+            messageHistory = JSON.parse(saved);
+        }
+    } catch (error) {
+        console.error('Error loading chat history:', error);
+    }
+}
+
+function clearChatHistory() {
+    messageHistory = [];
+    localStorage.removeItem('chatHistory');
+    const chatMessages = document.getElementById('chatMessages');
+    if (chatMessages) {
+        chatMessages.innerHTML = `
+            <div class="message assistant-message">
+                <p>Olá! Sou um assistente de IA especializado em informações sobre Mato Grosso e Paraná. Como posso ajudá-lo?</p>
+            </div>
+        `;
+    }
+}
+
+// ============================================
+// UTILITÁRIOS
+// ============================================
+
+function formatDate(date) {
+    return new Intl.DateTimeFormat('pt-BR', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    }).format(date);
+}
+
+// Smooth scroll para links internos
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
+});
+
+// Detectar preferência de tema do sistema
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    // Usuário prefere tema escuro
+    // Você pode adicionar suporte a tema escuro aqui
+}
+
+// Monitorar mudanças de tema do sistema
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    // Atualizar tema quando o sistema muda
 });
